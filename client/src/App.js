@@ -1,8 +1,10 @@
 import { Component } from 'react';
 import User from './Components/User.js';
+import  './mainCss/gnbContainer.css';
+import  './mainCss/User.css';
 import React from 'react';
 import { CircularProgress } from '@material-ui/core';
-
+import GNB from './mainContents/GNB';
 class App extends Component{
 
   state ={
@@ -30,6 +32,7 @@ progress = () =>{
   render(){
     return(
       <div>
+        <GNB></GNB>
           {
             this.state.userArr ? this.state.userArr.map(c =>{
               return(
@@ -45,7 +48,6 @@ progress = () =>{
               )
             }): <table><CircularProgress variant ="determinate" value={this.state.completed}/></table>
           } 
-      
       </div>
     );
   }
