@@ -4,6 +4,10 @@ import  './mainCss/gnbContainer.css';
 import React from 'react';
 import { CircularProgress } from '@material-ui/core';
 import GNB from './mainContents/GNB';
+import UserAdd from './Components/UserAdd.js'
+import DivClear from './mainContents/divClear'
+
+
 class App extends Component{
 
   state ={
@@ -23,15 +27,15 @@ class App extends Component{
     const body = await response.json();
     return body;
   }
-progress = () =>{
-  const {completed} = this.state;
-  this.setState ({completed: completed >= 100 ? 0 : completed+1});
-}
+  progress = () =>{
+    const {completed} = this.state;
+    this.setState ({completed: completed >= 100 ? 0 : completed+1});
+  }
 
   render(){
     return(
-      <div>
-        <GNB></GNB>
+      <div> <GNB></GNB>
+        <UserAdd></UserAdd>
           {
             this.state.userArr ? this.state.userArr.map(c =>{
               return(
@@ -45,8 +49,9 @@ progress = () =>{
                   job ={c.job}
                />
               )
-            }): <table><CircularProgress variant ="determinate" value={this.state.completed}/></table>
+            }): <CircularProgress variant ="determinate" value={this.state.completed}/>
           } 
+         <div> asdsad</div>
       </div>
     );
   }
