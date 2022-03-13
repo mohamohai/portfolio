@@ -1,26 +1,12 @@
-const fs = require('fs');
-const databaseIn = require('./database');
-const express = require(`express`);
+const express = require('express');
 const app = express();
-const bodyParser = require(`body-parser`);
-const port = process.env.PORT || 5000;
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
-const data = fs.readFileSync('./database.json');
+const sequelize = require('./models').sequelize;
+sequelize.sync();
 
+app.use(express.json());
 
-app.get('/api/userArr', (req, res) => {
-    databaseIn.query("select * from user", (err, data) => {
-        if(!err) {
-            res.send(data);
-
-        } else {
-            console.log(err);
-            res.send(err);
-        }
-    })
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server On : http://localhost:${PORT}/`);
 })
-
-
-app.listen(port, () => console.log(`Listening on port ${port}`));
