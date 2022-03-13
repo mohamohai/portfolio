@@ -4,7 +4,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 
 const env = process.env.NODE_ENV || 'development';
-const config = require(path.join(__dirname, '..', 'database.json'))[
+const config = require(path.join(__dirname, '.','database.json'))[
     env
   ];
 const db = {};
@@ -33,7 +33,8 @@ let sequelize = new Sequelize(
     .catch(err => {
         console.log('Unable to connect to the database: ', err);
     });
-    db.User = require('./user')(sequelize, Sequelize);
 
-db.secret = '(9*)5$&!3%^0%^@@2$1!#5@2!4';
+    db.test = require('./test.js')(sequelize, Sequelize);
+
+db.secret = '@$$@%!#!$@%%##';
 module.exports = db;

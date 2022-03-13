@@ -1,56 +1,50 @@
 import { Component } from 'react';
-import User from './Components/User.js';
 import  './mainCss/gnbContainer.css';
 import React from 'react';
-import { CircularProgress } from '@material-ui/core';
 import GNB from './mainContents/GNB';
 import UserAdd from './Components/UserAdd.js'
 import DivClear from './mainContents/divClear'
+import axios from 'axios';
 
 
 class App extends Component{
 
-  state ={
-    userArr: "",
-    completed: 0
+  constructor(props) {
+    super(props)
+    this.state = {
+      name : '',
+    }
+  }
+  _addData = async(e) => {
+    const { name } = this.state;
+    e.preventDefault();
+    
+    const res = await axios('/add/data', {
+      method : 'POST',
+      data : { 'data' : name },
+      headers: new Headers()
+    })
+
+    if(res.data) {
+      alert('데이터를 추가했습니다.');
+      return window.location.reload();
+    }
   }
 
-  componentDidMount(){
-    this.timer = setInterval(this.progress,20)
-    this.callApi()
-    .then(res => this.setState({userArr:res}))
-     .catch(err => console.log(err));
+  _nameUpdate(e) {
+    this.setState({ name : e.target.value })
   }
-
-  callApi = async () => {
-    const response = await fetch('/api/userArr');
-    const body = await response.json();
-    return body;
-  }
-  progress = () =>{
-    const {completed} = this.state;
-    this.setState ({completed: completed >= 100 ? 0 : completed+1});
-  }
+  
 
   render(){
     return(
-      <div> <GNB></GNB>
+      <div> 
+        <GNB></GNB>
         <UserAdd></UserAdd>
-          {
-            this.state.userArr ? this.state.userArr.map(c =>{
-              return(
-                <User
-                  key={c.id}
-                  id ={c.id}
-                  image={c.image}
-                  name ={c.name}
-                  birthday ={c.birthday}
-                  gender ={c.gender}
-                  job ={c.job}
-               />
-              )
-            }): <CircularProgress variant ="determinate" value={this.state.completed}/>
-          } 
+        <form method='POST' onSubmit={this._addData}>
+          <input type='text' maxLength='10' onChange={(e) => this._nameUpdate(e)}/>
+          <input type='submit' value='Add' />
+        </form>
          <div> asdsad</div>
       </div>
     );
