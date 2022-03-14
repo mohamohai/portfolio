@@ -16,10 +16,14 @@ const {
 sequelize.query('SET NAMES utf8;');
 
 app.post('/add/data', (req, res) => {
-  console.log(req.body)
-
-    User.create({
-        name : req.body.data
+        User.create({
+        account  : req.body.account,
+        password : req.body.password,
+        name     : req.body.name,
+        image    : req.body.image,
+        birthday : req.body.birthday,
+        gender   : req.body.gender,
+        job      : req.body.job
     })
     .then( result => {
         res.send(result)
