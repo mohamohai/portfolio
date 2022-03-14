@@ -6,19 +6,17 @@ import UserAdd from './Components/UserAdd.js'
 import DivClear from './mainContents/divClear'
 import axios from 'axios';
 
-
 class App extends Component{
-
   constructor(props) {
     super(props)
     this.state = {
-      account : '',
-      name : '',
+      account  : '',
+      name     : '',
       password : '',
-      image : '',
+      image    : '',
       birthday : '',
-      gender : '',
-      job : ''
+      gender   : '',
+      job      : ''
     }
   }
 
@@ -52,7 +50,6 @@ class App extends Component{
     const {birthday} = this.state;
     const {gender}   = this.state;
     const {job}      = this.state;
-    
     e.preventDefault();
      
     const data = {
