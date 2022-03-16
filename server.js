@@ -34,6 +34,13 @@ app.post('/add/data', (req, res) => {
     })
 }) 
 
+app.get('/get/data', (req, res) => {
+     users.findAll()
+    .then( result => { res.send(result) })
+    .catch( err => { throw err })
+}) 
+
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server On : ashttp://localhost:${PORT}/`);
