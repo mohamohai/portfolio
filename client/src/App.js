@@ -13,6 +13,8 @@ class App extends Component{
     
   render(){
     return(
+
+      
       <div> 
         <GNB></GNB>
         <SignUp></SignUp>
