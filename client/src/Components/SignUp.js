@@ -16,9 +16,7 @@ class SignUp extends Component{
         job      : ''
       }
     }
-    componentDidMount() {
-      this._addData();
-    }
+   
     SignUp(e) {
       let nextState = {};
       nextState[e.target.name] = e.target.value;
@@ -26,6 +24,7 @@ class SignUp extends Component{
     }
    
     _addData = async(e) => {
+      
       const {account}  = this.state;
       const {password} = this.state;
       const {name}     = this.state;
@@ -44,7 +43,7 @@ class SignUp extends Component{
                     job:job
       };
       e.preventDefault();
-      
+     
       const res = await axios('/add/data', {
         method : 'POST',
         data :  data,
