@@ -7,7 +7,7 @@ import DivClear from './mainContents/divClear'
 import axios from 'axios';
 import SignUp from './Components/SignUp'
 import SelectUser from './Components/SelectUser';
-
+import DeleteUser from './Components/DeleteUser';
 class App extends Component{
  
     
@@ -19,6 +19,7 @@ class App extends Component{
         <GNB></GNB>
         <SignUp></SignUp>
         <SelectUser></SelectUser>
+        <DeleteUser></DeleteUser>
         
        
       </div>

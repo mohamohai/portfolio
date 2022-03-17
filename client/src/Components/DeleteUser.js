@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-class App extends Component {
+import '../mainCss/selectTable.css'
+class DeleteUser extends Component {
   constructor(props) {
     super(props)
     this.state = {
+
       list : [],
       update : false,
     }
@@ -25,6 +26,25 @@ class App extends Component {
     this.setState({ list : res.data });
   }
 
+  _delete = async (info) => {
+    const remove = window.confirm(info.name + '을 삭제합니까?');
+
+    if(remove) {
+      const body = { id : info.id }
+      const res = await axios('/delete/data', {
+        method : 'POST',
+        data : { 'delete' : body },
+        headers: new Headers()
+      })
+      
+      if(res.data) {
+        alert('데이터를 삭제했습니다.')
+        return window.location.reload();
+      }
+    }
+  }
+
+
   render() {
     const { list } = this.state;
     return(
@@ -37,18 +57,19 @@ class App extends Component {
             {list.length !== 0
               ? list.map( (info, key) => {
                 return(
-                  <div key={key} >
-                    <div style={{ float : 'left'}}> {info.id} 그만!</div>
+                  <div className='colStyle' key={key} >
+                   
                     <div style={{ float : 'left'}}> {info.account}</div>
                     <div style={{ float : 'left'}}> {info.password}</div>
                     <div style={{ float : 'left'}}> {info.name}</div>
                     <div style={{ float : 'left'}}> {info.image}</div>
                     <div style={{ float : 'left'}}> {info.birthday}</div>
                     <div style={{ float : 'left'}}> {info.gender}</div>
-                    <div > {info.job} </div>
+                    <div style={{ float : 'left'}}> {info.job} </div>
                     
-                  
-                    
+                    <div
+                      style={{ color : '#ababab' }} 
+                      onClick={() => this._delete(info)}> Delete </div>
                   </div>
                 )
               })
@@ -60,4 +81,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DeleteUser;

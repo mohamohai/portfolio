@@ -40,6 +40,14 @@ app.get('/get/data', (req, res) => {
     .catch( err => { throw err })
 }) 
 
+app.post('/delete/data', (req, res) => {
+    User.destroy({
+        where : { id : req.body.delete.id }
+    })
+    .then( res.sendStatus(200) )
+    .catch( err => { throw err })
+})
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server On : ashttp://localhost:${PORT}/`);
