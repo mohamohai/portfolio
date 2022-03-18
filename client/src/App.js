@@ -8,6 +8,7 @@ import axios from 'axios';
 import SignUp from './Components/SignUp'
 import SelectUser from './Components/SelectUser';
 import DeleteUser from './Components/DeleteUser';
+import UpdateUser from './Components/UpdateUser';
 class App extends Component{
  
     
@@ -18,9 +19,8 @@ class App extends Component{
       <div> 
         <GNB></GNB>
         <SignUp></SignUp>
-        <SelectUser></SelectUser>
-        <DeleteUser></DeleteUser>
-        
+     
+        <UpdateUser></UpdateUser>
        
       </div>
     );

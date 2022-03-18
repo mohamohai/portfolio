@@ -39,7 +39,13 @@ app.get('/get/data', (req, res) => {
     .then( result => { res.send(result) })
     .catch( err => { throw err })
 }) 
-
+app.post('/modify/data', (req, res) => {
+    User.update({ name : req.body.modify.name }, {
+        where : { id : req.body.modify.id }
+    })
+    .then( result => { res.send(result) })
+    .catch( err => { throw err })
+})
 app.post('/delete/data', (req, res) => {
     User.destroy({
         where : { id : req.body.delete.id }
