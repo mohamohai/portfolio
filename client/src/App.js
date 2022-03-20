@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import './mainCss/gnbContainer.css';
-import React         from 'react';
+import React, {useState}         from 'react';
+
 import GNB           from './mainContents/GNB';
 import UserAdd       from './Components/UserAdd.js'
 import DivClear      from './mainContents/divClear'
@@ -12,10 +13,18 @@ import UpdateUser    from './Components/UpdateUser';
 import SchedulePop   from './Components/SchedulePop';
 import PopupDom from './PopupDom';
 
+import { Calendar } from 'react-date-range';
+import "react-date-range/dist/styles.css"; // main style file 
+import 'react-date-range/dist/theme/default.css'; // theme css file  
+
+
+
+
 
 
 
 class App extends Component{
+    
   constructor(props){
     super(props);
     
@@ -40,6 +49,7 @@ closePopup(){
 }
     
   render(){
+  
     return(
 
       
@@ -47,6 +57,8 @@ closePopup(){
         <GNB></GNB>
         <h2>Open Popup</h2>
                 <div>
+                <Calendar/> 
+                   
                     <button type="button"
                             id="popupDom"
                             onClick={this.openPopup}
