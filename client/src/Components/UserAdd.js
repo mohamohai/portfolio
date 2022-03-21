@@ -54,14 +54,14 @@ class UserAdd extends React.Component{
     render(){
         return(
             <form onSubmit = {this.onSubmitForm}>
-            <h1>유저추가</h1>
-            프로필 이미지 : <input type="file" name="file" file={this.state.file} value={this.fileName} onChange={this.FileChange}></input>
-            id : <input type="text" name="userId" value={this.state.userId} onChange={this.ValueChange}></input>
-            이름 : <input type="text" name="userName" value={this.state.userName} onChange={this.ValueChange}></input>
-            생년월일 : <input type="text" name="birthday" value={this.state.birthday} onChange={this.ValueChange}></input>
-            성별 : <input type="text" name="gender" value={this.state.gender} onChange={this.ValueChange}></input>
-            직업 : <input type="text" name="job" value={this.state.job} onChange={this.ValueChange}></input>
-            <button type="submit">고고</button>
+                <h1>유저추가</h1>
+                프로필 이미지 : <input type="file" name="file"      file={this.state.file}      value={this.fileName} onChange={this.FileChange}></input>
+                id :            <input type="text" name="userId"    value={this.state.userId}   onChange={this.ValueChange}></input>
+                이름 :          <input type="text" name="userName"  value={this.state.userName} onChange={this.ValueChange}></input>
+                생년월일 :      <input type="text" name="birthday"  value={this.state.birthday} onChange={this.ValueChange}></input>
+                성별 :          <input type="text" name="gender"    value={this.state.gender}   onChange={this.ValueChange}></input>
+                직업 :          <input type="text" name="job"       value={this.state.job}      onChange={this.ValueChange}></input>
+                <button type="submit">고고</button>
             </form>
         )
     }

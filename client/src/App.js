@@ -12,41 +12,40 @@ import DeleteUser    from './Components/DeleteUser';
 import UpdateUser    from './Components/UpdateUser';
 import SchedulePop   from './Components/SchedulePop';
 import PopupDom from './PopupDom';
-
 import { Calendar } from 'react-date-range';
 import "react-date-range/dist/styles.css"; // main style file 
 import 'react-date-range/dist/theme/default.css'; // theme css file  
 
 
-
+import { BrowserRouter, Route } from 'react-router-dom';
+import Home from './movefile/home.js';
+import ExFile from './movefile/exfile';
 
 
 
 
 class App extends Component{
     
-  constructor(props){
-    super(props);
+    constructor(props){
+        super(props);
+        
+        this.state = {
+            isOpenPopup: false,
+        }
     
-    this.state = {
-        isOpenPopup: false,
+        this.openPopup = this.openPopup.bind(this);
+        this.closePopup = this.closePopup.bind(this);
+    }openPopup(){
+        this.setState({
+            isOpenPopup: true,
+        })
     }
-
-    this.openPopup = this.openPopup.bind(this);
-    this.closePopup = this.closePopup.bind(this);
-}
-
-openPopup(){
-    this.setState({
-        isOpenPopup: true,
-    })
-}
-
-closePopup(){
-    this.setState({
-        isOpenPopup: false,
-    })
-}
+    
+    closePopup(){
+        this.setState({
+            isOpenPopup: false,
+        })
+    }
     
   render(){
   
@@ -59,7 +58,7 @@ closePopup(){
                 <div>
                 <Calendar/> 
                    
-                    <button type="button"
+                <button type="button"
                             id="popupDom"
                             onClick={this.openPopup}
                     >
@@ -70,6 +69,11 @@ closePopup(){
                             <SchedulePop onClose={this.closePopup}/>
                         </PopupDom>
                     }
+                        <BrowserRouter>
+                        <Route path="/" Component={Home}/>
+                        <Route path ="/exfile" Component={ExFile}/>
+                    </BrowserRouter>
+                    
                 </div>
       </div>
     );
