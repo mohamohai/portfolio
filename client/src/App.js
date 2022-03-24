@@ -50,6 +50,7 @@ class App extends Component{
         <div className='MainCom'>
           <GNB></GNB>
         <Calendar></Calendar>
+        <SelectUser></SelectUser>
       </div>
     );
   }

@@ -38,7 +38,7 @@ class App extends Component {
               ? list.map( (info, key) => {
                 return(
                   <div key={key} >
-                    <div style={{ float : 'left'}}> {info.id} 그만!</div>
+                    <div style={{ float : 'left'}}> {info.id}</div>
                     <div style={{ float : 'left'}}> {info.account}</div>
                     <div style={{ float : 'left'}}> {info.password}</div>
                     <div style={{ float : 'left'}}> {info.name}</div>

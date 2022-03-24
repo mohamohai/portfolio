@@ -14,7 +14,12 @@ const {
   Sequelize: { Op }
 } = require('./models');
 sequelize.query('SET NAMES utf8;');
-
+const {
+    Schedule,
+    Sequelize: { Dp }
+  } = require('./models');
+  sequelize.query('SET NAMES utf8;');
+  
 app.post('/add/data', (req, res) => {
         User.create({
         account  : req.body.account,
