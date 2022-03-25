@@ -17,44 +17,39 @@ import PopupDom from './PopupDom';
 import { Calendar } from 'react-date-range';
 import "react-date-range/dist/styles.css"; // main style file 
 import 'react-date-range/dist/theme/default.css'; // theme css file  
-
 import Home from './inc/home.js';
 import Test from './inc/test.js';
-import { BrowserRouter, Route } from 'react-router-dom';
+import TestTwo from './inc/testTwo.js';
+
+import { BrowserRouter, Link } from 'react-router-dom';
+
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 
 
 
 class App extends Component{
     
-    constructor(props){
-        super(props);
-        this.state = {
-            isOpenPopup: false,
-        }
-        this.openPopup = this.openPopup.bind(this);
-        this.closePopup = this.closePopup.bind(this);
-    }
-    openPopup(){
-        this.setState({
-            isOpenPopup: true,
-        })
-    }
-    closePopup(){
-        this.setState({
-            isOpenPopup: false,
-        })
-    }
+   
     
   render(){
   
     return(
-        <div className='MainCom'>
-         <BrowserRouter>
-          <Route path="/" component={Home} />
-          <Route path="/test" component={Test} />
-        </BrowserRouter>
-      </div>
+<BrowserRouter>
+      <Router>
+        <Routes>
+          <Route path="/"        Component={Home}></Route>
+          <Route path="/test"    Component={Test} ></Route>
+        </Routes>
+      </Router>
+          
+      </BrowserRouter>
+
+       
+ 
+      
     );
   }
 }  
