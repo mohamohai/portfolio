@@ -18,7 +18,9 @@ import { Calendar } from 'react-date-range';
 import "react-date-range/dist/styles.css"; // main style file 
 import 'react-date-range/dist/theme/default.css'; // theme css file  
 
-
+import Home from './inc/home.js';
+import Test from './inc/test.js';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 
 
@@ -48,9 +50,10 @@ class App extends Component{
   
     return(
         <div className='MainCom'>
-          <GNB></GNB>
-        <Calendar></Calendar>
-        <SelectUser></SelectUser>
+         <BrowserRouter>
+          <Route path="/" component={Home} />
+          <Route path="/test" component={Test} />
+        </BrowserRouter>
       </div>
     );
   }
