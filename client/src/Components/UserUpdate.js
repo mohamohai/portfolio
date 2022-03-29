@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../mainCss/selectTable.css'
-class UpdateUser extends Component {
+class UserUpdate extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -78,4 +78,4 @@ class UpdateUser extends Component {
   }
 }
 
-export default UpdateUser;
+export default UserUpdate;

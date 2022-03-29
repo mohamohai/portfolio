@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
+import '../mainCss/SignUp.css';
 
-class App extends Component {
+class ScheduleSelect extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -55,4 +57,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ScheduleSelect;

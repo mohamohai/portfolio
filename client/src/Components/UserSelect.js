@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class App extends Component {
+class UserSelect extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -32,7 +32,7 @@ class App extends Component {
         
 
         <br /> <br /><br></br>
-          <div style={{ height : '250px', overflow : 'auto' }}>
+          <div style={{  overflow : 'auto' }}>
             
             {list.length !== 0
               ? list.map( (info, key) => {
@@ -60,4 +60,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default UserSelect;

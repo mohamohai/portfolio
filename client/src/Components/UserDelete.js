@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../mainCss/selectTable.css'
-class DeleteUser extends Component {
+class UserDelete extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -81,4 +81,4 @@ class DeleteUser extends Component {
   }
 }
 
-export default DeleteUser;
+export default UserDelete;
