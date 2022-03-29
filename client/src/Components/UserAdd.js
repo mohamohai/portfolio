@@ -35,7 +35,7 @@ class UserAdd extends React.Component{
         this.setState(nextState);
     }
     addUser = () =>{
-        const url = '/api/userArr';
+        const url = '/add/data';
         const formData = new FormData();
         formData.append('image', this.state.file)
         formData.append('userId', this.state.userId)

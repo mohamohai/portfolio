@@ -44,12 +44,11 @@ class App extends Component {
                     <div style={{ float : 'left'}}> {info.location}</div>
                     <div style={{ float : 'left'}}> {info.time}</div>
                     <div style={{ float : 'left'}}> {info.etc}</div>
-                   
                   </div>
                 )
               })
             
-              : 'a'}
+              : '새로고침 눌러줭'}
           </div>
       </div>
     )

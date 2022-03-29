@@ -59,6 +59,32 @@ app.post('/delete/data', (req, res) => {
     .catch( err => { throw err })
 })
 
+
+app.get('/get/Schedule', (req, res) => {
+    User.findAll()
+    .then( result => { res.send(result) })
+    .catch( err => { throw err })
+}) 
+
+app.post('/add/Schedule', (req, res) => {console.log(req.body.title);console.log("왜요");
+    Schedule.create({
+    account     : req.body.account,
+    title       : req.body.title,
+    content     : req.body.content,
+    location    : req.body.location,
+    time        : req.body.time,
+    etc         : req.body.etc
+       
+})
+.then( result => {
+    res.send(result)
+})
+.catch( err => {
+    console.log(err)
+    throw err;
+})
+}) 
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server On : ashttp://localhost:${PORT}/`);

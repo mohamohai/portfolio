@@ -38,14 +38,14 @@ class App extends Component {
               ? list.map( (info, key) => {
                 return(
                   <div key={key} >
-                    <div style={{ float : 'left'}}> {info.id}</div>
-                    <div style={{ float : 'left'}}> {info.account}</div>
-                    <div style={{ float : 'left'}}> {info.password}</div>
-                    <div style={{ float : 'left'}}> {info.name}</div>
-                    <div style={{ float : 'left'}}> {info.image}</div>
-                    <div style={{ float : 'left'}}> {info.birthday}</div>
-                    <div style={{ float : 'left'}}> {info.gender}</div>
-                    <div > {info.job} </div>
+                    <div style={{ float : 'left'}}> {info.id}</div><br></br>
+                    <div style={{ float : 'left'}}> {info.account}</div><br></br>
+                    <div style={{ float : 'left'}}> {info.password}</div><br></br>
+                    <div style={{ float : 'left'}}> {info.name}</div><br></br>
+                    <div style={{ float : 'left'}}> {info.image}</div><br></br>
+                    <div style={{ float : 'left'}}> {info.birthday}</div><br></br>
+                    <div style={{ float : 'left'}}> {info.gender}</div><br></br>
+                    <div > {info.job} </div>ㅡㅡ
                     
                   
                     
@@ -53,7 +53,7 @@ class App extends Component {
                 )
               })
             
-              : 'a'}
+              : '새로고침 눌러줭'}
           </div>
       </div>
     )

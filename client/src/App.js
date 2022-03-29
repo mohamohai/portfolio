@@ -1,8 +1,13 @@
 import { Component } from 'react';
 import './mainCss/gnbContainer.css';
 import React, {useState}         from 'react';
-import SelectUser from './Components/SelectUser';
+
 import GNB           from './mainContents/GNB';
+import SelectSchedule from './Components/SelectSchedule';
+import ScheduleAdd from './Components/ScheduleAdd';
+import SelectUser from './Components/SelectUser';
+
+import UserAdd from './Components/UserAdd';
 
 import Home from './inc/home.js';
 import Test from './inc/test.js';
@@ -21,11 +26,15 @@ class App extends Component{
   
     return(
  
-      <dvi>
+      <div>
         <GNB></GNB>
-        <SelectUser></SelectUser>
-
-      </dvi>
+    
+       
+        <SelectUser/><br></br>
+        
+        <br></br><UserAdd></UserAdd>
+       
+      </div>
 
 
 
