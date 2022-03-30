@@ -12,9 +12,8 @@ import SignUp from './Components/SignUp';
 
 import Home from './inc/home.js';
 import Test from './inc/test.js';
-import { BrowserRouter, Link } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 
@@ -28,11 +27,17 @@ class App extends Component{
     return(
  
       <div>
-      <GNB></GNB>
-      <SignUp></SignUp>
-      <ScheduleAdd></ScheduleAdd>
-      <UserSelect></UserSelect>
+     
 
+    <BrowserRouter>
+    <GNB></GNB>
+     
+     
+        <Route path="/test" component={() => <Home />} />
+  
+        <Route exact path="/" component={UserSelect} />
+        <Route path="/about" component={Home} />
+    </BrowserRouter>
 
        </div>
  

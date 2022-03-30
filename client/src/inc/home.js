@@ -5,7 +5,7 @@ class home extends Component {
   render() {
     return (
         <div>
-            <h3> This is Sejun's Blog </h3>
+            <h3> This is Saaaejun's Blog </h3>
         </div>
     );
   }
