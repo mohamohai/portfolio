@@ -31,12 +31,9 @@ class App extends Component{
 
     <BrowserRouter>
     <GNB></GNB>
-     
-     
-        <Route path="/test" component={() => <Home />} />
-  
         <Route exact path="/" component={UserSelect} />
         <Route path="/about" component={Home} />
+        <Route path="/SignUp" component={SignUp} />
     </BrowserRouter>
 
        </div>
