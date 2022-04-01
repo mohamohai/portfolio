@@ -9,9 +9,8 @@ import UserSelect from './Components/UserSelect';
 import UserDelete from './Components/UserDelete'
 
 import SignUp from './Components/SignUp';
+import SignIn from './Components/SignIn';
 
-import Home from './inc/home.js';
-import Test from './inc/test.js';
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -32,8 +31,8 @@ class App extends Component{
     <BrowserRouter>
     <GNB></GNB>
         <Route exact path="/" component={UserSelect} />
-        <Route path="/about" component={Home} />
-        <Route path="/SignUp" component={SignUp} />
+
+        <Route path="/SignIn" component={SignIn} />
     </BrowserRouter>
 
        </div>
