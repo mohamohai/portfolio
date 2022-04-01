@@ -57,7 +57,7 @@ class SignIn extends Component{
             </ul>
           </form>
         </div>
-      );
+      );  
     }
   }  
   export default SignIn;
