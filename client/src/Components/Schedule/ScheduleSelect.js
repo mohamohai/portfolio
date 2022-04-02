@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import React from 'react';
 import axios from 'axios';
-import '../mainCss/SignUp.css';
+import '../../mainCss/SignUp.css';
 
 class ScheduleSelect extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../mainCss/selectTable.css'
+import '../../mainCss/selectTable.css'
 class UserDelete extends Component {
   constructor(props) {
     super(props)
