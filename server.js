@@ -76,6 +76,8 @@ app.post('/add/Schedule', (req, res) => {console.log(req.body.title);console.log
     etc         : req.body.etc
        
 })
+
+
 .then( result => {
     res.send(result)
 })

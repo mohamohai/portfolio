@@ -1,8 +1,9 @@
 import { Component } from 'react';
-import './mainCss/gnbContainer.css';
+
 import React, {useState}         from 'react';
 
 import GNB           from './mainContents/GNB';
+import ABC from './mainContents/GNBcopy'
 import SelectSchedule from './Components/Schedule/ScheduleSelect';
 import ScheduleAdd from './Components/Schedule/ScheduleAdd';
 import UserSelect from './Components/User/UserSelect';
@@ -30,6 +31,7 @@ class App extends Component{
 
     <BrowserRouter>
     <GNB></GNB>
+    <ABC></ABC>
         <Route exact path="/" component={UserSelect} />
 
         <Route path="/SignIn" component={SignIn} />

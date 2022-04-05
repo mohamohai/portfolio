@@ -81,4 +81,12 @@
                 margin-right: 30px;
                 float: left;    
 }
+.show {
+    width:  100px; width: 100px;
+    background-color: brown;
+}
+.hide {
+    width:  100px; width: 100px;
+    background-color: blue;
+}
 
