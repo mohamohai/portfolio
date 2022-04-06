@@ -3,7 +3,7 @@ import { Component } from 'react';
 import React, {useState}         from 'react';
 
 import GNB           from './mainContents/GNB';
-import ABC from './mainContents/GNBcopy'
+import GnbT from './mainContents/GnbT';
 import SelectSchedule from './Components/Schedule/ScheduleSelect';
 import ScheduleAdd from './Components/Schedule/ScheduleAdd';
 import UserSelect from './Components/User/UserSelect';
@@ -14,8 +14,6 @@ import SignIn from './Components/Sign/SignIn';
 
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-
 
 
 class App extends Component{
@@ -31,12 +29,12 @@ class App extends Component{
 
     <BrowserRouter>
     <GNB></GNB>
-    <ABC></ABC>
+    
         <Route exact path="/" component={UserSelect} />
 
         <Route path="/SignIn" component={SignIn} />
     </BrowserRouter>
-
+      <GnbT></GnbT>
        </div>
  
       

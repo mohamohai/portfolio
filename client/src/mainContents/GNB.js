@@ -2,15 +2,18 @@
 import { Component } from "react";
 import { BrowserRouter,Route, Link,Switch } from "react-router-dom";
 import '../mainCss/gnbContainer.css';
-import React,{useState} from 'react';
+import React, { useState } from 'react';
+import GnbClick from "./GnbClick";
 
 
-
+  
 class GNB extends Component{
 
     render(){
+      
         return(
             <div className = "gnbContainer">
+                <GnbClick></GnbClick>
                 <div className = "menuBtn"> 
                     <div className = "line1"></div>
                     <div className = "line2"></div>
