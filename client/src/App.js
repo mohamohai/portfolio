@@ -7,8 +7,8 @@ import GnbT from './mainContents/GnbT';
 import SelectSchedule from './Components/Schedule/ScheduleSelect';
 import ScheduleAdd from './Components/Schedule/ScheduleAdd';
 import UserSelect from './Components/User/UserSelect';
-import UserDelete from './Components/User/UserDelete'
-
+import UserDelete from './Components/User/UserDelete';
+import SideBar from './Components/SideMenu/SideBar';
 import SignUp from './Components/Sign/SignUp';
 import SignIn from './Components/Sign/SignIn';
 

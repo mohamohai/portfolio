@@ -10,6 +10,8 @@ const BooleanBtn = () => {
   return (
     <div className="container">
         {isCheck && <h1>트루</h1>}
+
+        
         <button onClick={ChangeCheck}>Change!</button>
       </div>
    
