@@ -11,10 +11,10 @@ import UserDelete from './Components/User/UserDelete';
 import SideBar from './Components/SideMenu/SideBar';
 import SignUp from './Components/Sign/SignUp';
 import SignIn from './Components/Sign/SignIn';
-
+import CalendarComponent from "./Components/SideMenu/Calendar";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import DatePicker from "react-datepicker";
 
 class App extends Component{
     
@@ -22,6 +22,7 @@ class App extends Component{
     
   render(){
   
+const [startDate, setStartDate] = useState(new Date());
     return(
  
       <div>
@@ -29,7 +30,7 @@ class App extends Component{
 
     <BrowserRouter>
     <GNB></GNB>
-    
+    <DatePicker selected={startDate} onChange = {date => setStartDate(date)}/>
         <Route exact path="/" component={UserSelect} />
 
         <Route path="/SignIn" component={SignIn} />
