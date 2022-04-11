@@ -3,8 +3,9 @@ import { Component } from 'react';
 import React, {useState}         from 'react';
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import CalendarComponent from "./Calendar";
-
+import "./SideBar.css"
+import Cal from "./Calendar";
+import 'react-calendar/dist/Calendar.css';
 class SideBar extends Component{
     
    
@@ -13,10 +14,10 @@ class SideBar extends Component{
   
     return(
  
-      <div>
-        <CalendarComponent></CalendarComponent>
-
-       </div>
+      <div className='SideBar'>
+      
+        <Cal></Cal>
+      </div>
  
       
     );
