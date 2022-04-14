@@ -9,12 +9,14 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+console.log('ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ');
 const {
-  User,
-  Sequelize: { Op }
-} = require('./models');
-sequelize.query('SET NAMES utf8;');
-const {
+    User,
+    Sequelize: { Op }
+  } = require('./models');
+  sequelize.query('SET NAMES utf8;');
+
+  const {
     Schedule,
     Sequelize: { Dp }
   } = require('./models');
@@ -61,7 +63,7 @@ app.post('/delete/data', (req, res) => {
 
 
 app.get('/get/Schedule', (req, res) => {
-    User.findAll()
+    Schedule.findAll()
     .then( result => { res.send(result) })
     .catch( err => { throw err })
 }) 
@@ -74,7 +76,6 @@ app.post('/add/Schedule', (req, res) => {console.log(req.body.title);console.log
     location    : req.body.location,
     time        : req.body.time,
     etc         : req.body.etc
-       
 })
 
 
@@ -90,4 +91,5 @@ app.post('/add/Schedule', (req, res) => {console.log(req.body.title);console.log
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server On : ashttp://localhost:${PORT}/`);
+ 
 })

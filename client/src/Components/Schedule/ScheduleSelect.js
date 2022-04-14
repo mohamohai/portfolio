@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import React from 'react';
 import axios from 'axios';
-import '../../mainCss/SignUp.css';
+import './ScheduleSelect.css'
 
 class ScheduleSelect extends Component {
   constructor(props) {
@@ -29,29 +29,23 @@ class ScheduleSelect extends Component {
   render() {
     const { list } = this.state;
     return(
-      <div className='App'>
-        
-
-        <br /> <br /><br></br>
-          <div style={{ height : '250px', overflow : 'auto' }}>
-            
-            {list.length !== 0
-              ? list.map( (info, key) => {
-                return(
-                  <div key={key} >
-                    <div style={{ float : 'left'}}> {info.id}</div>
-                    <div style={{ float : 'left'}}> {info.account}</div>
-                    <div style={{ float : 'left'}}> {info.title}</div>
-                    <div style={{ float : 'left'}}> {info.content}</div>
-                    <div style={{ float : 'left'}}> {info.location}</div>
-                    <div style={{ float : 'left'}}> {info.time}</div>
-                    <div style={{ float : 'left'}}> {info.etc}</div>
-                  </div>
-                )
-              })
-            
-              : '새로고침 눌러줭'}
-          </div>
+      <div className='ScheduleFull'>
+         <br/>
+           {list.length !== 0
+             ? list.map( (info, key) => {
+              return(
+                <div key={key} className='ScheduleData' >
+                  <div > {info.id}      </div><br></br>
+                  <div > {info.account} </div><br></br>
+                  <div > {info.title}   </div><br></br>
+                  <div > {info.content} </div><br></br>
+                  <div > {info.location}</div><br></br>
+                  <div > {info.time}    </div><br></br>
+                  <div > {info.etc }    </div><br></br>
+                </div>
+              )
+            }) 
+           :'plz f5'}  
       </div>
     )
   }

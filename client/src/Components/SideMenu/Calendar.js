@@ -6,7 +6,7 @@ function CalendarSelect() {
   const [value, onChange] = useState(new Date());
 
   return (
-    <div>
+    <div className='SideMenu'>
       <Calendar onChange={onChange} value={value} />
     </div>
   );

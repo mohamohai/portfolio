@@ -7,18 +7,13 @@ import "./SideBar.css"
 import Cal from "./Calendar";
 import 'react-calendar/dist/Calendar.css';
 class SideBar extends Component{
-    
-   
-    
   render(){
   
     return(
  
       <div className='SideBar'>
-      
         <Cal></Cal>
       </div>
- 
       
     );
   }
