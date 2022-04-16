@@ -35,7 +35,6 @@ class ScheduleSelect extends Component {
              ? list.map( (info, key) => {
               return(
                 <div key={key} className='ScheduleData' >
-                  <div > {info.id}      </div><br></br>
                   <div > {info.account} </div><br></br>
                   <div > {info.title}   </div><br></br>
                   <div > {info.content} </div><br></br>

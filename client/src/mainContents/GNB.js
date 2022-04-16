@@ -22,6 +22,7 @@ class GNB extends Component{
                 <div className = "logo" ><Link to ="/">Allegro</Link></div>
                 <div className = "gnbUser">
                     <ul>
+                        <li><Link to ="ScheduleAdd">데이터추가용 메뉴화면</Link></li>
                         <li><Link to ="SignIn">로그인</Link></li>
                         <li>my</li>
                         <li>etc</li>

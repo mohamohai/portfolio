@@ -6,8 +6,10 @@
                 font-weight: bold;
                 list-style: none;  
                 text-decoration: none;
-    
 }
+li:visited{color:black}
+a :visited{color:black}
+
 
 .clear          { 
                 clear: both;
@@ -81,11 +83,11 @@
                 margin-right: 30px;
                 float: left;    
 }
-.show {
+.show           {
     width:  100px; width: 100px;
     background-color: brown;
 }
-.hide {
+.hide           {
     width:  100px; width: 100px;
     background-color: blue;
 }
