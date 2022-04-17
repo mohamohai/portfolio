@@ -6,6 +6,7 @@ import GNB            from './mainContents/GNB';
 import GnbT           from './mainContents/GnbT';
 import ScheduleSelect from './Components/Schedule/ScheduleSelect';
 import ScheduleAdd    from './Components/Schedule/ScheduleAdd';
+import ScheduleDelete from './Components/Schedule/ScheduleDelete';
 
 
 import UserSelect from './Components/User/UserSelect';
@@ -35,6 +36,7 @@ class App extends Component{
         <Route path="/SignUp"         component={SignUp} />
         <Route path="/UserSelect"     component={UserSelect} />
         <Route path="/ScheduleAdd"    component={ScheduleAdd}/>
+        <Route path="/ScheduleDelete" component={ScheduleDelete}/>
         </BrowserRouter>
         
        </div>

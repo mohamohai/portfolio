@@ -68,6 +68,20 @@ app.get('/get/Schedule', (req, res) => {
     .catch( err => { throw err })
 }) 
 
+app.post('/delete/Schedule', (req, res) => {
+    Schedule.destroy({
+        where : { id : req.body.delete.id }
+    })
+    .then( res.sendStatus(200) )
+    .catch( err => { throw err })
+})
+app.get('/get/ScheduleS', (req, res) => {
+    Schedule.findAll({
+        where: { account : 'guest01' }
+    })
+    .then( result => { res.send(result) })
+    .catch( err => { throw err })
+}) 
 app.post('/add/Schedule', (req, res) => {console.log(req.body.title);console.log("왜요");
     Schedule.create({
     account     : req.body.account,

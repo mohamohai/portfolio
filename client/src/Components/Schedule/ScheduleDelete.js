@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../../mainCss/selectTable.css'
-class UserDelete extends Component {
+class ScheduleDelete extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -16,7 +16,7 @@ class UserDelete extends Component {
   }
 
   _getData = async () => {
-    const res = await axios.get('/get/data');
+    const res = await axios.get('/get/ScheduleS');
 
     if(res.data[0] === undefined) {
       let cover = [];
@@ -27,11 +27,11 @@ class UserDelete extends Component {
   }
 
   _delete = async (info) => {
-    const remove = window.confirm(info.name + '을 삭제합니까?');
+    const remove = window.confirm(info.title + '을 삭제합니까?');
 
     if(remove) {
       const body = { id : info.id }
-      const res = await axios('/delete/data', {
+      const res = await axios('/delete/Schedule', {
         method : 'POST',
         data : { 'delete' : body },
         headers: new Headers()
@@ -59,13 +59,12 @@ class UserDelete extends Component {
                 return(
                   <div className='colStyle' key={key} >
                    
-                    <div style={{ float : 'left'}}> {info.account}</div>
-                    <div style={{ float : 'left'}}> {info.password}</div>
-                    <div style={{ float : 'left'}}> {info.name}</div>
-                    <div style={{ float : 'left'}}> {info.image}</div>
-                    <div style={{ float : 'left'}}> {info.birthday}</div>
-                    <div style={{ float : 'left'}}> {info.gender}</div>
-                    <div style={{ float : 'left'}}> {info.job} </div>
+                   <div > {info.account} </div><br></br>
+                  <div > {info.title}   </div><br></br>
+                  <div > {info.content} </div><br></br>
+                  <div > {info.location}</div><br></br>
+                  <div > {info.time}    </div><br></br>
+                  <div > {info.etc }    </div><br></br>
                     
                     <div
                       style={{ color : '#ababab' }} 
@@ -81,4 +80,4 @@ class UserDelete extends Component {
   }
 }
 
-export default UserDelete;
+export default ScheduleDelete;
