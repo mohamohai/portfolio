@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import React from 'react';
 import axios from 'axios';
-import '../../mainCss/SignIn.css';
+import './SignIn.css';
+
 import { BrowserRouter,Route, Link,Switch } from "react-router-dom";
 
 class SignIn extends Component{
@@ -50,12 +51,10 @@ class SignIn extends Component{
           <form method='POST' onSubmit={this._addData} className="SignInBox">
             <h2>Login</h2>
             <ul>
-              <li>Account</li>
-              <li><input type='text'  name="account"  maxLength='20' placeholder="ID"         onChange={(e) => this.SignUp(e)}/></li><br></br>
-              <li>Password</li> 
-              <li><input type='password'  name="password" maxLength='20' placeholder="password"   onChange={(e) => this.SignUp(e)}/></li><br></br>
-              <li><input type='submit' value='Add' /></li>              
-              <li><Link to ="SignUp">회원가입</Link></li>
+              <li><input type='text'      name="account"  maxLength='20' placeholder="ID"       className="idpa"  onChange={(e) => this.SignUp(e)}/></li><br></br> 
+              <li><input type='password'  name="password" maxLength='20' placeholder="password" className="idpa"  onChange={(e) => this.SignUp(e)}/></li><br></br>
+              <li><input type='submit' value='Add' className='idpaBtn'/></li>              
+              <li className='SignInBoxSignUp'><Link to ="SignUp">Create account</Link></li>
             </ul>
           </form>
         </div>

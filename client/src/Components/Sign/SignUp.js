@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import React from 'react';
 import axios from 'axios';
-import '../../mainCss/SignUp.css';
+import './SignUp.css';
 import { BrowserRouter,Route, Link,Switch } from "react-router-dom";
 class SignUp extends Component{
     constructor(props) {
