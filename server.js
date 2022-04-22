@@ -77,7 +77,8 @@ app.post('/delete/Schedule', (req, res) => {
 })
 app.get('/get/ScheduleS', (req, res) => {
     Schedule.findAll({
-        where: { account : 'guest01' }
+        where: { account : 'guest01'} //req2
+        
     })
     .then( result => { res.send(result) })
     .catch( err => { throw err })
