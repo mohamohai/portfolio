@@ -7,14 +7,16 @@ import GnbT           from './mainContents/GnbT';
 import NotFound       from './mainContents/NotFound';
 import ScheduleSelect from './Components/Schedule/ScheduleSelect';
 import ScheduleAdd    from './Components/Schedule/ScheduleAdd';
-import ScheduleDelete from './Components/Schedule/ScheduleDelete';import ScheduleView from './Components/Schedule/ScheduleView';
-
+import ScheduleDelete from './Components/Schedule/ScheduleDelete';
+import ScheduleView from './Components/Schedule/ScheduleView';
+import ScheduleCalendarMonth from './Components/Schedule/ScheduleCalendarMonth';
 
 import UserSelect from './Components/User/UserSelect';
 import UserDelete from './Components/User/UserDelete';
 import SideBar    from './Components/SideMenu/SideBar';
 import SignUp     from './Components/Sign/SignUp';
 import SignIn     from './Components/Sign/SignIn';
+
 
 
 
@@ -33,17 +35,18 @@ class App extends Component{
       <div>
         <BrowserRouter>
         <GNB></GNB>
-        <SideBar></SideBar>
-      
-      
-        <Route exact path={"/"   }          component={ScheduleSelect} />
-        <Route exact path="/SignIn"         component={SignIn} />
-        <Route exact path="/SignUp"         component={SignUp} />
-        <Route exact path="/UserSelect"     component={UserSelect} />
-        <Route exact path="/ScheduleAdd"    component={ScheduleAdd}/>
-        <Route exact path="/ScheduleDelete" component={ScheduleDelete}/>
-        <Route exact path="/ScheduleView"   component={ScheduleView}/>
-        <Route exact path='*'               component={NotFound}/>
+        <SideBar></SideBar> 
+
+        <Switch>
+            <Route exact path="/"         component={ScheduleCalendarMonth} />
+            <Route path="/SignIn"         component={SignIn} />
+            <Route path="/SignUp"         component={SignUp} />
+            <Route path="/UserSelect"     component={UserSelect} />
+            <Route path="/ScheduleAdd"    component={ScheduleAdd}/>
+            <Route path="/ScheduleDelete" component={ScheduleDelete}/>
+            <Route path="/ScheduleView"   component={ScheduleView}/>
+            <Route path='*'               component={NotFound}/>
+        </Switch>
         </BrowserRouter>
         
        </div>

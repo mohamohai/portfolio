@@ -19,7 +19,7 @@ class GNB extends Component{
                     <div className = "line2"></div>
                     <div className = "line3"></div>
                 </div><div className = "closeMenuBtn"></div>
-                <div className = "logo" ><Link to ="/">Allegro</Link></div>
+                <div className = "logo" ><Link to ="/">Bob</Link></div>
                 <div className = "gnbUser">
                     <ul>
                         <li><Link to ="ScheduleAdd">데이터추가용 메뉴화면</Link></li>

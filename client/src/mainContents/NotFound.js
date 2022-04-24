@@ -1,15 +1,17 @@
 import { Component } from "react";
-import hero from "./found.gif";
+import hero from "./404NotFoundImg.jpg";
 import "./NotFound.css";
 
 class NotFound extends Component{
+    
+goBack = () => {
+    this.props.history.goBack();
+}
     render(){
+        
         return(
             <div className="notFoundDiv">
-                
-                <img className="notFound" src={hero}/>
-               
-            
+               <button onClick={this.goBack}><img className="notFound" src={hero}/></button>
             </div>
         );
     }
