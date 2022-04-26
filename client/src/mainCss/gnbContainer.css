@@ -2,8 +2,7 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
  *   { 
                 margin : 0 auto; padding: 0px;
-                font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
-                font-weight: bold;
+                font-family: 'Spoqa Han Sans Neo', 'sans-serif';             
                 list-style: none;  
                 text-decoration: none;
 }
@@ -69,14 +68,14 @@ a :visited{color:black}
                 margin: 22px 0 0 -20px;
                 float:left;
                 font-size: 20px;
-                color: red;
+                color: red;   font-weight: bold;
 
 }
 
 .gnbUser        {
                 margin: 0 0 0 -20px; padding-top: 30px;;
                 float: right; 
-                font-size: 15px;
+                font-size: 15px;   font-weight: bold;
 }
 
 .gnbUser ul li  {

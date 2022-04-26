@@ -2,13 +2,40 @@ import { Component } from 'react';
 import React from 'react';
 import axios from 'axios';
 import "./ScheduleCalendarMonth.css";
+import Modal from 'react-awesome-modal';
+
 
 
 class ScheduleCalendarMonth extends Component { //달력 양식
+  constructor(props){
+    super(props);
+      this.state = {
+        visible : false
+    }
+  }
+  _openModal = function() {
+    this.setState({
+        visible : true
+    });
+  }
   
+  _closeModal = function() {
+    this.setState({
+        visible : false
+    });
+  }
   render() {
     return(
       <div className='ScheduleCalendarMonth'>
+        
+        <h5 onClick={() => this._openModal()}> 여기에 달력값 </h5>
+ 
+  <Modal visible={this.state.visible} width="800" height="800" effect="fadeInDown" onClickAway={() => this._closeModal()}>
+    <div>
+      테스트 <br></br>
+      <input  value='닫기' type='button' onClick={() => this._closeModal()}/>
+    </div>
+  </Modal>
          <table className="MonthView">
          <tr className='MonthShow'>
             <td colSpan={7}>4월</td>

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import React from 'react';
 import axios from 'axios';
-
+import './ScheduleAdd.css';
 
 class ScheduleAdd extends React.Component{
 
@@ -60,14 +60,13 @@ class ScheduleAdd extends React.Component{
         return(
           <div> 
             <form method='POST' onSubmit={this._addData} className="ScheduleAddBox">
-              <input type='text'  name="account"  maxLength='20' placeholder="account"    onChange={(e) => this.ScheduleAdd(e)}/><br></br>
-              <input type='text'  name="title"    maxLength='20' placeholder="title"      onChange={(e) => this.ScheduleAdd(e)}/><br></br>
-              <input type='text'  name="content"  maxLength='20' placeholder="content"    onChange={(e) => this.ScheduleAdd(e)}/><br></br>
-              <input type='text'  name="location" maxLength='20' placeholder="location"   onChange={(e) => this.ScheduleAdd(e)}/><br></br>
-              <input type='text'  name="time"     maxLength='20' placeholder="time"       onChange={(e) => this.ScheduleAdd(e)}/><br></br>
-              <input type='text'  name="etc"      maxLength='20' placeholder="etc"        onChange={(e) => this.ScheduleAdd(e)}/><br></br>
-              
-              <input type='submit' value='Add' />
+              <input className="ScheduleAddAccount"   type='text'  name="account"  maxLength='20' placeholder="삭제예정 계정 쿠키세션으로 대체"    onChange={(e) => this.ScheduleAdd(e)}/><br></br>
+              <input className="ScheduleAddTitle"     type='text'  name="title"    maxLength='20' placeholder="titlePlz"   onChange={(e) => this.ScheduleAdd(e)}/><br></br>
+              <input className="ScheduleAddContent"   type='text'  name="content"  maxLength='20' placeholder="content"    onChange={(e) => this.ScheduleAdd(e)}/><br></br>
+              <input className="ScheduleAddLocation"  type='text'  name="location" maxLength='20' placeholder="location"   onChange={(e) => this.ScheduleAdd(e)}/><br></br>
+              <input className="ScheduleAddTime"      type='text'  name="time"     maxLength='20' placeholder="time"       onChange={(e) => this.ScheduleAdd(e)}/><br></br>
+              <input className="ScheduleAddEtc"       type='text'  name="etc"      maxLength='20' placeholder="etc"        onChange={(e) => this.ScheduleAdd(e)}/><br></br>
+              <input className="ScheduleAddBtn"       type='submit' value='Add' />
             </form>
           </div>
         );
