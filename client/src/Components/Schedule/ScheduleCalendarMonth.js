@@ -1,12 +1,14 @@
 import { Component } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import "./ScheduleCalendarMonth.css";
 import Modal from 'react-awesome-modal';
 
 
 
+
 class ScheduleCalendarMonth extends Component { //달력 양식
+  
   constructor(props){
     super(props);
       this.state = {
@@ -24,7 +26,10 @@ class ScheduleCalendarMonth extends Component { //달력 양식
         visible : false
     });
   }
+
+
   render() {
+    
     return(
       <div className='ScheduleCalendarMonth'>
         

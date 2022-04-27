@@ -26,8 +26,8 @@ import { BrowserRouter,Route, Link,Switch } from "react-router-dom";
 class App extends Component{
     
   render(){
-    var sessionData = "mineItRecord"; 
-    sessionStorage.setItem("mineSession", sessionData ); // 저장
+    var aaa = "왔니"; 
+    sessionStorage.setItem("있는데", aaa ); // 저장
 
 
     return(
@@ -35,7 +35,7 @@ class App extends Component{
       <div>
         <BrowserRouter>
         <GNB></GNB>
-        <SideBar></SideBar> 
+     
 
         <Switch>
             <Route exact path="/"         component={ScheduleCalendarMonth} />
