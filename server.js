@@ -77,7 +77,7 @@ app.post('/delete/Schedule', (req, res) => {
 })
 app.get('/get/ScheduleS', (req, res) => {
     Schedule.findAll({
-        where: { account : 'guest01'} //req2
+        where: { account : req.body.account} //req2
         
     })
     .then( result => { res.send(result) })
@@ -102,6 +102,9 @@ app.post('/add/Schedule', (req, res) => {console.log(req.body.title);console.log
     throw err;
 })
 }) 
+
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
