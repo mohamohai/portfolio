@@ -12,7 +12,7 @@ class ScheduleCalendarMonth extends Component { //달력 양식
   constructor(props){
     super(props);
       this.state = {
-        visible : false
+        visible : true
     }
   }
   _openModal = function() {
@@ -34,18 +34,19 @@ class ScheduleCalendarMonth extends Component { //달력 양식
       <div className='ScheduleCalendarMonth'>
         
     
- 
+        <h5 onClick={() => this._openModal()}> 여기에 달력값 </h5>
   <Modal visible={this.state.visible} width="800" height="800" effect="fadeInDown" onClickAway={() => this._closeModal()}>
-  <h5 onClick={() => this._openModal()}> 여기에 달력값 </h5>
+
     <div>
-      테스트 <br></br>
+      테asdasdsadsadsada스트 <br></br>
       <input  value='닫기' type='button' onClick={() => this._closeModal()}/>
     </div>
   </Modal>
 
+
          <table className="MonthView">
          <tr className='MonthShow'>
-            <td colSpan={7}>4월</td>
+            <td colSpan={7}>5월</td>
           </tr>
           <tr className='MonthDay'>
             <td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td><td>일</td>

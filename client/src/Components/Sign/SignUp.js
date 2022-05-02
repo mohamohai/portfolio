@@ -34,13 +34,13 @@ class SignUp extends Component{
       const {job}      = this.state;
       
       const data = {
-                    account:account,
+                    account :account,
                     password:password,
-                    name:name,   
-                    image:image,
+                    name    :name,   
+                    image   :image,
                     birthday:birthday,
-                    gender:gender,
-                    job:job
+                    gender  :gender,
+                    job     :job
       };
       e.preventDefault();
      
