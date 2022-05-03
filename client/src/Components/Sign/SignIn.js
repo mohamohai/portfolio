@@ -7,15 +7,15 @@ import { BrowserRouter,Route, Link,Switch } from "react-router-dom";
 
 class SignIn extends Component{
   
-   
   constructor(props) {
     super(props)
     this.state = {
       list : [],
-      update : false,
+      loginAccount : '',
+      loginPassword : '',
     }
   }
-
+ 
   componentDidMount() {
     this._getData();
   }
@@ -32,26 +32,31 @@ class SignIn extends Component{
   }
 
    goId(){
-      const accountInput = document.getElementsByName('account')[0].value;
+      let accountInput = document.getElementsByName('account')[0].value;
       this.setState({
-        account : accountInput
+        account : accountInput,
+        loginAccount : accountInput
       });
-      console.log('Id ' + accountInput);
-      console.log(this.state.list[0].account);
+      console.log('Id ' + accountInput );
    }
 
    goPw(){
-    const passwordInput = document.getElementsByName('password')[0].value;
+    let passwordInput = document.getElementsByName('password')[0].value;
     this.setState({
-      password : passwordInput
+      password : passwordInput,
+      loginPassword : passwordInput
     });
     console.log('Pw ' + passwordInput);
- }
+  }
+
   golog(){
-      for (let i =0;i<this.state.list.length;i++){
-        console.log(this.state.list[i].account);
+    for (let i =0;i<this.state.list.length;i++){
+      if(this.state.loginAccount==this.state.list[i].account && this.state.loginPassword==this.state.list[i].password){
+        sessionStorage.removeItem( "uid" );
+        sessionStorage.setItem("uid", this.state.loginAccount ); // 저장
+          console.log(this.state.list[i].account);      
       }
-    
+    }  
   }
     
     render(){

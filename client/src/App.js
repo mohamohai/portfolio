@@ -14,8 +14,8 @@ import { BrowserRouter,Route, Link,Switch } from "react-router-dom";
 class App extends Component{
     
   render(){
-    var aaa = "왔니"; 
-    sessionStorage.setItem("uid", aaa ); // 저장
+    
+    
   
 
     return(
