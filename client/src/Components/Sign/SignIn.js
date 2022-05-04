@@ -54,7 +54,8 @@ class SignIn extends Component{
       if(this.state.loginAccount==this.state.list[i].account && this.state.loginPassword==this.state.list[i].password){
         sessionStorage.removeItem( "uid" );
         sessionStorage.setItem("uid", this.state.loginAccount ); // 저장
-          console.log(this.state.list[i].account);      
+          console.log(this.state.list[i].account);   
+          window.location.reload();   
       }
     }  
   }

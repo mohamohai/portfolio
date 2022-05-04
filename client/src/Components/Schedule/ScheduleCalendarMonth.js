@@ -12,7 +12,7 @@ class ScheduleCalendarMonth extends Component { //달력 양식
   constructor(props){
     super(props);
       this.state = {
-        visible : true
+        visible : false
     }
   }
   _openModal = function() {
