@@ -33,8 +33,11 @@ class App extends Component{
             <Route path="/ScheduleAdd"    component={ScheduleAdd}/>
             <Route path="/ScheduleDelete" component={ScheduleDelete}/>
             <Route path="/ScheduleView"   component={ScheduleView}/>
+            <Route path="whereTest"       component={ScheduleSelect}/>
+
+
             <Route path='*'               component={NotFound}/>
-          
+            
         </Switch>
         </BrowserRouter>
         

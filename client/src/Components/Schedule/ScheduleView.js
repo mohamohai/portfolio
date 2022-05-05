@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../../mainCss/selectTable.css'
-class ScheduleDelete extends Component {
+class ScheduleView extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -59,7 +59,7 @@ class ScheduleDelete extends Component {
                 return(
                   <div className='colStyle' key={key} >
                    
-                   <div > {info.account} </div><br></br>
+                   <div >{info.account} </div><br></br>
                   <div > {info.title}   </div><br></br>
                   <div > {info.content} </div><br></br>
                   <div > {info.location}</div><br></br>
@@ -68,7 +68,7 @@ class ScheduleDelete extends Component {
                     
                     <div
                       style={{ color : '#ababab' }} 
-                      onClick={() => this._delete(info)}> Delete </div>
+                      onClick={() => this._delete(info)}> Delete </div><br></br>
                   </div>
                 )
               })
@@ -80,4 +80,4 @@ class ScheduleDelete extends Component {
   }
 }
 
-export default ScheduleDelete;
+export default ScheduleView;

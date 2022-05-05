@@ -15,6 +15,7 @@ const {
     Sequelize: { Op }
   } = require('./models');
   sequelize.query('SET NAMES utf8;');
+ 
 
   const {
     Schedule,
@@ -46,6 +47,7 @@ app.get('/get/data', (req, res) => {
     .then( result => { res.send(result) })
     .catch( err => { throw err })
 }) 
+
 app.post('/modify/data', (req, res) => {
     User.update({ name : req.body.modify.name }, {
         where : { id : req.body.modify.id }
@@ -77,7 +79,7 @@ app.post('/delete/Schedule', (req, res) => {
 })
 app.get('/get/ScheduleS', (req, res) => {
     Schedule.findAll({
-        where: { account : req.body.account} //req2
+     
         
     })
     .then( result => { res.send(result) })

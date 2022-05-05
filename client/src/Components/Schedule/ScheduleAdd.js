@@ -34,7 +34,7 @@ class ScheduleAdd extends React.Component{
         
         
         const data = {
-                      account:account,
+                      account:sessionStorage.getItem('uid'),
                       title:title,
                       content:content,   
                       location:location,
@@ -60,7 +60,7 @@ class ScheduleAdd extends React.Component{
         return(
           <div> 
             <form method='POST' onSubmit={this._addData} className="ScheduleAddBox">
-              <input className="ScheduleAddAccount"   type='text'  name="account"  maxLength='20' placeholder="삭제예정 계정 쿠키세션으로 대체"    onChange={(e) => this.ScheduleAdd(e)}/><br></br>
+             
               <input className="ScheduleAddTitle"     type='text'  name="title"    maxLength='20' placeholder="titlePlz"   onChange={(e) => this.ScheduleAdd(e)}/><br></br>
               <input className="ScheduleAddContent"   type='text'  name="content"  maxLength='20' placeholder="content"    onChange={(e) => this.ScheduleAdd(e)}/><br></br>
               <input className="ScheduleAddLocation"  type='text'  name="location" maxLength='20' placeholder="location"   onChange={(e) => this.ScheduleAdd(e)}/><br></br>
