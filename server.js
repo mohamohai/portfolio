@@ -79,12 +79,13 @@ app.post('/delete/Schedule', (req, res) => {
 })
 app.get('/get/ScheduleS', (req, res) => {
     Schedule.findAll({
-     
+       
         
     })
+   
     .then( result => { res.send(result) })
     .catch( err => { throw err })
-}) 
+})  
 app.post('/add/Schedule', (req, res) => {console.log(req.body.title);console.log("왜요");
     Schedule.create({
     account     : req.body.account,
@@ -105,11 +106,19 @@ app.post('/add/Schedule', (req, res) => {console.log(req.body.title);console.log
 })
 }) 
 
-
+app.get('/get/ScheduleId', (req, res) => {
+    Schedule.findAll({
+        where: { account : 'guest01'}
+    }
+       
+    )
+    .then( result => { res.send(result) })
+    .catch( err => { throw err })
+}) 
 
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server On : ashttp://localhost:${PORT}/`);
- 
+    
 })

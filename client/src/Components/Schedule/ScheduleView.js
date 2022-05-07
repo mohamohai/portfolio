@@ -16,8 +16,13 @@ class ScheduleView extends Component {
   }
 
   _getData = async () => {
-    const res = await axios.get('/get/ScheduleS');
-
+    const body = { id : sessionStorage.getItem('uid') }
+    const res = await axios.get('/get/ScheduleS',{
+      method: 'POST',
+      data : {'account' : body },
+      headers: new Headers()
+    })
+  
     if(res.data[0] === undefined) {
       let cover = [];
       cover.push(res.data);
@@ -65,7 +70,7 @@ class ScheduleView extends Component {
                   <div > {info.location}</div><br></br>
                   <div > {info.time}    </div><br></br>
                   <div > {info.etc }    </div><br></br>
-                    
+                   
                     <div
                       style={{ color : '#ababab' }} 
                       onClick={() => this._delete(info)}> Delete </div><br></br>

@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import './ScheduleSelect.css'
 
-class ScheduleSelect extends Component {
+class ScheduleId extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,7 +17,7 @@ class ScheduleSelect extends Component {
   }
 
   _getData = async () => {
-    const res = await axios.get('/get/Schedule');
+    const res = await axios.get('/get/ScheduleId');
 
     if(res.data[0] === undefined) {
       let cover = [];
@@ -32,23 +32,26 @@ class ScheduleSelect extends Component {
     return(
       <div className='ScheduleFull'>
          <br/>
+         <table className="MonthView">
+         <tr className='MonthShow'>
+            <td colSpan={7}>5월</td>
+          </tr>
+          <tr className='MonthDay'>
+            <td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td><td>일</td>
+          </tr>
            {list.length !== 0
              ? list.map( (info, key) => {
               return(
                 <div key={key} className='ScheduleData' >
-                  <div > {info.account} </div><br></br>
-                  <div > {info.title}   </div><br></br>
-                  <div > {info.content} </div><br></br>
-                  <div > {info.location}</div><br></br>
-                  <div > {info.time}    </div><br></br>
-                  <div > {info.etc }    </div><br></br>
+             
                 </div>
               )
             }) 
            :'plz f5'}  
+           </table>
       </div>
     )
   }
 }
 
-export default ScheduleSelect;
+export default ScheduleId;

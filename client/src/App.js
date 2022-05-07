@@ -4,7 +4,7 @@ import React, {useState}         from 'react';
 
 
 import {GNB, NotFound} from './mainContents/mainExport';
-import {ScheduleView ,ScheduleSelect, ScheduleDelete, ScheduleCalendarMonth, ScheduleAdd} from './Components/Schedule/ScheduleExport';
+import {ScheduleView ,ScheduleId,ScheduleSelect, ScheduleDelete, ScheduleCalendarMonth, ScheduleAdd} from './Components/Schedule/ScheduleExport';
 import {SignUp, SignIn} from './Components/Sign/SignExport';
 
 import UserSelect from './Components/User/UserSelect';
@@ -33,7 +33,8 @@ class App extends Component{
             <Route path="/ScheduleAdd"    component={ScheduleAdd}/>
             <Route path="/ScheduleDelete" component={ScheduleDelete}/>
             <Route path="/ScheduleView"   component={ScheduleView}/>
-            <Route path="whereTest"       component={ScheduleSelect}/>
+            <Route path="/whereTest"       component={ScheduleSelect}/>
+            <Route path="/ScheduleId"     component={ScheduleId}/>
 
 
             <Route path='*'               component={NotFound}/>

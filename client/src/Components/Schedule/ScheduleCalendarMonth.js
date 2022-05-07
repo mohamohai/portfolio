@@ -29,7 +29,7 @@ class ScheduleCalendarMonth extends Component { //달력 양식
 
 
   render() {
-    
+    let ScheduleContent = "여기서부터 여기까지입니다.";
     return(
       <div className='ScheduleCalendarMonth'>
         
@@ -38,7 +38,7 @@ class ScheduleCalendarMonth extends Component { //달력 양식
   <Modal visible={this.state.visible} width="800" height="800" effect="fadeInDown" onClickAway={() => this._closeModal()}>
 
     <div>
-      테asdasdsadsadsada스트 <br></br>
+      {ScheduleContent}<br></br>
       <input  value='닫기' type='button' onClick={() => this._closeModal()}/>
     </div>
   </Modal>

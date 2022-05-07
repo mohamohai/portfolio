@@ -1,8 +1,10 @@
 import { Component } from 'react';
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import './ScheduleAdd.css';
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import CalPick from './Calendar'
 class ScheduleAdd extends React.Component{
 
     constructor(props){
@@ -17,6 +19,8 @@ class ScheduleAdd extends React.Component{
             
         }
     }
+
+   
     ScheduleAdd(e) {
         let nextState = {};
         nextState[e.target.name] = e.target.value;
@@ -57,10 +61,11 @@ class ScheduleAdd extends React.Component{
       }
 
     render(){
+    
         return(
           <div> 
             <form method='POST' onSubmit={this._addData} className="ScheduleAddBox">
-             
+            <CalPick></CalPick>
               <input className="ScheduleAddTitle"     type='text'  name="title"    maxLength='20' placeholder="titlePlz"   onChange={(e) => this.ScheduleAdd(e)}/><br></br>
               <input className="ScheduleAddContent"   type='text'  name="content"  maxLength='20' placeholder="content"    onChange={(e) => this.ScheduleAdd(e)}/><br></br>
               <input className="ScheduleAddLocation"  type='text'  name="location" maxLength='20' placeholder="location"   onChange={(e) => this.ScheduleAdd(e)}/><br></br>
