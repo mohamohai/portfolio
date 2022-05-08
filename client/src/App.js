@@ -3,11 +3,12 @@ import { Component } from 'react';
 import React, {useState}         from 'react';
 
 
-import {GNB, NotFound} from './mainContents/mainExport';
+import {GNB, NotFound, Practice} from './mainContents/mainExport';
 import {ScheduleView ,ScheduleId,ScheduleSelect, ScheduleDelete, ScheduleCalendarMonth, ScheduleAdd} from './Components/Schedule/ScheduleExport';
 import {SignUp, SignIn} from './Components/Sign/SignExport';
 
 import UserSelect from './Components/User/UserSelect';
+
 import { BrowserRouter,Route, Link,Switch } from "react-router-dom";
 
 
@@ -35,6 +36,8 @@ class App extends Component{
             <Route path="/ScheduleView"   component={ScheduleView}/>
             <Route path="/whereTest"       component={ScheduleSelect}/>
             <Route path="/ScheduleId"     component={ScheduleId}/>
+
+            <Route path="/Practice"  component={Practice}/>
 
 
             <Route path='*'               component={NotFound}/>
