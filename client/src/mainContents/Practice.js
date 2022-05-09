@@ -1,21 +1,28 @@
 
 import { Component } from "react";
 import React, { useState } from 'react';
-
+import './Practice.css';
 
   
 class Practice extends Component{
     
     state = {
         menuMessage: "menuOff",
-        menuCheck: false
-        
+        menuCheck: false,
+        list : [],
+        Mon : new Date().getMonth()+1,
+        FullYear : new Date().getFullYear()
+
       };
 
     render(){
                         
         const numbers = [1, 3, 5]; 
+        const numbers2 = [2,4,6];
             const aloop = numbers.map((number, idx) => {
+                const aloop2 = numbers2.map ((number2,idx) =>{
+                    console.log(number2); 
+                })
                 console.log(number); 
             return number});
         console.log(aloop);
@@ -31,35 +38,41 @@ class Practice extends Component{
 
         let testin = nowYear+'-'+nowMonth+'-01';
         let test = new Date(testin).getDay();
-             
-        function MonthPlus(){
-          
-            nowMonth = nowMonth+1;
-            if(nowMonth > 12){
-                nowMonth = 1;
-                nowYear = nowYear + 1
-            }
-            console.log(nowYear+'년 '+nowMonth);
-        }
-        function MonthMinus(){
-            nowMonth = nowMonth - 1;
-            if(nowMonth < 1){
-                nowMonth = 12;
-                nowYear = nowYear - 1
-            }
-            console.log(nowYear+'년 '+nowMonth);
-        }
-      
-
+        
         console.log(nowYear + '년 ' +nowMonth +'월 ' +nowDay +'일 ' + nowWeekArray[nowWeekNum] + '요일 ');
-        console.log(test)
+ 
+   
 
         return(
         <div className = "">   
+        <div className="selectMon">
+            <ul>
+                <li className="leftAngleBracket"
+                            onClick={()=>{  //동기 비동기 때문에?
+                                if(this.state.Mon==1){
+                                    this.setState({Mon:12});
+                                    this.setState({FullYear : this.state.FullYear-1});
+                                }else{
+                                    this.setState({ Mon :this.state.Mon-1});
+                                }
+                            }}>&lt; 
+                </li>
+                <li className="YearMonth">{this.state.FullYear}  &nbsp; {this.state.Mon}  </li>
+                <li className="rightAngleBracket"
+                            onClick={()=>{
+                                if(this.state.Mon>=12){
+                                    this.setState({Mon:1});
+                                    this.setState({FullYear : this.state.FullYear+1});
+                                }else{
+                                    this.setState({ Mon :this.state.Mon+1});
+                                }
+                            }}>&gt;
+                </li>
+            </ul>
+        </div>
+       
         
-        <button onClick={MonthMinus}> ◁ </button>
-        <h1>a </h1>
-        <button onClick={MonthPlus}> ▷ </button>
+
             <table>
                 <tbody>
                     <tr>
@@ -71,54 +84,62 @@ class Practice extends Component{
                         <td>토</td>
                         <td>일</td>
                     </tr> 
-                     {/* 여기서부터 데이터 불러와서 입히기 작업  */}
-                    <tr>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                    </tr>
-                    <tr>
-                    <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                    </tr>
-                    <tr>
-                    <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                    </tr>
-                    <tr>
-                    <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                    </tr>
-                    <tr>
-                    <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                        <td className=""></td>
-                    </tr>
                 </tbody>
             </table>
+            <div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
 
         
         </div>
