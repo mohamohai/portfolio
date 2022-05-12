@@ -22,7 +22,9 @@ class GNB extends Component{
         sessionStorage.removeItem( "uid" );
         window.location.reload();
       }
-      
+      gogotest(){
+        sessionStorage.setItem("uid", 'guest01' );
+      }
     render(){
       const {menuMessage, visible, menuCheck} = this.state;
       let uidSession = sessionStorage.getItem("uid");
@@ -77,6 +79,7 @@ class GNB extends Component{
                             <li><Link to ="SignIn">로그인</Link></li>
                             <li>my</li>
                             <li>etc</li>
+                            <li><button onClick={this.gogotest}>guest01</button></li>
                         </ul>
                     </div>
                     <div className={this.state.menuCheck ? 'SideBarClick' : 'SideBar'}>

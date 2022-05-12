@@ -86,7 +86,7 @@ class Practice extends Component{
                     </tr> 
                 </tbody>
             </table>
-            <div>
+            <div className="CalRow">
                 <div className=""></div>
                 <div className=""></div>
                 <div className=""></div>
@@ -95,7 +95,7 @@ class Practice extends Component{
                 <div className=""></div>
                 <div className=""></div>
             </div>
-            <div>
+            <div className="CalRow">
                 <div className=""></div>
                 <div className=""></div>
                 <div className=""></div>
@@ -104,7 +104,7 @@ class Practice extends Component{
                 <div className=""></div>
                 <div className=""></div>
             </div>
-            <div>
+            <div className="CalRow">
                 <div className=""></div>
                 <div className=""></div>
                 <div className=""></div>
