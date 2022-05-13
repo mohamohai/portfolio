@@ -2,7 +2,7 @@
 import { Component } from "react";
 import React, { useState } from 'react';
 import './Practice.css';
-
+import axios from "axios";
   
 class Practice extends Component{
     
@@ -14,18 +14,31 @@ class Practice extends Component{
         FullYear : new Date().getFullYear()
 
       };
-
+      componentDidMount() {
+        this._getData();
+      }
+    
+      _getData = async () => {
+        const res = await axios.get('/get/ScheduleId');
+    
+        if(res.data[0] === undefined) {
+          let cover = [];
+          cover.push(res.data);
+          return this.setState({ list : cover })
+        }
+        this.setState({ list : res.data });
+      }
     render(){
                         
         const numbers = [1, 3, 5]; 
         const numbers2 = [2,4,6];
             const aloop = numbers.map((number, idx) => {
                 const aloop2 = numbers2.map ((number2,idx) =>{
-                    console.log(number2); 
+                    
                 })
-                console.log(number); 
+                
             return number});
-        console.log(aloop);
+       
 
        
         let nowDate  = new Date();//현재 날짜와 시간
@@ -46,7 +59,7 @@ class Practice extends Component{
         return(
         <div className = "">   
         <div className="selectMon">
-            <ul>
+            <ul><li>{console.log(this.state.list)}</li>
                 <li className="leftAngleBracket"
                             onClick={()=>{  //동기 비동기 때문에?
                                 if(this.state.Mon==1){

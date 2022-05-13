@@ -86,7 +86,7 @@ class GNB extends Component{
                         <ul>
                             <li onClick={this. onClickVeiw}><Link to ="ScheduleAdd">데이터 추가하기</Link></li>
                             <li onClick={this. onClickVeiw}><Link to ="ScheduleAdd">데이터추가용 메뉴화면</Link></li>   
-                            <li onClick={this. onClickVeiw}><Link to ="Practice" > 연습장 바로가기 </Link></li>                     
+                            <li onClick={this. onClickVeiw}><Link to ="Practice" >  연습장 바로가기 </Link></li>                     
                             <li>away</li>
                             <li>here</li>
                         </ul>

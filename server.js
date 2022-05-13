@@ -86,7 +86,7 @@ app.get('/get/ScheduleS', (req, res) => {
     .then( result => { res.send(result) })
     .catch( err => { throw err })
 })  
-app.post('/add/Schedule', (req, res) => {console.log(req.body.title);console.log("왜요");
+app.post('/add/Schedule', (req, res) => {
     Schedule.create({
     account     : req.body.account,
     title       : req.body.title,
