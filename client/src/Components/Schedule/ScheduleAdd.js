@@ -9,6 +9,17 @@ class ScheduleAdd extends React.Component{
 
     constructor(props){
         super(props);
+
+        let monCnt = new Date().getMonth()+1;
+        let dayCnt   = new Date().getDate();
+        if(monCnt<10){
+          monCnt =  '0' + monCnt;
+        } 
+        if(dayCnt<10){
+          dayCnt =  '0' + dayCnt;
+        } 
+
+
         this.state = {
             account : '',
             title: '',
@@ -16,12 +27,12 @@ class ScheduleAdd extends React.Component{
             location:'',
             time: '',
             etc:'',
-            year:'',
-            month:'',
-            day:''
+            year:new Date().getFullYear()+'',
+            month:monCnt,
+            day:dayCnt
         }
     }
-
+    
    
     ScheduleAdd(e) {
         let nextState = {};
@@ -90,7 +101,7 @@ class ScheduleAdd extends React.Component{
               <input className="ScheduleAddContent"   type='text'  name="content"  maxLength='20' placeholder="content"    onChange={(e) => this.ScheduleAdd(e)}/><br></br>
               <input className="ScheduleAddLocation"  type='text'  name="location" maxLength='20' placeholder="location"   onChange={(e) => this.ScheduleAdd(e)}/><br></br>
               <input className="ScheduleAddEtc"       type='text'  name="etc"      maxLength='20' placeholder="etc"        onChange={(e) => this.ScheduleAdd(e)}/><br></br>
-              <input className="ScheduleAddBtn"       type='submit' value='Add' />
+              
               
               <select name ='year' onChange={(e) => this.ScheduleAdd(e)}>
                 {yearCount.map((cnt1, year) => {
@@ -110,6 +121,7 @@ class ScheduleAdd extends React.Component{
                   return(<option key={day} value={cnt3}>{cnt3}</option>);
                 })}
               </select>
+              <input className="ScheduleAddBtn"       type='submit' value='Add' />
             </form>
           </div>
         );

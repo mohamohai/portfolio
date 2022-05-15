@@ -3,7 +3,7 @@ import { Component } from 'react';
 import React, {useState}         from 'react';
 
 
-import {GNB, NotFound, Practice} from './mainContents/mainExport';
+import {GNB, NotFound, Practice, PracticeTwo} from './mainContents/mainExport';
 import {ScheduleView ,ScheduleId,ScheduleSelect, ScheduleDelete, ScheduleCalendarMonth, ScheduleAdd} from './Components/Schedule/ScheduleExport';
 import {SignUp, SignIn} from './Components/Sign/SignExport';
 
@@ -36,7 +36,7 @@ class App extends Component{
             <Route path="/ScheduleView"   component={ScheduleView}/>
             <Route path="/whereTest"       component={ScheduleSelect}/>
             <Route path="/ScheduleId"     component={ScheduleId}/>
-
+            <Route path="/PracticeTwo"  component={PracticeTwo}/>
             <Route path="/Practice"  component={Practice}/>
 
 
