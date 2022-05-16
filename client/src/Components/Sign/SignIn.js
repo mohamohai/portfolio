@@ -72,6 +72,7 @@ class SignIn extends Component{
               <li><input type='password'  name="password" maxLength='20' placeholder="password" className="idpa"  onChange={() => this.goPw()}/></li><br></br>
               <li><input type='submit' value='Add' className='idpaBtn'/></li>              
               <li className='SignInBoxSignUp'><Link to ="SignUp">Create account</Link></li>
+              <button onClick={() => this.golog()}>dd</button>
             </ul>
           </form>
         </div>

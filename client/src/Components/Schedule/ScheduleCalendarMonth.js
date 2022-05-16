@@ -12,7 +12,13 @@ class ScheduleCalendarMonth extends Component { //달력 양식
   constructor(props){
     super(props);
       this.state = {
-        visible : false
+        visible : false,
+        menuMessage: "menuOff",
+        menuCheck: false,
+        list : [],
+        Mon : new Date().getMonth()+1,
+        FullYear : new Date().getFullYear(),
+        uid:sessionStorage.getItem("uid")
     }
   }
   _openModal = function() {
@@ -27,21 +33,43 @@ class ScheduleCalendarMonth extends Component { //달력 양식
     });
   }
 
+  componentDidMount() {
+    this._getData();
+    }
+    
+    _getData = async () => {
+    const userId = this.state.uid ;
+        const res = await axios.get('/get/ScheduleId',
+            {
+                params: {userId: userId
+            }
+        }
+        )
+        if(res.data[0] === undefined) {
+        let cover = [];
+        cover.push(res.data);
+        return this.setState({ list : cover })
+    }
+    this.setState({ list : res.data });
+    }
+
 
   render() {
     let ScheduleContent = "여기서부터 여기까지입니다.";
+    const { list } = this.state;   
     return(
       <div className='ScheduleCalendarMonth'>
         
     
         <h5 onClick={() => this._openModal()}> 여기에 달력값 </h5>
   <Modal visible={this.state.visible} width="800" height="800" effect="fadeInDown" onClickAway={() => this._closeModal()}>
-
     <div>
       {ScheduleContent}<br></br>
       <input  value='닫기' type='button' onClick={() => this._closeModal()}/>
     </div>
   </Modal>
+  <h5>
+           </h5>
 
 
          <table className="MonthView">

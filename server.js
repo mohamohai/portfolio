@@ -79,13 +79,11 @@ app.post('/delete/Schedule', (req, res) => {
 })
 app.get('/get/ScheduleS', (req, res) => {
     Schedule.findAll({
-       
-        
-    })
-   
+     })
     .then( result => { res.send(result) })
     .catch( err => { throw err })
 })  
+
 app.post('/add/Schedule', (req, res) => {
     Schedule.create({
     account     : req.body.account,
@@ -95,8 +93,6 @@ app.post('/add/Schedule', (req, res) => {
     time        : req.body.time,
     etc         : req.body.etc
 })
-
-
 .then( result => {
     res.send(result)
 })
@@ -106,19 +102,23 @@ app.post('/add/Schedule', (req, res) => {
 })
 }) 
 
-app.get('/get/ScheduleId', (req, res) => {
+app.get('/get/ScheduleId', (req, res) => { 
+    const {userId} = req.query;
     Schedule.findAll({
-        where: { account : 'guest01'}
+        where: {
+            account:userId
+        }
     }
-       
     )
     .then( result => { res.send(result) })
     .catch( err => { throw err })
 }) 
 
 
-const PORT = process.env.PORT || 5000;
+
+const PORT = process.env.PORT || 5000; 
 app.listen(PORT, () => {
     console.log(`Server On : ashttp://localhost:${PORT}/`);
+   
     
 })

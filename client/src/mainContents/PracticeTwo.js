@@ -11,36 +11,43 @@ class PracticeTwo extends Component{
         menuCheck: false,
         list : [],
         Mon : new Date().getMonth()+1,
-        FullYear : new Date().getFullYear()
-
-      };
-      componentDidMount() {
-        this._getData();
-      }
+        FullYear : new Date().getFullYear(),
+        uid:sessionStorage.getItem("uid")
+    };
+    componentDidMount() {
+    this._getData();
+    }
     
-      _getData = async () => {
-        const res = await axios.get('/get/ScheduleId');
-    
-        if(res.data[0] === undefined) {
-          let cover = [];
-          cover.push(res.data);
-          return this.setState({ list : cover })
+    _getData = async () => {
+    const userId = this.state.uid;
+        const res = await axios.get('/get/ScheduleId',
+        {
+            params: {userId: userId
+            }
         }
-        this.setState({ list : res.data });
-      }
-    render(){
-                        
-        const numbers = [1, 3, 5]; 
-        const numbers2 = [2,4,6];
-            const aloop = numbers.map((number, idx) => {
-                const aloop2 = numbers2.map ((number2,idx) =>{
-                    
-                })
-                
-            return number});
-       
+        )
+        if(res.data[0] === undefined) {
+            let cover = [];
+            cover.push(res.data);
+            return this.setState({ list : cover })
+    }
+    this.setState({ list : res.data });
+    }
 
+    render(){
+        const mapCnt =[];
+        for(let forCnt = 1 ; forCnt<= 42 ; forCnt++){
+            mapCnt.push(forCnt);
+        }
        
+        const { list } = this.state;                
+        const numbers = [1, 3, 5]; 
+        const numbers2 = [2, 4, 6];
+            const aloop = numbers.map((number, idx) => {
+                const aloop2 = numbers2.map ((number2,idx) =>{                
+                })
+                return number});
+    
         let nowDate  = new Date();//현재 날짜와 시간
         let nowYear  = nowDate.getFullYear();
         let nowMonth = nowDate.getMonth()+1;
@@ -52,14 +59,12 @@ class PracticeTwo extends Component{
         let testin = nowYear+'-'+nowMonth+'-01';
         let test = new Date(testin).getDay();
         
-        console.log(nowYear + '년 ' +nowMonth +'월 ' +nowDay +'일 ' + nowWeekArray[nowWeekNum] + '요일 ');
- 
-   
+        console.log(nowYear + '년 ' +nowMonth +'월 ' +nowDay +'일 ' + nowWeekArray[nowWeekNum] + '요일 '+nowWeekNum);
 
         return(
         <div className = "">   
         <div className="selectMon">
-            <ul><li>{console.log(this.state.list)}</li>
+            <ul><li></li>
                 <li className="leftAngleBracket"
                             onClick={()=>{  //동기 비동기 때문에?
                                 if(this.state.Mon==1){
@@ -83,13 +88,24 @@ class PracticeTwo extends Component{
                 </li>
             </ul>
         </div>
-       
-        
 
             <table>
                 <tbody>
                     <tr>
-                        <td>월</td>
+                        <td>월 {list.length !== 0
+             ? list.map( (info, key) => {
+              return(
+                  <div key={key} className='ScheduleData' >
+                  <div > {info.account} </div><br></br>
+                  <div > {info.title}   </div><br></br>
+                  <div > {info.content} </div><br></br>
+                  <div > {info.location}</div><br></br>
+                  <div > {info.time}    </div><br></br>
+                  <div > {info.etc }    </div><br></br>
+                </div>
+              )
+            }) 
+           :'plz f5'}</td>
                         <td>화</td>
                         <td>수</td>
                         <td>목</td>
@@ -153,8 +169,6 @@ class PracticeTwo extends Component{
                 <div className=""></div>
                 <div className=""></div>
             </div>
-
-        
         </div>
         );
     }    

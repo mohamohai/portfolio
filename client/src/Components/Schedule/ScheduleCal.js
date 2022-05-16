@@ -9,6 +9,7 @@ class ScheduleId extends Component {
     this.state = {
       list : [],
       update : false,
+      uid:sessionStorage.getItem("uid"),
     }
   }
 
@@ -17,15 +18,20 @@ class ScheduleId extends Component {
   }
 
   _getData = async () => {
-    const res = await axios.get('/get/ScheduleId');
-
-    if(res.data[0] === undefined) {
-      let cover = [];
-      cover.push(res.data);
-      return this.setState({ list : cover })
+    const userId = this.state.uid ;
+    const res = await axios.get('/get/ScheduleId',
+        {
+            params: {userId: userId
+        }
     }
-    this.setState({ list : res.data });
-  }
+    )
+    if(res.data[0] === undefined) {
+    let cover = [];
+    cover.push(res.data);
+    return this.setState({ list : cover })
+}
+this.setState({ list : res.data });
+}
 
   render() {
     const { list } = this.state;
@@ -43,7 +49,7 @@ class ScheduleId extends Component {
              ? list.map( (info, key) => {
               return(
                 <div key={key} className='ScheduleData' >
-             
+                {info.time}
                 </div>
               )
             }) 
