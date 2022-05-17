@@ -89,14 +89,13 @@ class PracticeTwo extends Component{
                             }}>&gt;
                 </li>
             </ul>
-        </div>
-        <div>
+        </div><div>
             {mapCnt.map((cnt,idx) => {
                 return (<div className="weekLine">
-                            <div className="sunDay sunDay1" >
+                            <div className="sunDay">
                                 <ul>
-                                    <li className="sunTitle">간달aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa프</li>
-                                    <li>aa</li>
+                                    <li className="sunTitle">간달프</li>
+                                    <li></li>
                                 </ul>
                             </div>
                             <div className="monDay">
@@ -108,7 +107,7 @@ class PracticeTwo extends Component{
                             <div className="tuesDay">
                                 <ul>
                                     <li className=""></li>
-                                    <li>aaaaaa</li>
+                                    <li></li>
                                 </ul>
                             </div>
                             <div className="wednesDay">
@@ -134,15 +133,93 @@ class PracticeTwo extends Component{
                                     <li className=""></li>
                                     <li></li>
                                 </ul>
-                            </div><div className="clear"></div>
-                           </div>
+                            </div>
+                        </div>
+                        
                         )
                         })  
                               
-            } 
-            </div> 
-            
-            
+            }    </div> 
+            <table>
+                <tbody>
+                    <tr>
+                        <td>월 {list.length !== 0
+             ? list.map( (info, key) => {
+              return(
+                  <div key={key} className='ScheduleData' >
+                  <div > {info.account} </div><br></br>
+                  <div > {info.title}   </div><br></br>
+                  <div > {info.content} </div><br></br>
+                  <div > {info.location}</div><br></br>
+                  <div > {info.time}    </div><br></br>
+                  <div > {info.etc }    </div><br></br>
+                </div>
+              )
+            }) 
+           :'plz f5'}</td>
+                        <td>화</td>
+                        <td>수</td>
+                        <td>목</td>
+                        <td>금</td>
+                        <td>토</td>
+                        <td>일</td>
+                    </tr> 
+                </tbody>
+            </table>
+            <div className="CalRow">
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div className="CalRow">
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div className="CalRow">
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
+            <div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+                <div className=""></div>
+            </div>
         </div>
         );
     }    
