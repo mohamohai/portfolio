@@ -11,6 +11,7 @@ class ScheduleCalendarMonth extends Component { //달력 양식
   
   constructor(props){
     super(props);
+    if(sessionStorage.getItem('uid')==null){
       this.state = {
         visible : false,
         menuMessage: "menuOff",
@@ -18,8 +19,19 @@ class ScheduleCalendarMonth extends Component { //달력 양식
         list : [],
         Mon : new Date().getMonth()+1,
         FullYear : new Date().getFullYear(),
-        uid:sessionStorage.getItem("uid")
+        uid:'guest01'
+      }
+    }else{
+      this.state = {
+        visible : false,
+        menuMessage: "menuOff",
+        menuCheck: false,
+        list : [],
+        Mon : new Date().getMonth()+1,
+        FullYear : new Date().getFullYear(),
+        uid:sessionStorage.getItem('uid')
     }
+  }
   }
   _openModal = function() {
     this.setState({

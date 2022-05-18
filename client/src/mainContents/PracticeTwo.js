@@ -12,6 +12,7 @@ class PracticeTwo extends Component{
         list : [],
         Mon : new Date().getMonth()+1,
         FullYear : new Date().getFullYear(),
+        searchDay : new Date().getDay,
         uid:sessionStorage.getItem("uid")
     };
     componentDidMount() {
@@ -36,7 +37,7 @@ class PracticeTwo extends Component{
 
     render(){
         const mapCnt =[];
-        for(let forCnt = 1 ; forCnt<= 6 ; forCnt++){
+        for(let forCnt = 0 ; forCnt<= 5 ; forCnt++){
             mapCnt.push(forCnt);
         }
        
@@ -91,15 +92,32 @@ class PracticeTwo extends Component{
             </ul>
         </div>
         <div>
-            {mapCnt.map((cnt,idx) => {
+        {mapCnt.map((cnt,idx) => {
+            if(cnt)
                 return (<div className="weekLine">
-                            <div className="sunDay sunDay1" >
+                            <div className="sunDay sunDay1">
                                 <ul>
                                     <li className="sunTitle">간달aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa프</li>
-                                    <li>aa</li>
+                                    <li></li>
                                 </ul>
                             </div>
-                            <div className="monDay">
+                           
+                           </div>
+                        )
+                        })  
+                              
+            } 
+    
+            {mapCnt.map((cnt,idx) => { //42루프, 6루프7개  div안에 네임 적기
+            // 맵을 2줄로 바꿔서 인자값 두개, 하나를 요일값 하나를 줄로 설정해서 classname 설정하기
+                return (<div className="weekLine">
+                            <div className="sunDay sunDay1">
+                                <ul>
+                                    <li className="sunTitle">간달aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa프</li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div key={cnt} className="monDay">
                                 <ul>
                                     <li className=""></li>
                                     <li></li>
