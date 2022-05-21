@@ -5,3 +5,4 @@ export {default as ScheduleAdd} from './ScheduleAdd';
 export {default as ScheduleView} from './ScheduleView';
 export {default as ScheduleId} from './ScheduleCal';
 export {default as CalPick} from './Calendar';
+export {default as ScheduleMain} from './ScheduleMain';

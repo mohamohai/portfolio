@@ -54,7 +54,8 @@ class GNB extends Component{
                         <li><Link to ="ScheduleAdd">데이터 추가하기</Link></li>
                         <li><Link to ="ScheduleAdd">데이터추가용 메뉴화면</Link></li>                        
                         <li onClick={this.onClickVeiw}><Link to ="PracticeTwo" >  연습장 바로가기 </Link></li>  
-                        <li onClick={this.onClickVeiw}><Link to ="ScheduleId" >  cal</Link></li>  
+                        <li onClick={this.onClickVeiw}><Link to ="ScheduleId" >  cal</Link></li> 
+                        <li onClick={this.onClickVeiw}><Link to ="ScheduleMain" >  메인</Link></li>  
                         
                         <li>here</li>
                     </ul>
@@ -89,7 +90,8 @@ class GNB extends Component{
                             <li onClick={this. onClickVeiw}><Link to ="ScheduleAdd">데이터 추가하기</Link></li>
                             <li onClick={this. onClickVeiw}><Link to ="ScheduleAdd">데이터추가용 메뉴화면</Link></li>   
                             <li onClick={this. onClickVeiw}><Link to ="PracticeTwo" >  연습장 바로가기 </Link></li>    
-                            <li onClick={this.onClickVeiw}><Link to ="ScheduleId" >  cal </Link></li>                  
+                            <li onClick={this.onClickVeiw}><Link to ="ScheduleId" >  cal </Link></li> 
+                            <li onClick={this.onClickVeiw}><Link to ="ScheduleMain" >  메인</Link></li>                   
                             <li>away</li>
                             <li>here</li>
                         </ul>
