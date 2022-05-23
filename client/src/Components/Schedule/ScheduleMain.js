@@ -8,6 +8,7 @@ class ScheduleMain extends Component {
     menuMessage: "menuOff",
     menuCheck: false,
     list: [],
+    ScheduleList: [],
     Mon: new Date().getMonth() + 1,
     FullYear: new Date().getFullYear(),
     searchDay: new Date().getDay(),
@@ -16,6 +17,11 @@ class ScheduleMain extends Component {
   componentDidMount() {
     this._getData();
   }
+  makeCal = () => {
+    for (let i = 0; i <= 5; i++) {
+      for (let j = 0; j <= 6; j++) {}
+    }
+  };
   _getData = async () => {
     const userId = this.state.uid;
     const res = await axios.get("/get/ScheduleId", {
@@ -27,7 +33,9 @@ class ScheduleMain extends Component {
       return this.setState({ list: cover });
     }
     this.setState({ list: res.data });
+    this.setState({ SelectList: this.state.list });
   };
+
   PlusMonth = () => {
     //동기 비동기 때문에?
     if (this.state.Mon == 1) {
@@ -47,14 +55,15 @@ class ScheduleMain extends Component {
   };
   render() {
     const { list } = this.state;
-    const selectData = [];
+    const { SelectList } = this.state;
+    const SelectData = [];
 
     list.map((rowCnt, keyCnt) => {
-      selectData.push(rowCnt);
-      console.log(rowCnt.time); //배열 속성만큼 뜯기
-    });
+      SelectData.push(rowCnt);
+      // SelectList.push(rowCnt);
 
-    console.log(selectData[1]);
+      console.log(SelectList);
+    });
 
     return (
       <div>
@@ -92,7 +101,7 @@ class ScheduleMain extends Component {
               </div>
             );
         })}
-
+        <div>{this.makeCal()}</div>
         <div className="wow">aaaa</div>
       </div>
     );
