@@ -38,7 +38,7 @@ class ScheduleMain extends Component {
 
   PlusMonth = () => {
     //동기 비동기 때문에?
-    if (this.state.Mon == 1) {
+    if (this.state.Mon === 1) {
       this.setState({ Mon: 12 });
       this.setState({ FullYear: this.state.FullYear - 1 });
     } else {
