@@ -3,6 +3,8 @@ import { Component } from "react";
 import "react-calendar/dist/Calendar.css";
 import axios from "axios";
 import "./ScheduleMain.css";
+import MakeDiv from "./Calendar";
+import "./Calendar2.css";
 class ScheduleMain extends Component {
   state = {
     menuMessage: "menuOff",
@@ -102,7 +104,8 @@ class ScheduleMain extends Component {
             );
         })}
         <div>{this.makeCal()}</div>
-        <div className="wow">aaaa</div>
+
+        <MakeDiv></MakeDiv>
       </div>
     );
   }

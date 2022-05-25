@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import React, { useState } from "react";
+import "./Calendar.css";
+import "react-calendar/dist/Calendar.css";
 
-function CalPick() {
-  const [value, onChange] = useState(new Date());
-
-  return (
-    <div>
-      <Calendar onChange={onChange} value={value} />
-      
-    </div>
-  );
-}export default CalPick;
+function Calendar() {
+  function makeDiv() {
+    var divArr = [];
+    for (var i = 0; i < 3; i++) {
+      divArr.push(<div className={"mon" + i}>안녕</div>);
+      divArr.push(
+        <div>
+          <br></br>
+        </div>
+      );
+    }
+    return divArr;
+  }
+  return <div>{makeDiv()}</div>;
+}
+export default Calendar;
