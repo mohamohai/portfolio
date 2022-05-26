@@ -3,10 +3,23 @@
     height: 10vh;
     float:left;
 }
+.CalForm div{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 18px;
+}
+.CalTitle{
+
+}
+
+.CalContent{
+    font-size: 16px;
+}
+
 .clear{clear:both;}
 
 .Sun{
-    color: red;
+ 
 }
 
 .SunTitle{

@@ -83,7 +83,7 @@ class ScheduleMain extends Component {
             </li>
           </ul>
         </div>
-        {list.map((rowCnt, keyCnt) => {
+        {/* {list.map((rowCnt, keyCnt) => {
           console.log(rowCnt.time);
           if (rowCnt.time == 20220516)
             return (
@@ -102,7 +102,7 @@ class ScheduleMain extends Component {
                 <br></br>
               </div>
             );
-        })}
+        })} */}
         <div>{this.makeCal()}</div>
 
         <MakeDiv></MakeDiv>
