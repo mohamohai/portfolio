@@ -1,5 +1,70 @@
-.mon0{color: blue;}
+.CalForm{
+    width: 14vw;
+    height: 10vh;
+    float:left;
+}
+.clear{clear:both;}
 
-.mon1{color: pink; font-size: 150px;;}
+.Sun{
+    color: red;
+}
 
-.mon2{color: red;}
+.SunTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Mon{
+
+}
+
+.MonTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Tue{
+    
+}
+
+.TueTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Wed{
+
+}
+
+.WedTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Thu{
+
+}
+
+.ThuTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Fri{
+
+}
+
+.FriTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Sat{
+
+}
+
+.SatTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
