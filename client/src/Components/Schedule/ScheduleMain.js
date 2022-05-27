@@ -28,7 +28,9 @@ class ScheduleMain extends Component {
             <div key={String(i) + String(j)} className={"CalForm Sun"}>
               <div
                 className={"SunTitle CalTitle Title" + String(i) + String(j)}
-              ></div>
+              >
+                {" "}
+              </div>
               <div
                 className={
                   "SunContent CalContent Content" + String(i) + String(j)
@@ -140,22 +142,26 @@ class ScheduleMain extends Component {
     this.setState({ SelectList: this.state.list });
   };
 
-  PlusMonth = () => {
+  MinusMonth = () => {
     //동기 비동기 때문에?
     if (this.state.Mon === 1) {
       this.setState({ Mon: 12 });
       this.setState({ FullYear: this.state.FullYear - 1 });
-      this.setState({ CalNum: this.state.CalNum + 1 });
+
+      this.setState({});
     } else {
       this.setState({ Mon: this.state.Mon - 1 });
+      this.setState({ CalNum: this.state.CalNum + 1 });
     }
   };
-  MinusMonth = () => {
+  PlusMonth = () => {
     if (this.state.Mon >= 12) {
       this.setState({ Mon: 1 });
       this.setState({ FullYear: this.state.FullYear + 1 });
+      this.setState({ CalNum: this.state.CalNum + 1 });
     } else {
       this.setState({ Mon: this.state.Mon + 1 });
+      this.setState({ CalNum: this.state.CalNum + 1 });
     }
   };
   render() {
@@ -172,14 +178,14 @@ class ScheduleMain extends Component {
       <div>
         <div className="selectMon">
           <ul>
-            <li></li>
-            <li className="leftAngleBracket" onClick={this.PlusMonth}>
+            <li className="rightAngleBracket" onClick={this.MinusMonth}>
               &lt;
             </li>
             <li className="YearMonth">
-              {this.state.FullYear} &nbsp; {this.state.Mon}{" "}
+              {this.state.FullYear} &nbsp; {this.state.Mon}
+              {this.state.CalNum}
             </li>
-            <li className="rightAngleBracket" onClick={this.MinusMonth}>
+            <li className="leftAngleBracket" onClick={this.PlusMonth}>
               &gt;
             </li>
           </ul>
