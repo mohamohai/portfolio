@@ -4,6 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import axios from "axios";
 import "./ScheduleMain.css";
 import MakeDiv from "./Calendar";
+import "./Calendar.css";
 import "./Calendar2.css";
 class ScheduleMain extends Component {
   state = {
@@ -15,15 +16,116 @@ class ScheduleMain extends Component {
     FullYear: new Date().getFullYear(),
     searchDay: new Date().getDay(),
     uid: sessionStorage.getItem("uid"),
+    CalNum: 8,
+    CalNum2: 0,
   };
+  Calendar() {
+    var divArr = [];
+    for (var i = 0; i <= 5; i++) {
+      for (var j = 0; j <= 6; j++) {
+        if (j === 0) {
+          divArr.push(
+            <div key={String(i) + String(j)} className={"CalForm Sun"}>
+              <div
+                className={"SunTitle CalTitle Title" + String(i) + String(j)}
+              ></div>
+              <div
+                className={
+                  "SunContent CalContent Content" + String(i) + String(j)
+                }
+              ></div>
+            </div>
+          );
+        } else if (j === 1) {
+          divArr.push(
+            <div key={String(i) + String(j)} className={"CalForm Mon"}>
+              <div
+                className={"MonTitle CalTitle Title" + String(i) + String(j)}
+              ></div>
+              <div
+                className={
+                  "MonContent CalContent Content" + String(i) + String(j)
+                }
+              ></div>
+            </div>
+          );
+        } else if (j === 2) {
+          divArr.push(
+            <div key={String(i) + String(j)} className={"CalForm Tue"}>
+              <div
+                className={"TueTitle CalTitle Title" + String(i) + String(j)}
+              ></div>
+              <div
+                className={
+                  "TueContent CalContent Content" + String(i) + String(j)
+                }
+              ></div>
+            </div>
+          );
+        } else if (j === 3) {
+          divArr.push(
+            <div key={String(i) + String(j)} className={"CalForm Wed"}>
+              <div
+                className={"WedTitle CalTitle Title" + String(i) + String(j)}
+              ></div>
+              <div
+                className={
+                  "WedContent CalContent Content" + String(i) + String(j)
+                }
+              ></div>
+            </div>
+          );
+        } else if (j === 4) {
+          divArr.push(
+            <div key={String(i) + String(j)} className={"CalForm Thu"}>
+              <div
+                className={"ThuTitle CalTitle Title" + String(i) + String(j)}
+              ></div>
+              <div
+                className={
+                  "ThuContent CalContent Content" + String(i) + String(j)
+                }
+              ></div>
+            </div>
+          );
+        } else if (j === 5) {
+          divArr.push(
+            <div key={String(i) + String(j)} className={"CalForm Fri"}>
+              <div
+                className={"FriTitle CalTitle Title" + String(i) + String(j)}
+              ></div>
+              <div
+                className={
+                  "FriContent CalContent Content" + String(i) + String(j)
+                }
+              ></div>
+            </div>
+          );
+        } else if (j === 6) {
+          divArr.push(
+            <div key={String(i) + String(j)} className={"CalForm Sat"}>
+              <div
+                className={"SatTitle CalTitle Title" + String(i) + String(j)}
+              ></div>
+              <div
+                className={
+                  "SatContent CalContent Content" + String(i) + String(j)
+                }
+              ></div>
+            </div>
+          );
+        }
+      }
+
+      divArr.push(<div key={String(i)} className="clear"></div>);
+    }
+    return divArr;
+  }
+
   componentDidMount() {
     this._getData();
   }
-  makeCal = () => {
-    for (let i = 0; i <= 5; i++) {
-      for (let j = 0; j <= 6; j++) {}
-    }
-  };
+
   _getData = async () => {
     const userId = this.state.uid;
     const res = await axios.get("/get/ScheduleId", {
@@ -43,6 +145,7 @@ class ScheduleMain extends Component {
     if (this.state.Mon === 1) {
       this.setState({ Mon: 12 });
       this.setState({ FullYear: this.state.FullYear - 1 });
+      this.setState({ CalNum: this.state.CalNum + 1 });
     } else {
       this.setState({ Mon: this.state.Mon - 1 });
     }
@@ -63,8 +166,6 @@ class ScheduleMain extends Component {
     list.map((rowCnt, keyCnt) => {
       SelectData.push(rowCnt);
       // SelectList.push(rowCnt);
-
-      console.log(SelectList);
     });
 
     return (
@@ -103,9 +204,8 @@ class ScheduleMain extends Component {
               </div>
             );
         })} */}
-        <div>{this.makeCal()}</div>
 
-        <MakeDiv></MakeDiv>
+        <div>{this.Calendar()}</div>
       </div>
     );
   }
