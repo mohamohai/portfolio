@@ -27,9 +27,10 @@ class ScheduleMain extends Component {
           divArr.push(
             <div key={String(i) + String(j)} className={"CalForm Sun"}>
               <div
+                id="overover"
                 className={"SunTitle CalTitle Title" + String(i) + String(j)}
               >
-                {" "}
+                {"aa "}
               </div>
               <div
                 className={
@@ -123,9 +124,9 @@ class ScheduleMain extends Component {
     }
     return divArr;
   }
-
   componentDidMount() {
     this._getData();
+    this.writeDay();
   }
 
   _getData = async () => {
@@ -141,7 +142,9 @@ class ScheduleMain extends Component {
     this.setState({ list: res.data });
     this.setState({ SelectList: this.state.list });
   };
-
+  writeDay = () => {
+    console.log("여기에 데이터 기입");
+  };
   MinusMonth = () => {
     //동기 비동기 때문에?
     if (this.state.Mon === 1) {
@@ -158,10 +161,16 @@ class ScheduleMain extends Component {
     if (this.state.Mon >= 12) {
       this.setState({ Mon: 1 });
       this.setState({ FullYear: this.state.FullYear + 1 });
-      this.setState({ CalNum: this.state.CalNum + 1 });
     } else {
       this.setState({ Mon: this.state.Mon + 1 });
-      this.setState({ CalNum: this.state.CalNum + 1 });
+      console.log(new Date(this.state.FullYear, this.state.Mon));
+      const wowmagic = document.getElementsByClassName("Title00");
+      wowmagic.innerHtml = "ss";
+      const wowmagic2 = document.getElementsByClassName("Title01");
+      const element = document.getElementById("overover");
+      element.innerText += "<div>InnerText<div>";
+      console.log(wowmagic);
+      console.log(wowmagic2);
     }
   };
   render() {
@@ -189,6 +198,9 @@ class ScheduleMain extends Component {
               &gt;
             </li>
           </ul>
+          <div id="my_div" className="my_div">
+            aaaaaaaaaa
+          </div>
         </div>
         {/* {list.map((rowCnt, keyCnt) => {
           console.log(rowCnt.time);
