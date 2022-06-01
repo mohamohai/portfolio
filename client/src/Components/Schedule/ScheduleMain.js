@@ -170,7 +170,7 @@ class ScheduleMain extends Component {
     } else {
       this.setState({ Mon: this.state.Mon + 1 });
       console.log(this.state.FullYear, this.state.Mon + 1);
-      console.log(new Date(this.state.FullYear, this.state.Mon, 1));
+      console.log(new Date(this.state.FullYear, this.state.Mon, 2));
 
       console.log(new Date(this.state.FullYear, this.state.Mon).getDay());
 
