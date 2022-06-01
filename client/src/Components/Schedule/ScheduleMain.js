@@ -27,7 +27,7 @@ class ScheduleMain extends Component {
           divArr.push(
             <div key={String(i) + String(j)} className={"CalForm Sun"}>
               <div
-                id="overover"
+                id={"Title" + String(i) + String(j)}
                 className={"SunTitle CalTitle Title" + String(i) + String(j)}
               >
                 {"aa "}
@@ -43,6 +43,7 @@ class ScheduleMain extends Component {
           divArr.push(
             <div key={String(i) + String(j)} className={"CalForm Mon"}>
               <div
+                id={"Title" + String(i) + String(j)}
                 className={"MonTitle CalTitle Title" + String(i) + String(j)}
               ></div>
               <div
@@ -56,6 +57,7 @@ class ScheduleMain extends Component {
           divArr.push(
             <div key={String(i) + String(j)} className={"CalForm Tue"}>
               <div
+                id={"Title" + String(i) + String(j)}
                 className={"TueTitle CalTitle Title" + String(i) + String(j)}
               ></div>
               <div
@@ -69,6 +71,7 @@ class ScheduleMain extends Component {
           divArr.push(
             <div key={String(i) + String(j)} className={"CalForm Wed"}>
               <div
+                id={"Title" + String(i) + String(j)}
                 className={"WedTitle CalTitle Title" + String(i) + String(j)}
               ></div>
               <div
@@ -82,6 +85,7 @@ class ScheduleMain extends Component {
           divArr.push(
             <div key={String(i) + String(j)} className={"CalForm Thu"}>
               <div
+                id={"Title" + String(i) + String(j)}
                 className={"ThuTitle CalTitle Title" + String(i) + String(j)}
               ></div>
               <div
@@ -95,6 +99,7 @@ class ScheduleMain extends Component {
           divArr.push(
             <div key={String(i) + String(j)} className={"CalForm Fri"}>
               <div
+                id={"Title" + String(i) + String(j)}
                 className={"FriTitle CalTitle Title" + String(i) + String(j)}
               ></div>
               <div
@@ -108,6 +113,7 @@ class ScheduleMain extends Component {
           divArr.push(
             <div key={String(i) + String(j)} className={"CalForm Sat"}>
               <div
+                id={"Title" + String(i) + String(j)}
                 className={"SatTitle CalTitle Title" + String(i) + String(j)}
               ></div>
               <div
@@ -163,14 +169,13 @@ class ScheduleMain extends Component {
       this.setState({ FullYear: this.state.FullYear + 1 });
     } else {
       this.setState({ Mon: this.state.Mon + 1 });
-      console.log(new Date(this.state.FullYear, this.state.Mon));
-      const wowmagic = document.getElementsByClassName("Title00");
-      wowmagic.innerHtml = "ss";
-      const wowmagic2 = document.getElementsByClassName("Title01");
-      const element = document.getElementById("overover");
-      element.innerText += "<div>InnerText<div>";
-      console.log(wowmagic);
-      console.log(wowmagic2);
+      console.log(this.state.FullYear, this.state.Mon + 1);
+      console.log(new Date(this.state.FullYear, this.state.Mon, 1));
+
+      console.log(new Date(this.state.FullYear, this.state.Mon).getDay());
+
+      const element = document.getElementById("Title00");
+      element.innerText = "1";
     }
   };
   render() {
