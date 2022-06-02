@@ -12,12 +12,10 @@ class ScheduleMain extends Component {
     menuCheck: false,
     list: [],
     ScheduleList: [],
-    Mon: new Date().getMonth() + 1,
     FullYear: new Date().getFullYear(),
-    searchDay: new Date().getDay(),
+    Mon: new Date().getMonth() + 1,
     uid: sessionStorage.getItem("uid"),
-    CalNum: 8,
-    CalNum2: 0,
+    daySearch: ["일", "월", "화", "수", "목", "금", "토"],
   };
   Calendar() {
     var divArr = [];
@@ -132,7 +130,7 @@ class ScheduleMain extends Component {
   }
   componentDidMount() {
     this._getData();
-    this.writeDay();
+    this.onWrite();
   }
 
   _getData = async () => {
@@ -148,34 +146,107 @@ class ScheduleMain extends Component {
     this.setState({ list: res.data });
     this.setState({ SelectList: this.state.list });
   };
-  writeDay = () => {
-    console.log("여기에 데이터 기입");
-  };
+
   MinusMonth = () => {
     //동기 비동기 때문에?
     if (this.state.Mon === 1) {
+      this.MinusWrite();
       this.setState({ Mon: 12 });
       this.setState({ FullYear: this.state.FullYear - 1 });
-
-      this.setState({});
     } else {
+      this.MinusWrite();
       this.setState({ Mon: this.state.Mon - 1 });
-      this.setState({ CalNum: this.state.CalNum + 1 });
+    }
+  };
+  MinusWrite = () => {
+    let DayCnt = new Date(this.state.FullYear, this.state.Mon - 2).getDay();
+    console.log(this.state.FullYear + "년" + this.state.Mon + "월");
+    console.log(this.state.daySearch[DayCnt] + "요일 ");
+    let DayPoint = 0;
+    let DayWrite = 1;
+
+    for (var i = 0; i <= 5; i++) {
+      for (var j = 0; j <= 6; j++) {
+        const element = document.getElementById(
+          "Title" + String(i) + String(j)
+        );
+        element.innerText = "";
+        if (DayPoint >= DayCnt) {
+          //여기가 문젠데
+          const element = document.getElementById(
+            "Title" + String(i) + String(j)
+          );
+          element.innerText = DayWrite;
+          DayWrite++;
+          DayPoint++;
+        } else {
+          DayPoint++;
+        }
+      }
     }
   };
   PlusMonth = () => {
-    if (this.state.Mon >= 12) {
+    if (this.state.Mon === 12) {
       this.setState({ Mon: 1 });
       this.setState({ FullYear: this.state.FullYear + 1 });
+      this.PlusWrite();
     } else {
       this.setState({ Mon: this.state.Mon + 1 });
-      console.log(this.state.FullYear, this.state.Mon + 1);
-      console.log(new Date(this.state.FullYear, this.state.Mon, 2));
+      this.PlusWrite();
+    }
+  };
+  PlusWrite = () => {
+    let DayCnt = new Date(this.state.FullYear, this.state.Mon).getDay();
+    console.log(this.state.FullYear + "년" + this.state.Mon + "월");
+    console.log(this.state.daySearch[DayCnt] + "요일 ");
+    let DayPoint = 0;
+    let DayWrite = 1;
 
-      console.log(new Date(this.state.FullYear, this.state.Mon).getDay());
+    for (var i = 0; i <= 5; i++) {
+      for (var j = 0; j <= 6; j++) {
+        const element = document.getElementById(
+          "Title" + String(i) + String(j)
+        );
+        element.innerText = "";
+        if (DayPoint >= DayCnt) {
+          //여기가 문젠데
+          const element = document.getElementById(
+            "Title" + String(i) + String(j)
+          );
+          element.innerText = DayWrite;
+          DayWrite++;
+          DayPoint++;
+        } else {
+          DayPoint++;
+        }
+      }
+    }
+  };
+  onWrite = () => {
+    let DayCnt = new Date(this.state.FullYear, this.state.Mon - 1).getDay();
+    console.log(this.state.FullYear + "년" + this.state.Mon + "월");
+    console.log(this.state.daySearch[DayCnt] + "요일 ");
+    let DayPoint = 0;
+    let DayWrite = 1;
 
-      const element = document.getElementById("Title00");
-      element.innerText = "1";
+    for (var i = 0; i <= 5; i++) {
+      for (var j = 0; j <= 6; j++) {
+        const element = document.getElementById(
+          "Title" + String(i) + String(j)
+        );
+        element.innerText = "";
+        if (DayPoint >= DayCnt) {
+          //여기가 문젠데
+          const element = document.getElementById(
+            "Title" + String(i) + String(j)
+          );
+          element.innerText = DayWrite;
+          DayWrite++;
+          DayPoint++;
+        } else {
+          DayPoint++;
+        }
+      }
     }
   };
   render() {
@@ -197,15 +268,11 @@ class ScheduleMain extends Component {
             </li>
             <li className="YearMonth">
               {this.state.FullYear} &nbsp; {this.state.Mon}
-              {this.state.CalNum}
             </li>
             <li className="leftAngleBracket" onClick={this.PlusMonth}>
               &gt;
             </li>
           </ul>
-          <div id="my_div" className="my_div">
-            aaaaaaaaaa
-          </div>
         </div>
         {/* {list.map((rowCnt, keyCnt) => {
           console.log(rowCnt.time);
@@ -227,7 +294,7 @@ class ScheduleMain extends Component {
               </div>
             );
         })} */}
-
+        <div></div>
         <div>{this.Calendar()}</div>
       </div>
     );
