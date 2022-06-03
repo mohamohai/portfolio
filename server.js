@@ -128,6 +128,7 @@ app.get("/get/ScheduleId", (req, res) => {
     where: {
       account: userId,
     },
+    order: [["time", "ASC"]],
   })
     .then((result) => {
       res.send(result);

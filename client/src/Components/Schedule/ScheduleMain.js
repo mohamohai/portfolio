@@ -6,6 +6,8 @@ import "./ScheduleMain.css";
 import MakeDiv from "./Calendar";
 import "./Calendar.css";
 import "./Calendar2.css";
+import Calendar from "./Calendar.js";
+
 class ScheduleMain extends Component {
   state = {
     menuMessage: "menuOff",
@@ -17,117 +19,7 @@ class ScheduleMain extends Component {
     uid: sessionStorage.getItem("uid"),
     daySearch: ["일", "월", "화", "수", "목", "금", "토"],
   };
-  Calendar() {
-    var divArr = [];
-    for (var i = 0; i <= 5; i++) {
-      for (var j = 0; j <= 6; j++) {
-        if (j === 0) {
-          divArr.push(
-            <div key={String(i) + String(j)} className={"CalForm Sun"}>
-              <div
-                id={"Title" + String(i) + String(j)}
-                className={"SunTitle CalTitle Title" + String(i) + String(j)}
-              >
-                {"aa "}
-              </div>
-              <div
-                className={
-                  "SunContent CalContent Content" + String(i) + String(j)
-                }
-              ></div>
-            </div>
-          );
-        } else if (j === 1) {
-          divArr.push(
-            <div key={String(i) + String(j)} className={"CalForm Mon"}>
-              <div
-                id={"Title" + String(i) + String(j)}
-                className={"MonTitle CalTitle Title" + String(i) + String(j)}
-              ></div>
-              <div
-                className={
-                  "MonContent CalContent Content" + String(i) + String(j)
-                }
-              ></div>
-            </div>
-          );
-        } else if (j === 2) {
-          divArr.push(
-            <div key={String(i) + String(j)} className={"CalForm Tue"}>
-              <div
-                id={"Title" + String(i) + String(j)}
-                className={"TueTitle CalTitle Title" + String(i) + String(j)}
-              ></div>
-              <div
-                className={
-                  "TueContent CalContent Content" + String(i) + String(j)
-                }
-              ></div>
-            </div>
-          );
-        } else if (j === 3) {
-          divArr.push(
-            <div key={String(i) + String(j)} className={"CalForm Wed"}>
-              <div
-                id={"Title" + String(i) + String(j)}
-                className={"WedTitle CalTitle Title" + String(i) + String(j)}
-              ></div>
-              <div
-                className={
-                  "WedContent CalContent Content" + String(i) + String(j)
-                }
-              ></div>
-            </div>
-          );
-        } else if (j === 4) {
-          divArr.push(
-            <div key={String(i) + String(j)} className={"CalForm Thu"}>
-              <div
-                id={"Title" + String(i) + String(j)}
-                className={"ThuTitle CalTitle Title" + String(i) + String(j)}
-              ></div>
-              <div
-                className={
-                  "ThuContent CalContent Content" + String(i) + String(j)
-                }
-              ></div>
-            </div>
-          );
-        } else if (j === 5) {
-          divArr.push(
-            <div key={String(i) + String(j)} className={"CalForm Fri"}>
-              <div
-                id={"Title" + String(i) + String(j)}
-                className={"FriTitle CalTitle Title" + String(i) + String(j)}
-              ></div>
-              <div
-                className={
-                  "FriContent CalContent Content" + String(i) + String(j)
-                }
-              ></div>
-            </div>
-          );
-        } else if (j === 6) {
-          divArr.push(
-            <div key={String(i) + String(j)} className={"CalForm Sat"}>
-              <div
-                id={"Title" + String(i) + String(j)}
-                className={"SatTitle CalTitle Title" + String(i) + String(j)}
-              ></div>
-              <div
-                className={
-                  "SatContent CalContent Content" + String(i) + String(j)
-                }
-              ></div>
-            </div>
-          );
-        }
-      }
 
-      divArr.push(<div key={String(i)} className="clear"></div>);
-    }
-    return divArr;
-  }
   componentDidMount() {
     this._getData();
     this.onWrite();
@@ -156,6 +48,7 @@ class ScheduleMain extends Component {
     } else {
       this.MinusWrite();
       this.setState({ Mon: this.state.Mon - 1 });
+      console.log(this.state.list);
     }
   };
   MinusWrite = () => {
@@ -193,6 +86,7 @@ class ScheduleMain extends Component {
     } else {
       this.setState({ Mon: this.state.Mon + 1 });
       this.PlusWrite();
+      console.log(this.state.list[0].time); //map 화살표 for 딴
     }
   };
   PlusWrite = () => {
@@ -263,39 +157,40 @@ class ScheduleMain extends Component {
       <div>
         <div className="selectMon">
           <ul>
-            <li className="rightAngleBracket" onClick={this.MinusMonth}>
-              &lt;
+            <li className="leftAngleBracket" onClick={this.MinusMonth}>
+              &lt;&nbsp;
             </li>
             <li className="YearMonth">
               {this.state.FullYear} &nbsp; {this.state.Mon}
             </li>
-            <li className="leftAngleBracket" onClick={this.PlusMonth}>
+            <li className="rightAngleBracket" onClick={this.PlusMonth}>
               &gt;
             </li>
           </ul>
         </div>
-        {/* {list.map((rowCnt, keyCnt) => {
-          console.log(rowCnt.time);
-          if (rowCnt.time == 20220516)
+
+        {/* <div>
+          {list.map((info, key) => {
             return (
-              <div key={keyCnt} className="ScheduleData">
-                <div> {rowCnt.account} </div>
+              <div key={key} className="ScheduleData">
+                <div> {info.account} </div>
                 <br></br>
-                <div> {rowCnt.title} </div>
+                <div> {info.title} </div>
                 <br></br>
-                <div> {rowCnt.content} </div>
+                <div> {info.content} </div>
                 <br></br>
-                <div> {rowCnt.location}</div>
+                <div> {info.location}</div>
                 <br></br>
-                <div> {rowCnt.time} </div>
+                <div> {info.time} </div>
                 <br></br>
-                <div> {rowCnt.etc} </div>
+                <div> {info.etc} </div>
                 <br></br>
               </div>
             );
-        })} */}
-        <div></div>
-        <div>{this.Calendar()}</div>
+          })}
+        </div> */}
+
+        <Calendar></Calendar>
       </div>
     );
   }

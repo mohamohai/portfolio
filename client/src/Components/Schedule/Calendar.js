@@ -2,21 +2,19 @@ import React, { useState } from "react";
 import "./Calendar.css";
 import "react-calendar/dist/Calendar.css";
 
-function Calendar() {
+function Calen() {
   var divArr = [];
   for (var i = 0; i <= 5; i++) {
     for (var j = 0; j <= 6; j++) {
-      console.log(i, j);
       if (j === 0) {
         divArr.push(
-          <div
-            id="masaka"
-            key={String(i) + String(j)}
-            className={"CalForm Sun"}
-          >
+          <div key={String(i) + String(j)} className={"CalForm Sun"}>
             <div
+              id={"Title" + String(i) + String(j)}
               className={"SunTitle CalTitle Title" + String(i) + String(j)}
-            ></div>
+            >
+              {"aa "}
+            </div>
             <div
               className={
                 "SunContent CalContent Content" + String(i) + String(j)
@@ -28,6 +26,7 @@ function Calendar() {
         divArr.push(
           <div key={String(i) + String(j)} className={"CalForm Mon"}>
             <div
+              id={"Title" + String(i) + String(j)}
               className={"MonTitle CalTitle Title" + String(i) + String(j)}
             ></div>
             <div
@@ -41,6 +40,7 @@ function Calendar() {
         divArr.push(
           <div key={String(i) + String(j)} className={"CalForm Tue"}>
             <div
+              id={"Title" + String(i) + String(j)}
               className={"TueTitle CalTitle Title" + String(i) + String(j)}
             ></div>
             <div
@@ -54,6 +54,7 @@ function Calendar() {
         divArr.push(
           <div key={String(i) + String(j)} className={"CalForm Wed"}>
             <div
+              id={"Title" + String(i) + String(j)}
               className={"WedTitle CalTitle Title" + String(i) + String(j)}
             ></div>
             <div
@@ -67,6 +68,7 @@ function Calendar() {
         divArr.push(
           <div key={String(i) + String(j)} className={"CalForm Thu"}>
             <div
+              id={"Title" + String(i) + String(j)}
               className={"ThuTitle CalTitle Title" + String(i) + String(j)}
             ></div>
             <div
@@ -80,6 +82,7 @@ function Calendar() {
         divArr.push(
           <div key={String(i) + String(j)} className={"CalForm Fri"}>
             <div
+              id={"Title" + String(i) + String(j)}
               className={"FriTitle CalTitle Title" + String(i) + String(j)}
             ></div>
             <div
@@ -93,6 +96,7 @@ function Calendar() {
         divArr.push(
           <div key={String(i) + String(j)} className={"CalForm Sat"}>
             <div
+              id={"Title" + String(i) + String(j)}
               className={"SatTitle CalTitle Title" + String(i) + String(j)}
             ></div>
             <div
@@ -109,4 +113,4 @@ function Calendar() {
   }
   return divArr;
 }
-export default Calendar;
+export default Calen;
