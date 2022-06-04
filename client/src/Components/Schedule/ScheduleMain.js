@@ -57,7 +57,19 @@ class ScheduleMain extends Component {
     console.log(this.state.daySearch[DayCnt] + "요일 ");
     let DayPoint = 0;
     let DayWrite = 1;
+    let lowMon = this.state.Mon - 1;
+    if (lowMon < 10) {
+      lowMon = "0" + lowMon;
+    } else {
+      lowMon = lowMon + "";
+    }
+    let lowDay = 1;
+    if (lowDay < 10) {
+      lowDay = "0" + lowDay;
+    }
 
+    let FullDay = this.state.FullYear + lowMon + lowDay;
+    console.log(FullDay);
     for (var i = 0; i <= 5; i++) {
       for (var j = 0; j <= 6; j++) {
         const element = document.getElementById(
@@ -70,6 +82,15 @@ class ScheduleMain extends Component {
             "Title" + String(i) + String(j)
           );
           element.innerText = DayWrite;
+          if (
+            DayWrite >
+            new Date(this.state.FullYear, this.state.Mon - 1, 0).getDate()
+          ) {
+            const element = document.getElementById(
+              "Title" + String(i) + String(j)
+            );
+            element.innerText = "";
+          }
           DayWrite++;
           DayPoint++;
         } else {
@@ -86,7 +107,6 @@ class ScheduleMain extends Component {
     } else {
       this.setState({ Mon: this.state.Mon + 1 });
       this.PlusWrite();
-      console.log(this.state.list[0].time); //map 화살표 for 딴
     }
   };
   PlusWrite = () => {
@@ -96,6 +116,22 @@ class ScheduleMain extends Component {
     let DayPoint = 0;
     let DayWrite = 1;
 
+    let lowMon = this.state.Mon + 1;
+    if (lowMon < 10) {
+      lowMon = "0" + lowMon;
+    } else {
+      lowMon = lowMon + "";
+    }
+    let lowDay = 1;
+    if (lowDay < 10) {
+      lowDay = "0" + lowDay;
+    }
+    let a = this.state.list[0].time;
+    let b = a.substr(6, 7); //날짜값 뜯어내기
+
+    console.log(b);
+    let FullDay = this.state.FullYear + lowMon + lowDay;
+    console.log(FullDay);
     for (var i = 0; i <= 5; i++) {
       for (var j = 0; j <= 6; j++) {
         const element = document.getElementById(
@@ -103,11 +139,19 @@ class ScheduleMain extends Component {
         );
         element.innerText = "";
         if (DayPoint >= DayCnt) {
-          //여기가 문젠데
           const element = document.getElementById(
             "Title" + String(i) + String(j)
           );
           element.innerText = DayWrite;
+          if (
+            DayWrite >
+            new Date(this.state.FullYear, this.state.Mon + 1, 0).getDate()
+          ) {
+            const element = document.getElementById(
+              "Title" + String(i) + String(j)
+            );
+            element.innerText = "";
+          }
           DayWrite++;
           DayPoint++;
         } else {
@@ -118,10 +162,19 @@ class ScheduleMain extends Component {
   };
   onWrite = () => {
     let DayCnt = new Date(this.state.FullYear, this.state.Mon - 1).getDay();
-    console.log(this.state.FullYear + "년" + this.state.Mon + "월");
-    console.log(this.state.daySearch[DayCnt] + "요일 ");
     let DayPoint = 0;
     let DayWrite = 1;
+    let lowMon = this.state.Mon;
+    let lowDay = 1;
+    if (lowMon < 10) {
+      lowMon = "0" + lowMon;
+    } else {
+      lowMon = lowMon + "";
+    }
+    if (lowDay < 10) {
+      lowDay = "0" + lowDay;
+    }
+    let FullDay = this.state.FullYear + lowMon + lowDay;
 
     for (var i = 0; i <= 5; i++) {
       for (var j = 0; j <= 6; j++) {
@@ -130,11 +183,20 @@ class ScheduleMain extends Component {
         );
         element.innerText = "";
         if (DayPoint >= DayCnt) {
-          //여기가 문젠데
           const element = document.getElementById(
             "Title" + String(i) + String(j)
           );
           element.innerText = DayWrite;
+
+          if (
+            DayWrite >
+            new Date(this.state.FullYear, this.state.Mon, 0).getDate()
+          ) {
+            const element = document.getElementById(
+              "Title" + String(i) + String(j)
+            );
+            element.innerText = "";
+          }
           DayWrite++;
           DayPoint++;
         } else {
@@ -142,6 +204,8 @@ class ScheduleMain extends Component {
         }
       }
     }
+
+    /* 테스트*/
   };
   render() {
     const { list } = this.state;
