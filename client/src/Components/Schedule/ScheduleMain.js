@@ -113,8 +113,13 @@ class ScheduleMain extends Component {
 
     let DayPoint = 0; // 요일 체크
     let DayWrite = 1; // 일 타이핑
+    let DayElement; // 기입용
+
     let lowMon = this.state.Mon + 1; //함수에서 쓸 현재 달
     let lowDay = 1; // 0붙이기용 일
+
+    let ContentElement; // Content 기입용
+    let ContentCnt = 0; //
 
     if (lowMon < 10) {
       lowMon = "0" + lowMon;
@@ -126,41 +131,53 @@ class ScheduleMain extends Component {
 
     let FullDay = this.state.FullYear + lowMon + lowDay;
 
-    this.state.list.map((test, dd) => {
-      for (var i = 1; i <= 31; i++) {
-        lowDay = i;
-        if (lowDay < 10) {
-          lowDay = "0" + lowDay;
-        } else {
-          lowDay = lowDay + "";
-        }
-        FullDay = this.state.FullYear + lowMon + lowDay;
-        console.log(lowMon);
-        if (FullDay == test.time) {
-          let element = document.getElementById("Content03"); //여기 고쳐 나야
-          element.innerText = test.title;
-          console.log(lowMon + "월" + lowDay + "일" + test.title);
-        }
-      }
-    });
-
     for (var i = 0; i <= 5; i++) {
+      // Month에 day 기입
       for (var j = 0; j <= 6; j++) {
-        let element = document.getElementById("Title" + String(i) + String(j));
-        element.innerText = "";
+        DayElement = document.getElementById("Title" + String(i) + String(j));
+        DayElement.innerText = "";
+        ContentElement = document.getElementById(
+          "Content" + String(i) + String(j)
+        );
+        ContentElement.innerText = "";
         if (DayPoint >= DayCnt) {
-          let element = document.getElementById(
-            "Title" + String(i) + String(j)
-          );
-          element.innerText = DayWrite;
+          DayElement = document.getElementById("Title" + String(i) + String(j));
+          DayElement.innerText = DayWrite;
+
+          this.state.list.map((test, dd) => {
+            // 20220606 1228    맵에 넣었는데 값이 안맞음 substr이나 dayWrite , for ij 확인
+            for (var i = 1; i <= 31; i++) {
+              lowDay = i;
+              if (lowDay < 10) {
+                lowDay = "0" + lowDay;
+              } else {
+                lowDay = lowDay + "";
+              }
+              FullDay = this.state.FullYear + lowMon + lowDay; //db 날짜값
+              let a = FullDay;
+              let b = a.substr(6, 7); //날짜값 뜯어내기
+
+              if (b == DayWrite) {
+                DayElement = document.getElementById(
+                  "Content" + +String(i) + String(j)
+                ); //여기 고쳐 나야
+                console.log(b);
+              }
+            }
+          });
+
           if (
             DayWrite >
             new Date(this.state.FullYear, this.state.Mon + 1, 0).getDate()
           ) {
-            let element = document.getElementById(
+            DayElement = document.getElementById(
               "Title" + String(i) + String(j)
             );
-            element.innerText = "";
+            DayElement.innerText = "";
+            ContentElement = document.getElementById(
+              "Content" + String(i) + String(j)
+            );
+            ContentElement.innerText = "";
           }
           DayWrite++;
           DayPoint++;
@@ -169,6 +186,23 @@ class ScheduleMain extends Component {
         }
       }
     }
+    // this.state.list.map((test, dd) => {
+    //   for (var i = 1; i <= 31; i++) {
+    //     lowDay = i;
+    //     if (lowDay < 10) {
+    //       lowDay = "0" + lowDay;
+    //     } else {
+    //       lowDay = lowDay + "";
+    //     }
+    //     FullDay = this.state.FullYear + lowMon + lowDay;
+
+    //     if (FullDay == test.time) {
+    //       DayElement = document.getElementById("Content03"); //여기 고쳐 나야
+    //       DayElement.innerText = test.title;
+    //       console.log(lowMon + "월" + lowDay + "일" + test.title);
+    //     }
+    //   }
+    // });
   };
   onWrite = () => {
     let DayCnt = new Date(this.state.FullYear, this.state.Mon - 1).getDay();
