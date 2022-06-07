@@ -1,27 +1,31 @@
 import React, { useState } from "react";
 import "./Calendar.css";
 import "react-calendar/dist/Calendar.css";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 function Calen() {
   var divArr = [];
+  let usernames = "dddaaaa";
   for (var i = 0; i <= 5; i++) {
     for (var j = 0; j <= 6; j++) {
       if (j === 0) {
         divArr.push(
-          <div key={String(i) + String(j)} className={"CalForm Sun"}>
-            <div
-              id={"Title" + String(i) + String(j)}
-              className={"SunTitle CalTitle Title" + String(i) + String(j)}
-            >
-              {"aa "}
+          <Link to={"/profile/${usernames}"}>
+            <div key={String(i) + String(j)} className={"CalForm Sun"}>
+              <div
+                id={"Title" + String(i) + String(j)}
+                className={"SunTitle CalTitle Title" + String(i) + String(j)}
+              >
+                {"aa "}
+              </div>
+              <div
+                id={"Content" + String(i) + String(j)}
+                className={
+                  "SunContent CalContent Content" + String(i) + String(j)
+                }
+              ></div>
             </div>
-            <div
-              id={"Content" + String(i) + String(j)}
-              className={
-                "SunContent CalContent Content" + String(i) + String(j)
-              }
-            ></div>
-          </div>
+          </Link>
         );
       } else if (j === 1) {
         divArr.push(

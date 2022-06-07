@@ -7,7 +7,6 @@ import {
   NotFound,
   Practice,
   PracticeTwo,
-  snow,
 } from "./mainContents/mainExport";
 import {
   ScheduleView,
@@ -44,7 +43,7 @@ class App extends Component {
             <Route path="/PracticeTwo" component={PracticeTwo} />
             <Route path="/Practice" component={Practice} />
             <Route path="/ScheduleMain" component={ScheduleMain} />
-            <Route path="/snow" component={snow} />
+
             <Route path="*" component={NotFound} />
           </Switch>
         </BrowserRouter>
