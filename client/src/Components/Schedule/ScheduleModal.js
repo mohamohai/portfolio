@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
+import React from "react";
+
 const Modal = (props) => {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
   const { open, close, header } = props;

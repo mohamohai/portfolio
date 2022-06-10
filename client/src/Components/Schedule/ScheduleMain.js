@@ -6,7 +6,7 @@ import "./ScheduleMain.css";
 import "./Calendar.css";
 import "./Calendar2.css";
 import Calendar from "./Calendar.js";
-import modal from "./ScheduleModal";
+import Modal from "./ScheduleModal";
 
 class ScheduleMain extends Component {
   state = {
@@ -27,7 +27,7 @@ class ScheduleMain extends Component {
   closeModal = () => {
     this.setState({ modalOpen: false });
   };
-
+  render;
   componentDidMount() {
     this._getData();
   }
@@ -108,6 +108,8 @@ class ScheduleMain extends Component {
                 "Content" + +String(i) + "" + String(j)
               );
               DayElement.innerText = line.title;
+              DayElement.style.backgroundColor = "rgb(242, 168, 255)";
+              DayElement.style.borderRadius = "5px";
             }
           });
           if (
@@ -179,6 +181,8 @@ class ScheduleMain extends Component {
                 "Content" + +String(i) + "" + String(j)
               );
               DayElement.innerText = line.title;
+              DayElement.style.backgroundColor = "rgb(242, 168, 255)";
+              DayElement.style.borderRadius = "5px";
             }
           });
 
@@ -239,6 +243,7 @@ class ScheduleMain extends Component {
             "Title" + String(i) + String(j)
           );
           element.innerText = DayWrite;
+
           CompareDay = DayWrite;
           if (CompareDay < 10) {
             CompareDay = this.state.FullYear + "" + lowMon + "0" + CompareDay;
@@ -252,7 +257,10 @@ class ScheduleMain extends Component {
               DayElement = document.getElementById(
                 "Content" + +String(i) + "" + String(j)
               );
+
               DayElement.innerText = line.title;
+              DayElement.style.backgroundColor = "rgb(242, 168, 255)";
+              DayElement.style.borderRadius = "5px";
             }
           });
           if (
@@ -285,22 +293,23 @@ class ScheduleMain extends Component {
     });
 
     return (
-      <div>
+      <div className="Select">
         <div className="selectMon">
           <ul>
-            <li className="leftAngleBracket" onClick={this.MinusMonth}>
-              &lt;&nbsp;
-            </li>
             <li className="YearMonth">
               {this.state.FullYear} &nbsp; {this.state.Mon}
+            </li>
+            <li className="leftAngleBracket" onClick={this.MinusMonth}>
+              &lt;&nbsp;
             </li>
             <li className="rightAngleBracket" onClick={this.PlusMonth}>
               &gt;
             </li>
           </ul>
         </div>
-
-        <Calendar></Calendar>
+        <div className="MainCalMonth">
+          <Calendar></Calendar>
+        </div>
         <React.Fragment>
           <button onClick={this.openModal}> 모달팝업</button>
           <modal

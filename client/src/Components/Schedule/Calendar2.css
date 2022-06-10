@@ -1,5 +1,18 @@
-.Title00{
+.CalForm{
     
+    width:260px;
+    height: 100px;
+    text-align: left;
+
+        padding-left: 3px;
+
+}
+
+.SunTitle{
+    color:red;
+}
+
+.Title00{
     
 }
 .Title01{
@@ -93,7 +106,53 @@
 .Title42{
     
 }
-
-    .CalForm{
-        padding-left: 3px;
+.Title43{
+    
 }
+.Title44{
+    
+}
+.Title45{
+    
+}
+.Title46{
+    
+}
+
+
+.Content00{}
+.Content01{}
+.Content02{}
+.Content03{}
+.Content04{}
+.Content05{}
+.Content06{}
+.Content10{}
+.Content11{}
+.Content12{}
+.Content13{}
+.Content14{}
+.Content15{}
+.Content16{}
+.Content20{}
+.Content21{}
+.Content22{}
+.Content23{}
+.Content24{}
+.Content25{}
+.Content26{}
+.Content30{}
+.Content31{}
+.Content32{}
+.Content33{}
+.Content34{}
+.Content35{}
+.Content36{}
+.Content40{}
+.Content41{}
+.Content42{}
+.Content43{}
+.Content44{}
+.Content45{}
+.Content46{}
+

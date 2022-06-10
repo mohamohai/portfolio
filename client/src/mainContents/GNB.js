@@ -4,6 +4,7 @@ import "./GNB.css";
 import React, { useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import Cal from "../Components/SideMenu/Calendar";
+import SideBarImage from "./sideBarImage.jpeg";
 
 class GNB extends Component {
   state = {
@@ -70,23 +71,19 @@ class GNB extends Component {
           </div>
           <div className={this.state.menuCheck ? "SideBarClick" : "SideBar"}>
             <ul>
-              <li>
+              <img className="SideBarImage" src={SideBarImage}></img>
+              <li className="left" onClick={this.onClickView}>
                 <Link to="ScheduleAdd">데이터 추가하기</Link>
               </li>
-              <li>
-                <Link to="ScheduleAdd">데이터추가용 메뉴화면</Link>
+              <li className="SideBarGt">
+                <Link to="ScheduleAdd">&gt; </Link>
               </li>
-              <li onClick={this.onClickView}>
-                <Link to="PracticeTwo"> 연습장 바로가기 </Link>
-              </li>
-              <li onClick={this.onClickView}>
-                <Link to="ScheduleId"> cal</Link>
-              </li>
-              <li onClick={this.onClickView}>
+              <li className="left" onClick={this.onClickView}>
                 <Link to="ScheduleMain"> 메인</Link>
               </li>
-
-              <li>here</li>
+              <li className="SideBarGt">
+                <Link to="ScheduleMain">&gt; </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -141,23 +138,19 @@ class GNB extends Component {
           </div>
           <div className={this.state.menuCheck ? "SideBarClick" : "SideBar"}>
             <ul>
-              <li onClick={this.onClickView}>
+              <img className="SideBarImage" src={SideBarImage}></img>
+              <li className="left" onClick={this.onClickView}>
                 <Link to="ScheduleAdd">데이터 추가하기</Link>
               </li>
-              <li onClick={this.onClickView}>
-                <Link to="ScheduleAdd">데이터추가용 메뉴화면</Link>
+              <li className="SideBarGt">
+                <Link to="ScheduleAdd">&gt; </Link>
               </li>
-              <li onClick={this.onClickView}>
-                <Link to="PracticeTwo"> 연습장 바로가기 </Link>
-              </li>
-              <li onClick={this.onClickView}>
-                <Link to="ScheduleId"> cal </Link>
-              </li>
-              <li onClick={this.onClickView}>
+              <li className="left" onClick={this.onClickView}>
                 <Link to="ScheduleMain"> 메인</Link>
               </li>
-              <li>away</li>
-              <li>here</li>
+              <li className="SideBarGt">
+                <Link to="ScheduleMain">&gt; </Link>
+              </li>
             </ul>
           </div>
         </div>
