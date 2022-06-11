@@ -1,8 +1,4 @@
-.CalForm{
-    width: 14vw;
-    height: 10vh;
-    float:left;
-}
+
 .CalForm div{
     overflow:hidden;
     text-overflow:ellipsis;

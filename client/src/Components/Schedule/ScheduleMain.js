@@ -48,7 +48,6 @@ class ScheduleMain extends Component {
   };
 
   MinusMonth = () => {
-    //동기 비동기 때문에?
     if (this.state.Mon === 1) {
       this.MinusWrite();
       this.setState({ Mon: 12 });
@@ -81,6 +80,7 @@ class ScheduleMain extends Component {
 
     for (var i = 0; i <= 5; i++) {
       for (var j = 0; j <= 6; j++) {
+        //초기화
         const element = document.getElementById(
           "Title" + String(i) + String(j)
         );
@@ -88,9 +88,15 @@ class ScheduleMain extends Component {
         ContentElement = document.getElementById(
           "Content" + String(i) + String(j)
         );
+        DayElement = document.getElementById(
+          //title 기입
+          "Content" + +String(i) + "" + String(j)
+        );
+        DayElement.style.backgroundColor = "";
         ContentElement.innerText = "";
+
         if (DayPoint >= DayCnt) {
-          //여기가 문젠데
+          // 1일부터 날짜기입
           const element = document.getElementById(
             "Title" + String(i) + String(j)
           );
@@ -103,6 +109,7 @@ class ScheduleMain extends Component {
             CompareDay = this.state.FullYear + "" + lowMon + "" + CompareDay;
           }
           this.state.list.map((line, dd) => {
+            // db에서 나온 데이터 title항목에 부여
             if (line.time === CompareDay) {
               DayElement = document.getElementById(
                 "Content" + +String(i) + "" + String(j)
@@ -166,6 +173,13 @@ class ScheduleMain extends Component {
           "Content" + String(i) + String(j)
         );
         ContentElement.innerText = "";
+
+        DayElement = document.getElementById(
+          //title 기입
+          "Content" + +String(i) + "" + String(j)
+        );
+        DayElement.style.backgroundColor = "";
+
         if (DayPoint >= DayCnt) {
           DayElement = document.getElementById("Title" + String(i) + String(j));
           DayElement.innerText = DayWrite;

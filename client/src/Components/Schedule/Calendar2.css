@@ -1,11 +1,14 @@
 .CalForm{
-    
     width:260px;
     height: 100px;
     text-align: left;
-
-        padding-left: 3px;
-
+    padding: 5px;float:left;
+}
+.CalContent{
+    overflow: hidden;
+    text-overflow : ellipsis;
+    width:260px;
+    height: 25px;
 }
 
 .SunTitle{
@@ -109,17 +112,11 @@
 .Title43{
     
 }
-.Title44{
-    
-}
+.Title44{    }
 .Title45{
-    
-}
+    }
 .Title46{
-    
-}
-
-
+    }
 .Content00{}
 .Content01{}
 .Content02{}

@@ -116,7 +116,6 @@ class ScheduleAdd extends React.Component {
             onChange={(e) => this.ScheduleAdd(e)}
           />
           <br></br>
-
           <select name="year" onChange={(e) => this.ScheduleAdd(e)}>
             {yearCount.map((cnt1, year) => {
               if (cnt1 == 2022)
@@ -135,33 +134,64 @@ class ScheduleAdd extends React.Component {
           <select name="month" onChange={(e) => this.ScheduleAdd(e)}>
             {monthCount.map((cnt2, month) => {
               if (cnt2 < 10)
-                return (
-                  <option defaultValue value={cnt2} key={month}>
-                    0{cnt2}
-                  </option>
-                );
-              return (
-                <option key={month} value={cnt2}>
-                  {cnt2}
-                </option>
-              );
+                if (cnt2 == new Date().getMonth() + 1)
+                  return (
+                    <option defaultValue value={cnt2} key={month} selected>
+                      0{cnt2}
+                    </option>
+                  );
+                else
+                  return (
+                    <option defaultValue value={cnt2} key={month}>
+                      0{cnt2}
+                    </option>
+                  );
+              if (cnt2 >= 10)
+                if (cnt2 == new Date().getMonth() + 1)
+                  return (
+                    <option defaultValue value={cnt2} key={month} selected>
+                      {cnt2}
+                    </option>
+                  );
+                else
+                  return (
+                    <option key={month} value={cnt2}>
+                      {cnt2}
+                    </option>
+                  );
             })}
           </select>
           <select name="day" onChange={(e) => this.ScheduleAdd(e)}>
             {dayCount.map((cnt3, day) => {
               if (cnt3 < 10)
-                return (
-                  <option defaultValue value={cnt3} key={day}>
-                    0{cnt3}
-                  </option>
-                );
-              return (
-                <option key={day} value={cnt3}>
-                  {cnt3}
-                </option>
-              );
+                if (cnt3 == new Date().getDate())
+                  return (
+                    <option defaultValue value={cnt3} key={day} selected>
+                      0{cnt3}
+                    </option>
+                  );
+                else
+                  return (
+                    <option defaultValue value={cnt3} key={day}>
+                      0{cnt3}
+                    </option>
+                  );
+              if (cnt3 >= 10)
+                if (cnt3 == new Date().getDate())
+                  return (
+                    <option defaultValue value={cnt3} key={day} selected>
+                      {cnt3}
+                    </option>
+                  );
+                else
+                  return (
+                    <option key={day} value={cnt3}>
+                      {cnt3}
+                    </option>
+                  );
             })}
           </select>
+          v
           <input className="ScheduleAddBtn" type="submit" value="Add" />
         </form>
       </div>

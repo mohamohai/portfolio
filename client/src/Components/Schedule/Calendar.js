@@ -11,7 +11,7 @@ function Calen() {
       if (j === 0) {
         divArr.push(
           // 데이터 주고 받기 / 달력 양식 년도해서 데이터 있으면 그 부분만 색칠/ modal 화면 구성 or viewer페이지 구성
-          <Link to={""}>
+          <Link to={"ScheduleView"}>
             <div key={String(i) + String(j)} className={"CalForm Sun"}>
               <div
                 id={"Title" + String(i) + String(j)}
