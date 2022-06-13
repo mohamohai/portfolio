@@ -6,7 +6,7 @@ import "./ScheduleMain.css";
 import "./Calendar.css";
 import "./Calendar2.css";
 import Calendar from "./Calendar.js";
-import Modal from "./ScheduleModal";
+import ScheduleViewerModal from "./ScheduleViewerModal.js";
 
 class ScheduleMain extends Component {
   state = {
@@ -27,7 +27,6 @@ class ScheduleMain extends Component {
   closeModal = () => {
     this.setState({ modalOpen: false });
   };
-  render;
   componentDidMount() {
     this._getData();
   }
@@ -296,6 +295,7 @@ class ScheduleMain extends Component {
 
     /* 테스트*/
   };
+
   render() {
     const { list } = this.state;
     const SelectList = [];
@@ -323,19 +323,8 @@ class ScheduleMain extends Component {
         </div>
         <div className="MainCalMonth">
           <Calendar></Calendar>
+          <ScheduleViewerModal></ScheduleViewerModal>
         </div>
-        <React.Fragment>
-          <button onClick={this.openModal}> 모달팝업</button>
-          <modal
-            open={this.state.modalOpen}
-            close={this.closeModal}
-            title="Create a chat room"
-          >
-            // Modal.js <main> {this.props.children} </main>에 내용이 입력된다.
-            리액트 클래스형 모달 팝업창입니다. 쉽게 만들 수 있어요. 같이
-            만들어봐요!
-          </modal>
-        </React.Fragment>
       </div>
     );
   }

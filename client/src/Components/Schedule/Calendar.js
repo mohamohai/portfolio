@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 function Calen() {
   var divArr = [];
-  let usernames = "dddaaaa";
+
   for (var i = 0; i <= 5; i++) {
     for (var j = 0; j <= 6; j++) {
       if (j === 0) {
