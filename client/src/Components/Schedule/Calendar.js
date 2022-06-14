@@ -4,6 +4,10 @@ import "react-calendar/dist/Calendar.css";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 function Calen() {
+  function ClickDay() {
+    console.log("Heyhey");
+  }
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   var divArr = [];
 
   for (var i = 0; i <= 5; i++) {
@@ -16,9 +20,7 @@ function Calen() {
               <div
                 id={"Title" + String(i) + String(j)}
                 className={"SunTitle CalTitle Title" + String(i) + String(j)}
-              >
-                {"aa "}
-              </div>
+              ></div>
               <div
                 id={"Content" + String(i) + String(j)}
                 className={

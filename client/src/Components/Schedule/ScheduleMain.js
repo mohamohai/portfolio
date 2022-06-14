@@ -7,8 +7,12 @@ import "./Calendar.css";
 import "./Calendar2.css";
 import Calendar from "./Calendar.js";
 import ScheduleViewerModal from "./ScheduleViewerModal.js";
+import Modal from "react-awesome-modal";
 
 class ScheduleMain extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     menuMessage: "menuOff",
     menuCheck: false,
@@ -18,14 +22,20 @@ class ScheduleMain extends Component {
     Mon: new Date().getMonth() + 1,
     uid: sessionStorage.getItem("uid"),
     daySearch: ["일", "월", "화", "수", "목", "금", "토"],
-    modalOpen: false,
+    visible: false,
+    asdd: document.getElementById("Content20"),
   };
 
-  openModal = () => {
-    this.setState({ modalOpen: true });
+  _openModal = function () {
+    this.setState({
+      visible: true,
+    });
   };
-  closeModal = () => {
-    this.setState({ modalOpen: false });
+
+  _closeModal = function () {
+    this.setState({
+      visible: false,
+    });
   };
   componentDidMount() {
     this._getData();
@@ -322,7 +332,24 @@ class ScheduleMain extends Component {
           </ul>
         </div>
         <div className="MainCalMonth">
+          <h5 onClick={() => this._openModal()}> 관리자 로그인 </h5>
+          <Modal
+            visible={this.state.visible}
+            width="400"
+            height="300"
+            effect="fadeInDown"
+            onClickAway={() => this._closeModal()}
+          >
+            <div>
+              <input
+                value="닫기"
+                type="button"
+                onClick={() => this._closeModal()}
+              />
+            </div>
+          </Modal>
           <Calendar></Calendar>
+
           <ScheduleViewerModal></ScheduleViewerModal>
         </div>
       </div>
