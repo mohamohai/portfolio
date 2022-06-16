@@ -6,6 +6,10 @@ import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 function Calen() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   var divArr = [];
+  
+  ClickDivv = (abc) => {
+    console.log(abc);
+  };
 
   for (var i = 0; i <= 5; i++) {
     for (var j = 0; j <= 6; j++) {
@@ -19,14 +23,14 @@ function Calen() {
               className={"SunTitle CalTitle Title" + String(i) + String(j)}
             ></div>
             <li onClick={ClickDay()}>여기는 되나</li>
-            <Link to={"ScheduleView"}>
-              <div
-                id={"Content" + String(i) + String(j)}
-                className={
-                  "SunContent CalContent Content" + String(i) + String(j)
-                }
-              ></div>
-            </Link>
+
+            <div
+              id={"Content" + String(i) + String(j)}
+              className={
+                "SunContent CalContent Content" + String(i) + String(j)
+              }
+              onClick={}
+            ></div>
           </div>
         );
       } else if (j === 1) {

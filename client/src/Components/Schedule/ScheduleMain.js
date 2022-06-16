@@ -35,6 +35,10 @@ class ScheduleMain extends Component {
       visible: false,
     });
   };
+  ClickDivv = (abc) => {
+    console.log(abc);
+  };
+
   componentDidMount() {
     this._getData();
   }

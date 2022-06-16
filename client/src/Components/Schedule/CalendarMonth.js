@@ -3,12 +3,19 @@ import { Component } from "react";
 import "./Calendar.css";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import Modal from "react-awesome-modal";
+import { addSeconds } from "date-fns";
+import $ from "jquery";
+import id from "date-fns/locale/id/index.js";
 class CalendarMonth extends Component {
   state = {
     visible: false,
+    like: "",
   };
   ClickDiv = (abc) => {
-    console.log(abc);
+    console.log(abc.innerText);
+  };
+  ClickDivv = (e) => {
+    console.log(e);
   };
   OpenModal = function () {
     this.setState({
@@ -27,13 +34,10 @@ class CalendarMonth extends Component {
         if (j === 0) {
           divArr.push(
             // 데이터 주고 받기 / 달력 양식 년도해서 데이터 있으면 그 부분만 색칠/ modal 화면 구성 or viewer페이지 구성
-            <div
-              onClick={() => this.ClickDiv(this)}
-              key={String(i) + String(j)}
-              className={"CalForm Sun"}
-            >
+            <div key={String(i) + String(j)} className={"CalForm Sun"}>
               <div
                 id={"Title" + String(i) + String(j)}
+                value={String(i) + String(j)}
                 className={"SunTitle CalTitle Title" + String(i) + String(j)}
               ></div>
 
@@ -159,7 +163,7 @@ class CalendarMonth extends Component {
             <ul>
               <li>{this.state.ClickTitle}</li>
               <li>{this.state.ClickContent}</li>
-              <li>{this.state.ClickTitle}</li>
+              <li>{this.props.title}</li>
             </ul>
 
             <input
@@ -169,6 +173,14 @@ class CalendarMonth extends Component {
             />
           </div>
         </Modal>
+        <input
+          type="text"
+          onChange={(e) => {
+            this.setState({
+              like: e.target.value,
+            });
+          }}
+        ></input>
       </div>
     );
   }
