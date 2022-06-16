@@ -12,7 +12,7 @@ class ScheduleViewerModal extends Component {
   }
 
   render() {
-    return <div>ㅁㅁㅁㅁ</div>;
+    return <div>aaa</div>;
   }
 }
 

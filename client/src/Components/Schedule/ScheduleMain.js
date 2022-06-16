@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Component } from "react";
-import "react-calendar/dist/Calendar.css";
 import axios from "axios";
 import "./ScheduleMain.css";
 import "./Calendar.css";
 import "./Calendar2.css";
-import Calendar from "./Calendar.js";
+
+import Calendar from "./CalendarMonth.js";
 import ScheduleViewerModal from "./ScheduleViewerModal.js";
 import Modal from "react-awesome-modal";
 
@@ -22,8 +22,6 @@ class ScheduleMain extends Component {
     Mon: new Date().getMonth() + 1,
     uid: sessionStorage.getItem("uid"),
     daySearch: ["일", "월", "화", "수", "목", "금", "토"],
-    visible: false,
-    asdd: document.getElementById("Content20"),
   };
 
   _openModal = function () {
@@ -273,10 +271,9 @@ class ScheduleMain extends Component {
           } else {
             CompareDay = this.state.FullYear + "" + lowMon + "" + CompareDay;
           }
-          console.log();
+
           this.state.list.map((line, dd) => {
             if (line.time === CompareDay) {
-              console.log(line);
               DayElement = document.getElementById(
                 "Content" + +String(i) + "" + String(j)
               );
@@ -332,25 +329,8 @@ class ScheduleMain extends Component {
           </ul>
         </div>
         <div className="MainCalMonth">
-          <h5 onClick={() => this._openModal()}> 관리자 로그인 </h5>
-          <Modal
-            visible={this.state.visible}
-            width="400"
-            height="300"
-            effect="fadeInDown"
-            onClickAway={() => this._closeModal()}
-          >
-            <div>
-              <input
-                value="닫기"
-                type="button"
-                onClick={() => this._closeModal()}
-              />
-            </div>
-          </Modal>
-          <Calendar></Calendar>
-
           <ScheduleViewerModal></ScheduleViewerModal>
+          <Calendar></Calendar>
         </div>
       </div>
     );
