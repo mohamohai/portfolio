@@ -17,6 +17,7 @@ class CalendarMonth extends Component {
   };
   ClickDivv = () => {
     console.log(this.state.like);
+    this.OpenModal();
   };
   testOne = () => {
     console.log(this.state.like);
