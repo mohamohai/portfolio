@@ -9,13 +9,17 @@ import id from "date-fns/locale/id/index.js";
 class CalendarMonth extends Component {
   state = {
     visible: false,
-    like: "",
+    like: 0,
   };
-  ClickDiv = (abc) => {
-    console.log(abc.innerText);
+  ClickDiv = () => {
+    this.setState({ like: this.state.like + 1 });
+    this.ClickDivv();
   };
-  ClickDivv = (e) => {
-    console.log(e);
+  ClickDivv = () => {
+    console.log(this.state.like);
+  };
+  testOne = () => {
+    console.log(this.state.like);
   };
   OpenModal = function () {
     this.setState({
@@ -37,8 +41,9 @@ class CalendarMonth extends Component {
             <div key={String(i) + String(j)} className={"CalForm Sun"}>
               <div
                 id={"Title" + String(i) + String(j)}
-                value={String(i) + String(j)}
+                value={String(i) + String(j)} //test
                 className={"SunTitle CalTitle Title" + String(i) + String(j)}
+                onClick={() => this.ClickDiv()}
               ></div>
 
               <div
@@ -180,6 +185,11 @@ class CalendarMonth extends Component {
               like: e.target.value,
             });
           }}
+        ></input>
+        <input
+          type="button"
+          onClick={() => this.testOne()}
+          value="aaaaaaaa"
         ></input>
       </div>
     );
