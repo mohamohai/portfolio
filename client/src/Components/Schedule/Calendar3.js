@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 function Calen() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   var divArr = [];
-  
+
   ClickDivv = (abc) => {
     console.log(abc);
   };
@@ -29,7 +29,6 @@ function Calen() {
               className={
                 "SunContent CalContent Content" + String(i) + String(j)
               }
-              onClick={}
             ></div>
           </div>
         );

@@ -6,21 +6,32 @@ import Modal from "react-awesome-modal";
 import { addSeconds } from "date-fns";
 import $ from "jquery";
 import id from "date-fns/locale/id/index.js";
+import PlusCnt from "./PlusCnt.js";
 class CalendarMonth extends Component {
   state = {
     visible: false,
-    like: 0,
+    DivCountNum: 0,
+    DivCountNum2: 0,
   };
-  ClickDiv = () => {
-    this.setState({ like: this.state.like + 1 });
-    this.ClickDivv();
+  StatePlusFun1 = () => {
+    this.setState({ DivCountNum: this.state.DivCountNum + 1 });
+  };
+  StatePlusFun2 = () => {
+    this.setState({ DivCountNum2: this.state.DivCountNum2 + 1 });
+  };
+  PlusCnt1 = (abc) => {
+    console.log(abc);
+  };
+  ClickDiv = (inCount) => {
+    console.log(this.state.DivCountNum);
+    console.log(this.state.DivCountNum2);
   };
   ClickDivv = () => {
-    console.log(this.state.like);
+    console.log(this.state.DivCountNum);
     this.OpenModal();
   };
   testOne = () => {
-    console.log(this.state.like);
+    console.log(this.state.DivCountNum);
   };
   OpenModal = function () {
     this.setState({
@@ -44,7 +55,7 @@ class CalendarMonth extends Component {
                 id={"Title" + String(i) + String(j)}
                 value={String(i) + String(j)} //test
                 className={"SunTitle CalTitle Title" + String(i) + String(j)}
-                onClick={() => this.ClickDiv()}
+                onClick={() => this.PlusCnt1(this.state.DivCountNum)}
               ></div>
 
               <div
@@ -55,6 +66,9 @@ class CalendarMonth extends Component {
               ></div>
             </div>
           );
+          {
+            <PlusCnt></PlusCnt>;
+          }
         } else if (j === 1) {
           divArr.push(
             <div
@@ -183,7 +197,7 @@ class CalendarMonth extends Component {
           type="text"
           onChange={(e) => {
             this.setState({
-              like: e.target.value,
+              DivCountNum: e.target.value,
             });
           }}
         ></input>
