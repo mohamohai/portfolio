@@ -1,13 +1,8 @@
 import React from "react";
-import "./App.css";
 
-const PlusCntaa = () => {
-  const name = "test";
-  return PlusCnt1();
-};
+function PlusCnt(props) {
+  let { aaaaa } = props; // 상위 컴포넌트에서 전달받은 props 할당
 
-export default PlusCntaa;
-
-PlusCnt1 = (abc) => {
-  console.log(abc);
-};
+  return <div style={{ color: "blue" }}>{aaaaa}aaaa</div>;
+}
+export default PlusCnt;
