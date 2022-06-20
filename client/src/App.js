@@ -16,6 +16,8 @@ import {
   ScheduleDelete,
   ScheduleCalendarMonth,
   ScheduleAdd,
+  testView,
+  testViewTwo,
 } from "./Components/Schedule/ScheduleExport";
 import { SignUp, SignIn } from "./Components/Sign/SignExport";
 
@@ -34,15 +36,21 @@ class App extends Component {
             <Route exact path="/" component={ScheduleCalendarMonth} />
             <Route path="/SignIn" component={SignIn} />
             <Route path="/SignUp" component={SignUp} />
+            <Route path="/ScheduleMain" component={ScheduleMain} />
+            <Route path="/ScheduleAdd/" component={ScheduleAdd} />
+
             <Route path="/UserSelect" component={UserSelect} />
-            <Route path="/ScheduleAdd" component={ScheduleAdd} />
+
             <Route path="/ScheduleDelete" component={ScheduleDelete} />
             <Route path="/ScheduleView" component={ScheduleView} />
-            <Route path="/whereTest" component={ScheduleSelect} />
+
             <Route path="/ScheduleId" component={ScheduleId} />
+
+            <Route path="/whereTest" component={ScheduleSelect} />
             <Route path="/PracticeTwo" component={PracticeTwo} />
             <Route path="/Practice" component={Practice} />
-            <Route path="/ScheduleMain" component={ScheduleMain} />
+            {/* <Route path="/testView" component={testView} /> */}
+            <Route path="/testViewTwo/:Key" component={testViewTwo} />
 
             <Route path="*" component={NotFound} />
           </Switch>

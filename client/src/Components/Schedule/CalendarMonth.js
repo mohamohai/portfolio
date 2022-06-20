@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Component } from "react";
 import "./Calendar.css";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import Modal from "react-awesome-modal";
-import { addSeconds } from "date-fns";
-import $ from "jquery";
-import id from "date-fns/locale/id/index.js";
-import PlusCnt from "./PlusCnt.js";
+
+import { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router";
+
 class CalendarMonth extends Component {
   state = {
     visible: false,
@@ -16,11 +16,16 @@ class CalendarMonth extends Component {
     DayEtc: "",
     DayDate: "",
     divArr: [],
+    testword: "1aa51ㅁㅁ5",
   };
 
   ClickDiv = (abc, sss) => {
     console.log(abc + sss);
 
+    let title = document.getElementById("Content" + abc + sss).innerText;
+    let Content;
+
+    this.setState({ DayTitle: title });
     this.OpenModal();
   };
 
@@ -55,7 +60,6 @@ class CalendarMonth extends Component {
                 "SunTitle CalTitle Title" + String(testCnt) + String(j)
               }
             ></div>
-
             <div
               id={"Content" + String(testCnt) + String(j)}
               className={
@@ -192,27 +196,42 @@ class CalendarMonth extends Component {
         );
       }
     }
-
     this.state.divArr.push(<div key={String(testCnt)} className="clear"></div>);
   };
   render() {
     for (var i = 0; i <= 5; i++) {
       this.testa(i);
     }
-
+    let testword = "여기가 테스트다!";
     return (
       <div>
+        <Link to="/testView/:holy">
+          <div>Linkto</div>
+        </Link>
+        <Link to={`/testView?${this.state.testword}`}>
+          <div>aaaaaa</div>
+        </Link>
+
+        <a href={` /testViewTwo/${testword}`}>여기눌러봐</a>
         {this.state.divArr}
 
         <Modal
           visible={this.state.visible}
-          width="400"
-          height="300"
+          width="800"
+          height="400"
           effect="fadeInDown"
+          position="fixed"
+          left="1000px"
+          background-color="black"
           onClickAway={() => this.CloseModal()}
         >
+          {/* <Link to="/ScheduleAdd/" state={{ data: "헤이헤이" }}>
+            <Link to={`/ScheduleAdd/${this.state.DayTitle}`}> */}
           <div>
-            <PlusCnt aaaaa={"sss"} />
+            {this.state.DayTitle}
+            {this.state.DayContent} {this.state.DayLocation}
+            {this.state.DayEtc}
+            {this.state.DayDate}
             <br></br>
             <input
               value="닫기"
@@ -221,12 +240,6 @@ class CalendarMonth extends Component {
             />
           </div>
         </Modal>
-
-        <input
-          type="button"
-          onClick={() => this.testOne()}
-          value="aaaaaaaa"
-        ></input>
       </div>
     );
   }

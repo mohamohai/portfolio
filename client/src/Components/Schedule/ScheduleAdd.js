@@ -2,6 +2,7 @@ import { Component } from "react";
 import React, { useState } from "react";
 import axios from "axios";
 import "./ScheduleAdd.css";
+import { useLocation } from "react-router-dom";
 
 class ScheduleAdd extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class ScheduleAdd extends React.Component {
       day: dayCnt,
     };
   }
-
+  Home = () => {};
   ScheduleAdd(e) {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
@@ -86,6 +87,7 @@ class ScheduleAdd extends React.Component {
             placeholder="titlePlz"
             onChange={(e) => this.ScheduleAdd(e)}
           />
+
           <br></br>
           <input
             className="ScheduleAddContent"
@@ -189,9 +191,9 @@ class ScheduleAdd extends React.Component {
                   );
             })}
           </select>
-          v
           <input className="ScheduleAddBtn" type="submit" value="Add" />
         </form>
+        {}
       </div>
     );
   }
