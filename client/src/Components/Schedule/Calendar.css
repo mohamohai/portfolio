@@ -12,15 +12,22 @@
     font-size: 16px;
 }
 
-.clear{clear:both;}
+#ModalView{
+    background-color: pink;
+    width: 600px;
+    height: 400px;
+}
 
 .Sun{
  
 }
-
+.DisplayNone{
+    display:none;
+}
 .SunTitle{
     overflow:hidden;
     text-overflow:ellipsis;
+    color: red;
 }
 
 .Mon{

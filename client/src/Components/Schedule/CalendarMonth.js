@@ -19,13 +19,29 @@ class CalendarMonth extends Component {
     testword: "1aa51ㅁㅁ5",
   };
 
-  ClickDiv = (abc, sss) => {
-    console.log(abc + sss);
+  ClickDiv = (Stringi, Stringj) => {
+    console.log(Stringi + Stringj);
 
-    let title = document.getElementById("Content" + abc + sss).innerText;
-    let Content;
-
-    this.setState({ DayTitle: title });
+    let title = document.getElementById(
+      "Content" + Stringi + Stringj
+    ).innerText;
+    let content = document.getElementById(
+      "ConNone" + Stringi + Stringj
+    ).innerText;
+    let etc = document.getElementById("EtcNone" + Stringi + Stringj).innerText;
+    let date = document.getElementById(
+      "TimeNone" + Stringi + Stringj
+    ).innerText;
+    let location = document.getElementById(
+      "LocNone" + Stringi + Stringj
+    ).innerText;
+    this.setState({
+      DayTitle: title,
+      DayContent: content,
+      DayLocation: location,
+      DayEtc: etc,
+      DayDate: date,
+    });
     this.OpenModal();
   };
 
@@ -33,7 +49,6 @@ class CalendarMonth extends Component {
     this.setState({
       visible: true,
     });
-    console.log(j);
   };
   CloseModal = () => {
     this.setState({
@@ -41,8 +56,7 @@ class CalendarMonth extends Component {
     });
   };
 
-  testa = (testCnt) => {
-    console.log(testCnt);
+  PushDiv = (testCnt) => {
     for (var j = 0; j <= 6; j++) {
       if (j === 0) {
         this.state.divArr.push(
@@ -66,6 +80,26 @@ class CalendarMonth extends Component {
                 "SunContent CalContent Content" + String(testCnt) + String(j)
               }
             ></div>
+            <div
+              id={"AccNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"ConNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"LocNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"TimeNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"EtcNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
           </div>
         );
       } else if (j === 1) {
@@ -86,6 +120,26 @@ class CalendarMonth extends Component {
               className={
                 "MonContent CalContent Content" + String(testCnt) + String(j)
               }
+            ></div>
+            <div
+              id={"AccNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"ConNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"LocNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"TimeNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"EtcNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
             ></div>
           </div>
         );
@@ -108,6 +162,26 @@ class CalendarMonth extends Component {
                 "TueContent CalContent Content" + String(testCnt) + String(j)
               }
             ></div>
+            <div
+              id={"AccNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"ConNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"LocNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"TimeNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"EtcNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
           </div>
         );
       } else if (j === 3) {
@@ -128,6 +202,26 @@ class CalendarMonth extends Component {
               className={
                 "WedContent CalContent Content" + String(testCnt) + String(j)
               }
+            ></div>
+            <div
+              id={"AccNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"ConNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"LocNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"TimeNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"EtcNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
             ></div>
           </div>
         );
@@ -150,6 +244,26 @@ class CalendarMonth extends Component {
                 "ThuContent CalContent Content" + String(testCnt) + String(j)
               }
             ></div>
+            <div
+              id={"AccNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"ConNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"LocNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"TimeNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"EtcNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
           </div>
         );
       } else if (j === 5) {
@@ -170,6 +284,26 @@ class CalendarMonth extends Component {
               className={
                 "FriContent CalContent Content" + String(testCnt) + String(j)
               }
+            ></div>
+            <div
+              id={"AccNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"ConNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"LocNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"TimeNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"EtcNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
             ></div>
           </div>
         );
@@ -192,6 +326,26 @@ class CalendarMonth extends Component {
                 "SatContent CalContent Content" + String(testCnt) + String(j)
               }
             ></div>
+            <div
+              id={"AccNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"ConNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"LocNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"TimeNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
+            <div
+              id={"EtcNone" + String(testCnt) + String(j)}
+              className="DisplayNone"
+            ></div>
           </div>
         );
       }
@@ -200,38 +354,35 @@ class CalendarMonth extends Component {
   };
   render() {
     for (var i = 0; i <= 5; i++) {
-      this.testa(i);
+      this.PushDiv(i);
     }
-    let testword = "여기가 테스트다!";
+
     return (
       <div>
-        <Link to="/testView/:holy">
-          <div>Linkto</div>
-        </Link>
-        <Link to={`/testView?${this.state.testword}`}>
-          <div>aaaaaa</div>
-        </Link>
-
-        <a href={` /testViewTwo/${testword}`}>여기눌러봐</a>
         {this.state.divArr}
 
         <Modal
           visible={this.state.visible}
-          width="800"
+          width="600"
           height="400"
           effect="fadeInDown"
-          position="fixed"
-          left="1000px"
-          background-color="black"
           onClickAway={() => this.CloseModal()}
         >
-          {/* <Link to="/ScheduleAdd/" state={{ data: "헤이헤이" }}>
-            <Link to={`/ScheduleAdd/${this.state.DayTitle}`}> */}
-          <div>
-            {this.state.DayTitle}
-            {this.state.DayContent} {this.state.DayLocation}
+          <div id="ModalView">
+            <a href={` /testViewTwo/${this.state.DayTitle}/${"20220617"}`}>
+              삭제버튼
+            </a>
+            <br></br>
+            제목 : {this.state.DayTitle}
+            <br></br>
+            {this.state.DayContent}
+            <br></br>
+            {this.state.DayLocation}
+            <br></br>
             {this.state.DayEtc}
+            <br></br>
             {this.state.DayDate}
+            <br></br>
             <br></br>
             <input
               value="닫기"

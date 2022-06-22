@@ -120,14 +120,31 @@ class ScheduleMain extends Component {
             CompareDay = this.state.FullYear + "" + lowMon + "" + CompareDay;
           }
           this.state.list.map((line, dd) => {
-            // db에서 나온 데이터 title항목에 부여
+            //날짜값 비교해서 데이터 입력, 여기서 나머지도 다
             if (line.time === CompareDay) {
               DayElement = document.getElementById(
-                "Content" + +String(i) + "" + String(j)
+                "Content" + String(i) + "" + String(j)
               );
               DayElement.innerText = line.title;
               DayElement.style.backgroundColor = "rgb(242, 168, 255)";
               DayElement.style.borderRadius = "5px";
+
+              DayElement = document.getElementById(
+                "ConNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.content;
+              DayElement = document.getElementById(
+                "LocNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.location;
+              DayElement = document.getElementById(
+                "TimeNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.time;
+              DayElement = document.getElementById(
+                "EtcNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.etc;
             }
           });
           if (
@@ -203,11 +220,28 @@ class ScheduleMain extends Component {
           this.state.list.map((line, dd) => {
             if (line.time === CompareDay) {
               DayElement = document.getElementById(
-                "Content" + +String(i) + "" + String(j)
+                "Content" + String(i) + "" + String(j)
               );
               DayElement.innerText = line.title;
               DayElement.style.backgroundColor = "rgb(242, 168, 255)";
               DayElement.style.borderRadius = "5px";
+
+              DayElement = document.getElementById(
+                "ConNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.content;
+              DayElement = document.getElementById(
+                "LocNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.location;
+              DayElement = document.getElementById(
+                "TimeNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.time;
+              DayElement = document.getElementById(
+                "EtcNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.etc;
             }
           });
 
@@ -261,7 +295,7 @@ class ScheduleMain extends Component {
         element.innerText = "";
         ContentElement = document.getElementById(
           "Content" + String(i) + String(j)
-        );
+        ); //위에 ele까지 칸 비우기
         ContentElement.innerText = "";
         if (DayPoint >= DayCnt) {
           const element = document.getElementById(
@@ -277,14 +311,31 @@ class ScheduleMain extends Component {
           }
 
           this.state.list.map((line, dd) => {
+            //날짜값 비교해서 데이터 입력, 여기서 나머지도 다
             if (line.time === CompareDay) {
               DayElement = document.getElementById(
-                "Content" + +String(i) + "" + String(j)
+                "Content" + String(i) + "" + String(j)
               );
-
               DayElement.innerText = line.title;
               DayElement.style.backgroundColor = "rgb(242, 168, 255)";
               DayElement.style.borderRadius = "5px";
+
+              DayElement = document.getElementById(
+                "ConNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.content;
+              DayElement = document.getElementById(
+                "LocNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.location;
+              DayElement = document.getElementById(
+                "TimeNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.time;
+              DayElement = document.getElementById(
+                "EtcNone" + String(i) + "" + String(j)
+              );
+              DayElement.innerText = line.etc;
             }
           });
           if (
