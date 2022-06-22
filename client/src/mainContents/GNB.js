@@ -60,7 +60,7 @@ class GNB extends Component {
           <div className="gnbUser">
             <ul>
               <li>
-                <Link to="ScheduleAdd">데이터추가용 메뉴화면</Link>
+                <Link to="/ScheduleAdd">데이터추가용 메뉴화면</Link>
               </li>
               <li>
                 <button onClick={this.onClickLogOut}>로그아웃</button>
@@ -73,16 +73,16 @@ class GNB extends Component {
             <ul>
               <img className="SideBarImage" src={SideBarImage}></img>
               <li className="left" onClick={this.onClickView}>
-                <Link to="ScheduleAdd">데이터 추가하기</Link>
+                <Link to="/ScheduleAdd">데이터 추가하기</Link>
               </li>
               <li className="SideBarGt">
-                <Link to="ScheduleAdd">&gt; </Link>
+                <Link to="/ScheduleAdd">&gt; </Link>
               </li>
               <li className="left" onClick={this.onClickView}>
-                <Link to="ScheduleMain"> 메인</Link>
+                <Link to="/ScheduleMain"> 메인</Link>
               </li>
               <li className="SideBarGt">
-                <Link to="ScheduleMain">&gt; </Link>
+                <Link to="/ScheduleMain">&gt; </Link>
               </li>
             </ul>
           </div>
@@ -124,10 +124,10 @@ class GNB extends Component {
           <div className="gnbUser">
             <ul>
               <li>
-                <Link to="ScheduleAdd">데이터추가용 메뉴화면</Link>
+                <Link to="/ScheduleAdd">데이터추가용 메뉴화면</Link>
               </li>
               <li>
-                <Link to="SignIn">로그인</Link>
+                <Link to="/SignIn">로그인</Link>
               </li>
               <li>my</li>
               <li>etc</li>
@@ -140,16 +140,16 @@ class GNB extends Component {
             <ul>
               <img className="SideBarImage" src={SideBarImage}></img>
               <li className="left" onClick={this.onClickView}>
-                <Link to="ScheduleAdd">데이터 추가하기</Link>
+                <Link to="/ScheduleAdd">데이터 추가하기</Link>
               </li>
               <li className="SideBarGt">
-                <Link to="ScheduleAdd">&gt; </Link>
+                <Link to="/ScheduleAdd">&gt; </Link>
               </li>
               <li className="left" onClick={this.onClickView}>
-                <Link to="ScheduleMain"> 메인</Link>
+                <Link to="/ScheduleMain"> 메인</Link>
               </li>
               <li className="SideBarGt">
-                <Link to="ScheduleMain">&gt; </Link>
+                <Link to="/ScheduleMain">&gt; </Link>
               </li>
             </ul>
           </div>

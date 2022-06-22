@@ -10,3 +10,4 @@ export { default as ScheduleViewerModal } from "./ScheduleViewerModal.js"; //필
 export { default as testView } from "./testView.js";
 export { default as testViewTwo } from "./testViewTwo.js";
 export { default as ScheduleDeleteModal } from "./ScheduleDeleteModal.js";
+export { default as testadd } from "./testadd.js";

@@ -364,14 +364,26 @@ class CalendarMonth extends Component {
         <Modal
           visible={this.state.visible}
           width="600"
-          height="400"
+          height="300"
           effect="fadeInDown"
           onClickAway={() => this.CloseModal()}
         >
           <div id="ModalView">
-            <a href={` /testViewTwo/${this.state.DayTitle}/${"20220617"}`}>
-              삭제버튼
-            </a>
+            <div>
+              <a
+                href={` /testViewTwo/${this.state.DayTitle}/${"20220617"}`}
+                style={{ float: "right", margin: "0 50px 0 0" }}
+              >
+                ★★삭제★★
+              </a>
+              <a
+                href={`/ScheduleAddSelect/${this.state.DayDate}`}
+                style={{ float: "right", margin: "0 50px 0 0" }}
+              >
+                ♠♠등록♠♠
+              </a>
+            </div>
+            <div className="clear"></div>
             <br></br>
             제목 : {this.state.DayTitle}
             <br></br>

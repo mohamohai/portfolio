@@ -10,12 +10,13 @@
 
 .CalContent{
     font-size: 16px;
+    
 }
 
 #ModalView{
     background-color: pink;
     width: 600px;
-    height: 400px;
+    height: 400px;    font-family:"TmoneyRoundWindExtraBold";
 }
 
 .Sun{

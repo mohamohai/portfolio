@@ -17,6 +17,7 @@ import {
   ScheduleCalendarMonth,
   ScheduleAdd,
   testView,
+  testadd,
   testViewTwo,
   ScheduleDeleteModal,
 } from "./Components/Schedule/ScheduleExport";
@@ -39,7 +40,7 @@ class App extends Component {
             <Route path="/SignUp" component={SignUp} />
             <Route path="/ScheduleMain" component={ScheduleMain} />
             <Route path="/ScheduleAdd/" component={ScheduleAdd} />
-
+            <Route path="/ScheduleAddSelect/:Date" component={testadd} />
             <Route path="/UserSelect" component={UserSelect} />
 
             <Route path="/ScheduleDelete" component={ScheduleDelete} />
@@ -50,13 +51,13 @@ class App extends Component {
             <Route path="/whereTest" component={ScheduleSelect} />
 
             <Route path="/Practice" component={Practice} />
-            {/* <Route path="/testView" component={testView} /> */}
 
             <Route path="/testViewTwo/:title/:Date" component={testViewTwo} />
             <Route
               path="/ScheduleDeleteModal"
               Component={ScheduleDeleteModal}
             />
+
             <Route path="*" component={NotFound} />
           </Switch>
         </BrowserRouter>
