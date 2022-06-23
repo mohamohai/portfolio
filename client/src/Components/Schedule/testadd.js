@@ -6,9 +6,9 @@ import "./ScheduleAdd.css";
 class testadd extends React.Component {
   constructor(props) {
     super(props);
-    let monCnt = new Date().getMonth() + 1;
-    let dayCnt = new Date().getDate();
     const ParamsDate = props.match.params.Date;
+    let monCnt = ParamsDate.substring(4, 6);
+    let dayCnt = ParamsDate.substring(6, 8);
 
     this.state = {
       account: "",
@@ -43,12 +43,12 @@ class testadd extends React.Component {
     let { month } = this.state;
     let { day } = this.state;
     const { time } = this.state;
-    if (day < 10) {
-      day = "0" + day;
-    }
-    if (month < 10) {
-      month = "0" + month;
-    }
+    // if (day < 10) {
+    //   day = "0" + day;
+    // }
+    // if (month < 10) {
+    //   month = "0" + month;
+    // }
     const data = {
       account: sessionStorage.getItem("uid"),
       title: title,
@@ -66,7 +66,7 @@ class testadd extends React.Component {
     });
 
     alert("데이터를 추가했습니다.");
-    return window.location.reload();
+    return window.location.replace("http://localhost:3000/ScheduleMain"); //나중에 바꿔라 나야
   };
 
   render() {
@@ -167,6 +167,8 @@ class testadd extends React.Component {
             })}
           </select>
           {console.log(this.state.ParamsDay)}
+          {console.log(this.state.ParamsMonth)}
+          {console.log(this.state.ParamsYear)}
           <select name="day" onChange={(e) => this.ScheduleAdd(e)}>
             {dayCount.map((cnt3, day) => {
               if (cnt3 < 10)

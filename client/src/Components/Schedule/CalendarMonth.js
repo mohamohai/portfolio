@@ -20,8 +20,6 @@ class CalendarMonth extends Component {
   };
 
   ClickDiv = (Stringi, Stringj) => {
-    console.log(Stringi + Stringj);
-
     let title = document.getElementById(
       "Content" + Stringi + Stringj
     ).innerText;
@@ -35,6 +33,7 @@ class CalendarMonth extends Component {
     let location = document.getElementById(
       "LocNone" + Stringi + Stringj
     ).innerText;
+
     this.setState({
       DayTitle: title,
       DayContent: content,

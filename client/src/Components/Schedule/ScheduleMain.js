@@ -119,6 +119,11 @@ class ScheduleMain extends Component {
           } else {
             CompareDay = this.state.FullYear + "" + lowMon + "" + CompareDay;
           }
+          DayElement = document.getElementById(
+            "TimeNone" + String(i) + "" + String(j)
+          );
+          DayElement.innerText = CompareDay;
+
           this.state.list.map((line, dd) => {
             //날짜값 비교해서 데이터 입력, 여기서 나머지도 다
             if (line.time === CompareDay) {
@@ -127,6 +132,7 @@ class ScheduleMain extends Component {
               );
               DayElement.innerText = line.title;
               DayElement.style.backgroundColor = "rgb(242, 168, 255)";
+              console.log("");
               DayElement.style.borderRadius = "5px";
 
               DayElement = document.getElementById(
@@ -137,10 +143,7 @@ class ScheduleMain extends Component {
                 "LocNone" + String(i) + "" + String(j)
               );
               DayElement.innerText = line.location;
-              DayElement = document.getElementById(
-                "TimeNone" + String(i) + "" + String(j)
-              );
-              DayElement.innerText = line.time;
+
               DayElement = document.getElementById(
                 "EtcNone" + String(i) + "" + String(j)
               );
@@ -217,6 +220,10 @@ class ScheduleMain extends Component {
           } else {
             CompareDay = this.state.FullYear + "" + lowMon + "" + CompareDay;
           }
+          DayElement = document.getElementById(
+            "TimeNone" + String(i) + "" + String(j)
+          );
+          DayElement.innerText = CompareDay;
           this.state.list.map((line, dd) => {
             if (line.time === CompareDay) {
               DayElement = document.getElementById(
@@ -234,10 +241,6 @@ class ScheduleMain extends Component {
                 "LocNone" + String(i) + "" + String(j)
               );
               DayElement.innerText = line.location;
-              DayElement = document.getElementById(
-                "TimeNone" + String(i) + "" + String(j)
-              );
-              DayElement.innerText = line.time;
               DayElement = document.getElementById(
                 "EtcNone" + String(i) + "" + String(j)
               );
@@ -309,7 +312,10 @@ class ScheduleMain extends Component {
           } else {
             CompareDay = this.state.FullYear + "" + lowMon + "" + CompareDay;
           }
-
+          DayElement = document.getElementById(
+            "TimeNone" + String(i) + "" + String(j)
+          );
+          DayElement.innerText = CompareDay;
           this.state.list.map((line, dd) => {
             //날짜값 비교해서 데이터 입력, 여기서 나머지도 다
             if (line.time === CompareDay) {
@@ -328,10 +334,7 @@ class ScheduleMain extends Component {
                 "LocNone" + String(i) + "" + String(j)
               );
               DayElement.innerText = line.location;
-              DayElement = document.getElementById(
-                "TimeNone" + String(i) + "" + String(j)
-              );
-              DayElement.innerText = line.time;
+
               DayElement = document.getElementById(
                 "EtcNone" + String(i) + "" + String(j)
               );
