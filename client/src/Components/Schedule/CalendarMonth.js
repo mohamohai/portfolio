@@ -3,20 +3,16 @@ import { Component } from "react";
 import "./Calendar.css";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import Modal from "react-awesome-modal";
-
-import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router";
-
+import TrushIcon from "../image/trushIcon.png";
 class CalendarMonth extends Component {
   state = {
-    visible: false,
+    HaveVisible: false,
     DayTitle: "",
     DayContent: "",
     DayLocation: "",
     DayEtc: "",
     DayDate: "",
     divArr: [],
-    testword: "1aa51ㅁㅁ5",
   };
 
   ClickDiv = (Stringi, Stringj) => {
@@ -46,12 +42,12 @@ class CalendarMonth extends Component {
 
   OpenModal = (j) => {
     this.setState({
-      visible: true,
+      HaveVisible: true,
     });
   };
   CloseModal = () => {
     this.setState({
-      visible: false,
+      HaveVisible: false,
     });
   };
 
@@ -352,16 +348,14 @@ class CalendarMonth extends Component {
     this.state.divArr.push(<div key={String(testCnt)} className="clear"></div>);
   };
   render() {
-    for (var i = 0; i <= 5; i++) {
-      this.PushDiv(i);
-    }
+    for (var i = 0; i <= 5; i++) this.PushDiv(i);
 
     return (
       <div>
         {this.state.divArr}
 
         <Modal
-          visible={this.state.visible}
+          visible={this.state.HaveVisible}
           width="600"
           height="300"
           effect="fadeInDown"
@@ -373,13 +367,24 @@ class CalendarMonth extends Component {
                 href={` /ScheduleDeleteSelect/${this.state.DayDate}/${this.state.DayTitle}`}
                 style={{ float: "right", margin: "0 50px 0 0" }}
               >
-                ★★삭제★★
+                <img
+                  style={{
+                    width: "20px",
+                    margin: "10px 0 0 0",
+                  }}
+                  src={TrushIcon}
+                ></img>
               </a>
+
               <a
                 href={`/ScheduleAddSelect/${this.state.DayDate}`}
-                style={{ float: "right", margin: "0 50px 0 0" }}
+                style={{
+                  fontSize: "25px",
+                  float: "right",
+                  margin: "0 50px 0 0",
+                }}
               >
-                ♠♠등록♠♠
+                +
               </a>
             </div>
             <div className="clear"></div>

@@ -124,7 +124,7 @@ class GNB extends Component {
           <div className="gnbUser">
             <ul>
               <li>
-                <Link to="/ScheduleAdd">데이터추가용 메뉴화면</Link>
+                <Link to="/SignIn">데이터추가용 메뉴화면</Link>
               </li>
               <li>
                 <Link to="/SignIn">로그인</Link>
@@ -140,16 +140,16 @@ class GNB extends Component {
             <ul>
               <img className="SideBarImage" src={SideBarImage}></img>
               <li className="left" onClick={this.onClickView}>
-                <Link to="/ScheduleAdd">데이터 추가하기</Link>
+                <Link to="/SignIn">데이터 추가하기</Link>
               </li>
               <li className="SideBarGt">
-                <Link to="/ScheduleAdd">&gt; </Link>
+                <Link to="/SignIn">&gt; </Link>
               </li>
               <li className="left" onClick={this.onClickView}>
-                <Link to="/ScheduleMain"> 메인</Link>
+                <Link to="/SignIn"> 메인</Link>
               </li>
               <li className="SideBarGt">
-                <Link to="/ScheduleMain">&gt; </Link>
+                <Link to="/SignIn">&gt; </Link>
               </li>
             </ul>
           </div>

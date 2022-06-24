@@ -57,7 +57,7 @@ class SignIn extends Component {
         sessionStorage.removeItem("uid");
         sessionStorage.setItem("uid", this.state.loginAccount); // 저장
         console.log(this.state.list[i].account);
-        window.location.reload();
+        window.location.replace("http://localhost:3000/");
       }
     }
   }
@@ -65,9 +65,7 @@ class SignIn extends Component {
   render() {
     return (
       <div>
-        {" "}
-        <button onClick={() => this.golog()}>dd</button>
-        <form method="POST" onSubmit={this._addData} className="SignInBox">
+        <div className="SignInBox">
           <h2>Login</h2>
           <ul>
             <li>
@@ -92,15 +90,13 @@ class SignIn extends Component {
               />
             </li>
             <br></br>
-            <li>
-              <input type="submit" value="Add" className="idpaBtn" />
-            </li>
+            <li></li>
             <li className="SignInBoxSignUp">
               <Link to="SignUp">Create account</Link>
             </li>
-            <button onClick={() => this.golog()}>dd</button>
           </ul>
-        </form>
+          <button onClick={() => this.golog()}>테스트</button>
+        </div>
       </div>
     );
   }
