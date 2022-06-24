@@ -370,7 +370,7 @@ class CalendarMonth extends Component {
           <div id="ModalView">
             <div>
               <a
-                href={` /testViewTwo/${this.state.DayTitle}/${"20220617"}`}
+                href={` /ScheduleDeleteSelect/${this.state.DayDate}/${this.state.DayTitle}`}
                 style={{ float: "right", margin: "0 50px 0 0" }}
               >
                 ★★삭제★★

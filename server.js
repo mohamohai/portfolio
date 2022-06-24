@@ -94,6 +94,7 @@ app.post("/delete/Schedule", (req, res) => {
       throw err;
     });
 });
+
 app.get("/get/ScheduleS", (req, res) => {
   Schedule.findAll({})
     .then((result) => {
@@ -137,7 +138,19 @@ app.get("/get/ScheduleId", (req, res) => {
       throw err;
     });
 });
-
+app.post("/delete/ScheduleSelect", (req, res) => {
+  Schedule.destroy({
+    where: {
+      account: req.body.delete.userId,
+      title: req.body.delete.Title,
+      time: req.body.delete.Date,
+    },
+  })
+    .then(res.sendStatus(200))
+    .catch((err) => {
+      throw err;
+    });
+});
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server On : ashttp://localhost:${PORT}/`);
