@@ -341,7 +341,9 @@ class ScheduleMain extends Component {
                 );
                 DayElement.innerText = line.etc;
               } else {
-                $("<div>혹시 이건</div>").insertAfter(".Content13");
+                $("<div>" + line.title + "</div>").insertAfter(
+                  ".Content" + String(i) + "" + String(j)
+                );
               }
             }
           });
