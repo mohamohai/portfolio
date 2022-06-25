@@ -23,7 +23,6 @@ class ScheduleMain extends Component {
     Mon: new Date().getMonth() + 1,
     uid: sessionStorage.getItem("uid"),
     daySearch: ["일", "월", "화", "수", "목", "금", "토"],
-    divArr: [],
   };
 
   _openModal = function () {
@@ -324,15 +323,10 @@ class ScheduleMain extends Component {
             // 데이터 기입 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
             if (line.time === CompareDay) {
-              if (PlusDate != CompareDay) {
-                PlusCount = 1;
-              }
-
               DayElement = document.getElementById(
                 "Content" + String(i) + "" + String(j)
               );
               DayElement.style.display = "block";
-
               if (DayElement.innerText.length == 0) {
                 DayElement.innerText = line.title;
                 DayElement.style.backgroundColor = "rgb(242, 168, 255)";
@@ -351,22 +345,7 @@ class ScheduleMain extends Component {
                   "EtcNone" + String(i) + "" + String(j)
                 );
                 DayElement.innerText = line.etc;
-              } else if (DayElement.innerText.length != 0 && PlusCount == 1) {
-                $(
-                  "<div className = PTitle1>" + line.title + "</div>"
-                ).insertAfter(".Content" + String(i) + "" + String(j));
-                PlusCount++;
-                PlusDate = CompareDay;
-              } else {
-                let abc = PlusCount - 1;
-                $(
-                  "<div id = PTitle" + PlusCount + ">" + line.title + "</div>"
-                ).insertAfter(".PTitle1");
-                console.log(line.title);
-                PlusCount++;
-                PlusDate = CompareDay;
               }
-              console.log(PlusCount);
             }
           });
           if (

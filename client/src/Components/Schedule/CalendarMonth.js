@@ -4,6 +4,7 @@ import "./css/Calendar.css";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import Modal from "react-awesome-modal";
 import TrushIcon from "../image/trushIcon.png";
+import $ from "jquery";
 class CalendarMonth extends Component {
   state = {
     HaveVisible: false,
@@ -14,7 +15,6 @@ class CalendarMonth extends Component {
     DayDate: "",
     divArr: [],
   };
-
   ClickDiv = (Stringi, Stringj) => {
     let title = document.getElementById(
       "Content" + Stringi + Stringj
@@ -50,302 +50,310 @@ class CalendarMonth extends Component {
       HaveVisible: false,
     });
   };
-
-  PushDiv = (testCnt) => {
+  ClickDivAdd = (input) => {
+    let moveAdd = document.getElementById("TimeNone" + input).innerText;
+    console.log(moveAdd);
+    window.location.href = `/ScheduleAddSelect/${moveAdd}`;
+  };
+  PushDiv = (i) => {
     for (var j = 0; j <= 6; j++) {
-      if (j === 0) {
-        this.state.divArr.push(
-          // 데이터 주고 받기 / 달력 양식 년도해서 데이터 있으면 그 부분만 색칠/ modal 화면 구성 or viewer페이지 구성
+      this.PushDivj(i, j);
+    }
+    this.state.divArr.push(<div key={String(i)} className="clear"></div>);
+  };
+  PushDivj = (i, j) => {
+    if (j === 0) {
+      this.state.divArr.push(
+        // 데이터 주고 받기 / 달력 양식 년도해서 데이터 있으면 그 부분만 색칠/ modal 화면 구성 or viewer페이지 구성
+
+        <div
+          key={String(i) + String(j)}
+          className={"CalForm Sun"}
+          onClick={() => this.ClickDivAdd(String(i) + String(j))}
+        >
+          <div
+            id={"Title" + String(i) + String(j)}
+            value={String(i) + String(j)}
+            className={"SunTitle  CalTitle Title" + String(i) + String(j)}
+          ></div>
 
           <div
-            key={String(testCnt) + String(j)}
-            className={"CalForm Sun"}
-            onClick={() => this.ClickDiv(String(testCnt), "0")}
-          >
-            <div
-              id={"Title" + String(testCnt) + String(j)}
-              value={String(testCnt) + String(j)}
-              className={
-                "SunTitle CalTitle Title" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"Content" + String(testCnt) + String(j)}
-              className={
-                "SunContent CalContent Content" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"AccNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"ConNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"LocNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"TimeNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"EtcNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-          </div>
-        );
-      } else if (j === 1) {
-        this.state.divArr.push(
+            id={"Content" + String(i) + String(j)}
+            className={"SunContent CalContent Content" + String(i) + String(j)}
+            onClick={(e) => {
+              e.stopPropagation();
+              this.ClickDiv(String(i), "0");
+            }}
+          ></div>
           <div
-            key={String(testCnt) + String(j)}
-            className={"CalForm Mon"}
-            onClick={() => this.ClickDiv(String(testCnt), "1")}
-          >
-            <div
-              id={"Title" + String(testCnt) + String(j)}
-              className={
-                "MonTitle CalTitle Title" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"Content" + String(testCnt) + String(j)}
-              className={
-                "MonContent CalContent Content" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"AccNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"ConNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"LocNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"TimeNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"EtcNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-          </div>
-        );
-      } else if (j === 2) {
-        this.state.divArr.push(
+            id={"AccNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
           <div
-            key={String(testCnt) + String(j)}
-            className={"CalForm Tue"}
-            onClick={() => this.ClickDiv(String(testCnt), "2")}
-          >
-            <div
-              id={"Title" + String(testCnt) + String(j)}
-              className={
-                "TueTitle CalTitle Title" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"Content" + String(testCnt) + String(j)}
-              className={
-                "TueContent CalContent Content" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"AccNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"ConNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"LocNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"TimeNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"EtcNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-          </div>
-        );
-      } else if (j === 3) {
-        this.state.divArr.push(
+            id={"ConNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
           <div
-            key={String(testCnt) + String(j)}
-            className={"CalForm Wed"}
-            onClick={() => this.ClickDiv(String(testCnt), "3")}
-          >
-            <div
-              id={"Title" + String(testCnt) + String(j)}
-              className={
-                "WedTitle CalTitle Title" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"Content" + String(testCnt) + String(j)}
-              className={
-                "WedContent CalContent Content" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"AccNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"ConNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"LocNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"TimeNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"EtcNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-          </div>
-        );
-      } else if (j === 4) {
-        this.state.divArr.push(
+            id={"LocNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
           <div
-            key={String(testCnt) + String(j)}
-            className={"CalForm Thu"}
-            onClick={() => this.ClickDiv(String(testCnt), "4")}
-          >
-            <div
-              id={"Title" + String(testCnt) + String(j)}
-              className={
-                "ThuTitle CalTitle Title" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"Content" + String(testCnt) + String(j)}
-              className={
-                "ThuContent CalContent Content" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"AccNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"ConNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"LocNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"TimeNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"EtcNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-          </div>
-        );
-      } else if (j === 5) {
-        this.state.divArr.push(
+            id={"TimeNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
           <div
-            key={String(testCnt) + String(j)}
-            className={"CalForm Fri"}
-            onClick={() => this.ClickDiv(String(testCnt), "5")}
-          >
-            <div
-              id={"Title" + String(testCnt) + String(j)}
-              className={
-                "FriTitle CalTitle Title" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"Content" + String(testCnt) + String(j)}
-              className={
-                "FriContent CalContent Content" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"AccNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"ConNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"LocNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"TimeNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"EtcNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-          </div>
-        );
-      } else if (j === 6) {
-        this.state.divArr.push(
+            id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+        </div>
+      );
+    } else if (j === 1) {
+      this.state.divArr.push(
+        <div
+          key={String(i) + String(j)}
+          className={"CalForm Mon"}
+          onClick={() => this.ClickDivAdd(String(i) + String(j))}
+        >
           <div
-            key={String(testCnt) + String(j)}
-            className={"CalForm Sat"}
-            onClick={() => this.this.ClickDiv(String(testCnt), "6")}
-          >
-            <div
-              id={"Title" + String(testCnt) + String(j)}
-              className={
-                "SatTitle CalTitle Title" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"Content" + String(testCnt) + String(j)}
-              className={
-                "SatContent CalContent Content" + String(testCnt) + String(j)
-              }
-            ></div>
-            <div
-              id={"AccNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"ConNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"LocNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"TimeNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-            <div
-              id={"EtcNone" + String(testCnt) + String(j)}
-              className="DisplayNone"
-            ></div>
-          </div>
-        );
-      }
+            id={"Title" + String(i) + String(j)}
+            className={"MonTitle CalTitle Title" + String(i) + String(j)}
+          ></div>
+          <div
+            id={"Content" + String(i) + String(j)}
+            className={"MonContent CalContent Content" + String(i) + String(j)}
+            onClick={(e) => {
+              e.stopPropagation();
+              this.ClickDiv(String(i), "1");
+            }}
+          ></div>
+          <div
+            id={"AccNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"ConNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"LocNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"TimeNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+        </div>
+      );
+    } else if (j === 2) {
+      this.state.divArr.push(
+        <div
+          key={String(i) + String(j)}
+          className={"CalForm Tue"}
+          onClick={() => this.ClickDivAdd(String(i) + String(j))}
+        >
+          <div
+            id={"Title" + String(i) + String(j)}
+            className={"TueTitle CalTitle Title" + String(i) + String(j)}
+          ></div>
+          <div
+            id={"Content" + String(i) + String(j)}
+            className={"TueContent CalContent Content" + String(i) + String(j)}
+            onClick={(e) => {
+              e.stopPropagation();
+              this.ClickDiv(String(i), "2");
+            }}
+          ></div>
+          <div
+            id={"AccNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"ConNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"LocNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"TimeNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+        </div>
+      );
+    } else if (j === 3) {
+      this.state.divArr.push(
+        <div
+          key={String(i) + String(j)}
+          className={"CalForm Wed"}
+          onClick={() => this.ClickDivAdd(String(i) + String(j))}
+        >
+          <div
+            id={"Title" + String(i) + String(j)}
+            className={"WedTitle CalTitle  Title" + String(i) + String(j)}
+          ></div>
+          <div
+            id={"Content" + String(i) + String(j)}
+            className={"WedContent CalContent Content" + String(i) + String(j)}
+            onClick={(e) => {
+              e.stopPropagation();
+              this.ClickDiv(String(i), "3");
+            }}
+          ></div>
+          <div
+            id={"AccNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"ConNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"LocNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"TimeNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+        </div>
+      );
+    } else if (j === 4) {
+      this.state.divArr.push(
+        <div
+          key={String(i) + String(j)}
+          className={"CalForm Thu"}
+          onClick={() => this.ClickDivAdd(String(i) + String(j))}
+        >
+          <div
+            id={"Title" + String(i) + String(j)}
+            className={"ThuTitle CalTitle Title" + String(i) + String(j)}
+          ></div>
+          <div
+            id={"Content" + String(i) + String(j)}
+            className={"ThuContent CalContent Content" + String(i) + String(j)}
+            onClick={(e) => {
+              e.stopPropagation();
+              this.ClickDiv(String(i), "4");
+            }}
+          ></div>
+          <div
+            id={"AccNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"ConNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"LocNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"TimeNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+        </div>
+      );
+    } else if (j === 5) {
+      this.state.divArr.push(
+        <div
+          key={String(i) + String(j)}
+          className={"CalForm Fri"}
+          onClick={() => this.ClickDivAdd(String(i) + String(j))}
+        >
+          <div
+            id={"Title" + String(i) + String(j)}
+            className={"FriTitle CalTitle Title" + String(i) + String(j)}
+          ></div>
+          <div
+            id={"Content" + String(i) + String(j)}
+            className={"FriContent CalContent Content" + String(i) + String(j)}
+            onClick={(e) => {
+              e.stopPropagation();
+              this.ClickDiv(String(i), "5");
+            }}
+          ></div>
+          <div
+            id={"AccNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"ConNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"LocNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"TimeNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+        </div>
+      );
+    } else if (j === 6) {
+      this.state.divArr.push(
+        <div
+          key={String(i) + String(j)}
+          className={"CalForm Sat"}
+          onClick={() => this.ClickDivAdd(String(i) + String(j))}
+        >
+          <div
+            id={"Title" + String(i) + String(j)}
+            className={"SatTitle CalTitle Title" + String(i) + String(j)}
+          ></div>
+          <div
+            id={"Content" + String(i) + String(j)}
+            className={"SatContent CalContent Content" + String(i) + String(j)}
+            onClick={(e) => {
+              e.stopPropagation();
+              this.ClickDiv(String(i), "6");
+            }}
+          ></div>
+          <div
+            id={"AccNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"ConNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"LocNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"TimeNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+        </div>
+      );
     }
-    this.state.divArr.push(<div key={String(testCnt)} className="clear"></div>);
   };
   render() {
     for (var i = 0; i <= 5; i++) this.PushDiv(i);
@@ -353,7 +361,12 @@ class CalendarMonth extends Component {
     return (
       <div>
         {this.state.divArr}
-
+        <div
+          id="abc"
+          value="ssss"
+          class="ggggg"
+          onClick={() => this.testClick("흠")}
+        ></div>
         <Modal
           visible={this.state.HaveVisible}
           width="600"
