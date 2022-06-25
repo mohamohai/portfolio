@@ -5,10 +5,25 @@
    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
    font-weight: normal;
    font-style: normal;
+
+   
+}
+@font-face {
+   font-family: 'TmoneyRoundWindRegular';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: 'SpoqaHanSansNeo-Bold';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
 }
 *   { 
                margin : 0 auto; padding: 0px;
-               font-family: 'Spoqa Han Sans Neo'; 
+               font-family: 'SpoqaHanSansNeo-Bold';
+               font-weight:bold; 
                list-style: none;  
                text-decoration: none;
           
@@ -50,6 +65,7 @@ a :visited{color:black}
                width: 100vw; height: 75px;
                border-bottom: 0.1px solid rgb(200, 200, 200);
                position: relative;    
+               font-family: "SpoqaHanSansNeo";
 }
 .SideBar       {
    position: fixed; left:-300px;top: 75px;
@@ -141,7 +157,8 @@ a :visited{color:black}
                float:left;
                font-size: 20px;
                font-weight: bold;
-               font-family: 'Spoqa Han Sans Neo';  
+               font-family: 'Spoqa Han Sans Neo'; 
+               font-family: 'SpoqaHanSansNeo'; 
 
 }
 

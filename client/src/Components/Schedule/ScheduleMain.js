@@ -4,9 +4,10 @@ import axios from "axios";
 import "./css/ScheduleMain.css";
 import "./css/Calendar.css";
 import "./css/Calendar2.css";
+import $ from "jquery";
 
 import Calendar from "./CalendarMonth.js";
-import ScheduleViewerModal from "./ScheduleViewerModal.js";
+
 import Modal from "react-awesome-modal";
 
 class ScheduleMain extends Component {
@@ -34,9 +35,6 @@ class ScheduleMain extends Component {
     this.setState({
       visible: false,
     });
-  };
-  ClickDivv = (abc) => {
-    console.log(abc);
   };
 
   componentDidMount() {
@@ -322,23 +320,29 @@ class ScheduleMain extends Component {
               DayElement = document.getElementById(
                 "Content" + String(i) + "" + String(j)
               );
-              DayElement.innerText = line.title;
-              DayElement.style.backgroundColor = "rgb(242, 168, 255)";
-              DayElement.style.borderRadius = "5px";
 
-              DayElement = document.getElementById(
-                "ConNone" + String(i) + "" + String(j)
-              );
-              DayElement.innerText = line.content;
-              DayElement = document.getElementById(
-                "LocNone" + String(i) + "" + String(j)
-              );
-              DayElement.innerText = line.location;
+              if (DayElement.innerText.length == 0) {
+                DayElement.innerText = line.title; //디비 제목을 넣는건데 이미 데이터가 있으니까 이걸 만져야됨
+                DayElement.style.backgroundColor = "rgb(242, 168, 255)";
 
-              DayElement = document.getElementById(
-                "EtcNone" + String(i) + "" + String(j)
-              );
-              DayElement.innerText = line.etc;
+                DayElement.style.borderRadius = "5px";
+                //
+                DayElement = document.getElementById(
+                  "ConNone" + String(i) + "" + String(j)
+                );
+                DayElement.innerText = line.content;
+                DayElement = document.getElementById(
+                  "LocNone" + String(i) + "" + String(j)
+                );
+                DayElement.innerText = line.location;
+
+                DayElement = document.getElementById(
+                  "EtcNone" + String(i) + "" + String(j)
+                );
+                DayElement.innerText = line.etc;
+              } else {
+                $("<div>혹시 이건</div>").insertAfter(".Content13");
+              }
             }
           });
           if (
@@ -387,7 +391,6 @@ class ScheduleMain extends Component {
           </ul>
         </div>
         <div className="MainCalMonth">
-          <ScheduleViewerModal></ScheduleViewerModal>
           <Calendar></Calendar>
         </div>
       </div>

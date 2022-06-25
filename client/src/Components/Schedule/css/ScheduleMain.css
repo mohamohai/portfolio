@@ -1,6 +1,6 @@
 
 .YearMonth{
-  width: 200px;
+  width: 150px;
 }
 
 .rightAngleBracket{
@@ -11,11 +11,13 @@
   background-color: white;
 }
 .selectMon ul {
-  position: relative; top:10px;
+  width: 15vw;
+  position: relative;  top:10px; 
 }
 .selectMon ul li{
   background-color: white;
-  font-size: 25px; 
+  font-size: 25px;  
+   float:left;
 }
 
 .MainCalMonth{

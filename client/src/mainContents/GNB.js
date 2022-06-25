@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import "./GNB.css";
+import "./css/GNB.css";
 import React, { useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import Cal from "../Components/SideMenu/Calendar";
