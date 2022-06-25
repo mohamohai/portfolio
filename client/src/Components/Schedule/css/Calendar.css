@@ -1,0 +1,87 @@
+
+.CalForm div{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 18px;
+}
+.CalTitle{
+    
+}
+
+.CalContent{
+    font-size: 16px;
+    
+}
+
+#ModalView{
+    background-color: white;
+    width: 600px;
+    height: 400px;    font-family:"TmoneyRoundWindExtraBold";
+}
+
+.Sun{
+ 
+}
+.DisplayNone{
+    display:none;
+}
+.SunTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: red;
+}
+
+.Mon{
+
+}
+
+.MonTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Tue{
+    
+}
+
+.TueTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Wed{
+
+}
+
+.WedTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Thu{
+
+}
+
+.ThuTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Fri{
+
+}
+
+.FriTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.Sat{
+
+}
+
+.SatTitle{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+

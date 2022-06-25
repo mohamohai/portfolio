@@ -9,12 +9,8 @@ import {
   PracticeTwo,
 } from "./mainContents/mainExport";
 import {
-  ScheduleView,
-  ScheduleId,
-  ScheduleSelect,
   ScheduleMain,
   ScheduleDelete,
-  ScheduleCalendarMonth,
   ScheduleAdd,
   testView,
   ScheduleAddSelect,
@@ -36,9 +32,11 @@ class App extends Component {
           <GNB></GNB>
 
           <Switch>
-            <Route exact path="/" component={ScheduleCalendarMonth} />
+            {/* 메인하나 */}
+            <Route exact path="/" component={SignIn} />
             <Route path="/SignIn" component={SignIn} />
             <Route path="/SignUp" component={SignUp} />
+
             <Route path="/ScheduleMain" component={ScheduleMain} />
             <Route path="/ScheduleAdd/" component={ScheduleAdd} />
             <Route
@@ -50,18 +48,10 @@ class App extends Component {
               path="/ScheduleDeleteSelect/:Date/:Title/"
               component={ScheduleDeleteSelect}
             />
-
-            <Route path="/UserSelect" component={UserSelect} />
-            <Route path="/ScheduleView" component={ScheduleView} />
-            <Route path="/ScheduleId" component={ScheduleId} />
-            <Route path="/whereTest" component={ScheduleSelect} />
-            <Route path="/Practice" component={Practice} />
-
-            <Route path="/testViewTwo/:title/:Date" component={testViewTwo} />
+            {/* 
             <Route
-              path="/ScheduleDeleteModal"
-              Component={ScheduleDeleteModal}
-            />
+              path="/ScheduleUpdate/:Date/:Title/:content/:location/:time/:etc" component={}/> */}
+            <Route path="/UserSelect" component={UserSelect} />
 
             <Route path="*" component={NotFound} />
           </Switch>

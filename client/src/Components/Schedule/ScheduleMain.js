@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Component } from "react";
 import axios from "axios";
-import "./ScheduleMain.css";
-import "./Calendar.css";
-import "./Calendar2.css";
+import "./css/ScheduleMain.css";
+import "./css/Calendar.css";
+import "./css/Calendar2.css";
 
 import Calendar from "./CalendarMonth.js";
 import ScheduleViewerModal from "./ScheduleViewerModal.js";

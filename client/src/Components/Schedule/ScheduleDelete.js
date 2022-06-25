@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../../mainCss/selectTable.css";
+
 class ScheduleDelete extends Component {
   constructor(props) {
     super(props);

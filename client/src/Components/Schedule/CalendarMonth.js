@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import "./Calendar.css";
+import "./css/Calendar.css";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import Modal from "react-awesome-modal";
 import TrushIcon from "../image/trushIcon.png";
