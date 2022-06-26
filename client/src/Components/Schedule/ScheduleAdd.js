@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./ScheduleAdd.css";
 import { useLocation } from "react-router-dom";
+import { min } from "date-fns";
 
 class ScheduleAdd extends React.Component {
   constructor(props) {
@@ -17,17 +18,20 @@ class ScheduleAdd extends React.Component {
       location: "",
       time: "",
       etc: "",
+      hour: "",
+      min: "",
+      clock: "",
       year: new Date().getFullYear() + "",
       month: monCnt,
       day: dayCnt,
     };
   }
-  Home = () => {};
+
   ScheduleAdd(e) {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
     this.setState(nextState);
-    console.log(e.target.nextState);
+    this.setState({ clock: this.state.hour });
   }
 
   _addData = async (e) => {
@@ -37,15 +41,19 @@ class ScheduleAdd extends React.Component {
     const { location } = this.state;
     const { etc } = this.state;
     const { year } = this.state;
+    const { clock } = this.state;
+    const { hour } = this.state;
+    const { min } = this.state;
     let { month } = this.state;
     let { day } = this.state;
-    const { time } = this.state;
+
     if (day < 10) {
       day = "0" + day;
     }
     if (month < 10) {
       month = "0" + month;
     }
+
     const data = {
       account: sessionStorage.getItem("uid"),
       title: title,
@@ -53,13 +61,15 @@ class ScheduleAdd extends React.Component {
       location: location,
       time: year + month + day,
       etc: etc,
+      clock: hour + min,
     };
+
     e.preventDefault();
 
     const res = await axios("/add/Schedule", {
       method: "POST",
       data: data,
-      headers: new Headers(),
+      Headers: new Headers(),
     });
 
     alert("데이터를 추가했습니다.");
@@ -75,9 +85,49 @@ class ScheduleAdd extends React.Component {
 
     const yearCount = [];
     for (let cnt = 2022; cnt <= 2030; cnt++) yearCount.push(cnt);
-
+    const Thour = [
+      "00",
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+    ];
+    const Tmin = [
+      "00",
+      "05",
+      "10",
+      "15",
+      "20",
+      "25",
+      "30",
+      "35",
+      "40",
+      "45",
+      "50",
+      "55",
+    ];
     return (
       <div>
+        {this.state.clock}
         <form method="POST" onSubmit={this._addData} className="ScheduleAddBox">
           <input
             className="ScheduleAddTitle"
@@ -191,9 +241,19 @@ class ScheduleAdd extends React.Component {
                   );
             })}
           </select>
+
+          <select name="hour" onChange={(e) => this.ScheduleAdd(e)}>
+            {Thour.map((cnt4, thour) => {
+              return <option>{cnt4}</option>;
+            })}
+          </select>
+          <select name="min" onChange={(e) => this.ScheduleAdd(e)}>
+            {Tmin.map((cnt5, tmin) => {
+              return <option>{cnt5}</option>;
+            })}
+          </select>
           <input className="ScheduleAddBtn" type="submit" value="Add" />
         </form>
-        {}
       </div>
     );
   }

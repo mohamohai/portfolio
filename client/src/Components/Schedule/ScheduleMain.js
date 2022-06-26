@@ -165,6 +165,8 @@ class ScheduleMain extends Component {
     }
   };
   PlusMonth = () => {
+    let emm = document.getElementById("PTitle1");
+
     if (this.state.Mon === 12) {
       this.setState({ Mon: 1 });
       this.setState({ FullYear: this.state.FullYear + 1 });
@@ -352,17 +354,16 @@ class ScheduleMain extends Component {
                 );
                 DayElement.innerText = line.etc;
               } else if (DayElement.innerText.length != 0 && PlusCount == 1) {
-                $(
-                  "<div className = PTitle1>" + line.title + "</div>"
-                ).insertAfter(".Content" + String(i) + "" + String(j));
+                $(".Content" + String(i) + "" + String(j)).before(
+                  "<div id = PTitle1>" + line.title + "</div>"
+                );
                 PlusCount++;
                 PlusDate = CompareDay;
               } else {
-                let abc = PlusCount - 1;
-                $(
+                $(".Content" + String(i) + "" + String(j)).before(
                   "<div id = PTitle" + PlusCount + ">" + line.title + "</div>"
-                ).insertAfter(".PTitle1");
-                console.log(line.title);
+                );
+
                 PlusCount++;
                 PlusDate = CompareDay;
               }
@@ -412,6 +413,7 @@ class ScheduleMain extends Component {
             </li>
           </ul>
         </div>
+        {console.log(new Date())}
         <div className="MainCalMonth">
           <Calendar></Calendar>
         </div>

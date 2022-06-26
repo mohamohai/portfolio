@@ -106,6 +106,8 @@ app.get("/get/ScheduleS", (req, res) => {
 });
 
 app.post("/add/Schedule", (req, res) => {
+  console.log(req.body.clock);
+  console.log(req.body.title);
   Schedule.create({
     account: req.body.account,
     title: req.body.title,
@@ -113,6 +115,7 @@ app.post("/add/Schedule", (req, res) => {
     location: req.body.location,
     time: req.body.time,
     etc: req.body.etc,
+    clock: req.body.clock,
   })
     .then((result) => {
       res.send(result);
