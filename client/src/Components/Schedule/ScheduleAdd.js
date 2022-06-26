@@ -73,7 +73,7 @@ class ScheduleAdd extends React.Component {
     });
 
     alert("데이터를 추가했습니다.");
-    return window.location.reload();
+    return window.location.replace("http://localhost:3000/ScheduleMain");
   };
 
   render() {

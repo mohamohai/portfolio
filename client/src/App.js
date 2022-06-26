@@ -40,7 +40,7 @@ class App extends Component {
             <Route path="/ScheduleMain" component={ScheduleMain} />
             <Route path="/ScheduleAdd/" component={ScheduleAdd} />
             <Route
-              path="/ScheduleAddSelect/:Date"
+              path="/ScheduleAddSelect/:Date/:Clock"
               component={ScheduleAddSelect}
             />
             <Route path="/ScheduleDelete" component={ScheduleDelete} />

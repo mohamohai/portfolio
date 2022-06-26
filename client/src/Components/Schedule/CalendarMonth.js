@@ -52,8 +52,9 @@ class CalendarMonth extends Component {
   };
   ClickDivAdd = (input) => {
     let moveAdd = document.getElementById("TimeNone" + input).innerText;
-    console.log(moveAdd);
-    window.location.href = `/ScheduleAddSelect/${moveAdd}`;
+    let moveAdd2 =
+      String(new Date().getHours()) + String(new Date().getMinutes());
+    window.location.href = `/ScheduleAddSelect/${moveAdd}/${moveAdd2}`;
   };
   PushDiv = (i) => {
     for (var j = 0; j <= 6; j++) {

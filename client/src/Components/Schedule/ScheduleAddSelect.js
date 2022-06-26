@@ -7,9 +7,13 @@ class testadd extends React.Component {
   constructor(props) {
     super(props);
     const ParamsDate = props.match.params.Date;
+    const ParamsDate2 = props.match.params.Clock;
     let monCnt = ParamsDate.substring(4, 6);
     let dayCnt = ParamsDate.substring(6, 8);
-
+    let ClockHour = ParamsDate2.substring(0, 2);
+    let ClockMin = ParamsDate2.substring(2, 4);
+    console.log(ClockHour);
+    console.log(ClockMin);
     this.state = {
       account: "",
       title: "",
@@ -23,14 +27,15 @@ class testadd extends React.Component {
       ParamsYear: ParamsDate.substring(0, 4),
       ParamsMonth: ParamsDate.substring(4, 6),
       ParamsDay: ParamsDate.substring(6, 8),
+      hour: ParamsDate2.substring(0, 2),
+      min: ParamsDate2.substring(2, 4),
     };
   }
-  Home = () => {};
+
   ScheduleAdd(e) {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
     this.setState(nextState);
-    console.log(e.target.nextState);
   }
 
   _addData = async (e) => {
@@ -42,7 +47,10 @@ class testadd extends React.Component {
     const { year } = this.state;
     let { month } = this.state;
     let { day } = this.state;
-    const { time } = this.state;
+
+    const { clock } = this.state;
+    const { hour } = this.state;
+    const { min } = this.state;
     // if (day < 10) {
     //   day = "0" + day;
     // }
@@ -56,6 +64,7 @@ class testadd extends React.Component {
       location: location,
       time: year + month + day,
       etc: etc,
+      clock: hour + min,
     };
     e.preventDefault();
 
@@ -78,7 +87,46 @@ class testadd extends React.Component {
 
     const yearCount = [];
     for (let cnt = 2022; cnt <= 2030; cnt++) yearCount.push(cnt);
-
+    const Thour = [
+      "00",
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+    ];
+    const Tmin = [
+      "00",
+      "05",
+      "10",
+      "15",
+      "20",
+      "25",
+      "30",
+      "35",
+      "40",
+      "45",
+      "50",
+      "55",
+    ];
     return (
       <div>
         aaa
@@ -166,9 +214,7 @@ class testadd extends React.Component {
                   );
             })}
           </select>
-          {console.log(this.state.ParamsDay)}
-          {console.log(this.state.ParamsMonth)}
-          {console.log(this.state.ParamsYear)}
+
           <select name="day" onChange={(e) => this.ScheduleAdd(e)}>
             {dayCount.map((cnt3, day) => {
               if (cnt3 < 10)
@@ -197,6 +243,16 @@ class testadd extends React.Component {
                       {cnt3}
                     </option>
                   );
+            })}
+          </select>
+          <select name="hour" onChange={(e) => this.ScheduleAdd(e)}>
+            {Thour.map((cnt4, thour) => {
+              return <option>{cnt4}</option>;
+            })}
+          </select>
+          <select name="min" onChange={(e) => this.ScheduleAdd(e)}>
+            {Tmin.map((cnt5, tmin) => {
+              return <option>{cnt5}</option>;
             })}
           </select>
           <input className="ScheduleAddBtn" type="submit" value="Add" />
