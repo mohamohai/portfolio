@@ -103,6 +103,7 @@ class ScheduleMain extends Component {
         ContentElement.innerText = "";
         ContentElement.style.display = "none";
         if (DayPoint >= DayCnt) {
+          //1일 타이틀 찍고 아래는 보이면 안되니까  클래스명으로 none설정
           const element = document.getElementById(
             "Title" + String(i) + String(j)
           );
@@ -319,6 +320,7 @@ class ScheduleMain extends Component {
             CompareDay = this.state.FullYear + "" + lowMon + "" + CompareDay;
           }
           DayElement = document.getElementById(
+            //날짜는 없는 날도 써야하니까 여기 기입 아래는 데이터 받는거니까 제외
             "TimeNone" + String(i) + "" + String(j)
           );
           DayElement.innerText = CompareDay;
@@ -353,10 +355,15 @@ class ScheduleMain extends Component {
                   "EtcNone" + String(i) + "" + String(j)
                 );
                 DayElement.innerText = line.etc;
+                DayElement = document.getElementById(
+                  "ClockNone" + String(i) + "" + String(j)
+                );
+                DayElement.innerText = line.clock;
               } else if (DayElement.innerText.length != 0 && PlusCount == 1) {
                 $(".Content" + String(i) + "" + String(j)).before(
                   "<div id = PTitle1>" + line.title + "</div>"
                 );
+                console.log();
                 PlusCount++;
                 PlusDate = CompareDay;
               } else {

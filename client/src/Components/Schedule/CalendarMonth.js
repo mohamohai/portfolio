@@ -8,11 +8,12 @@ import $ from "jquery";
 class CalendarMonth extends Component {
   state = {
     HaveVisible: false,
-    DayTitle: "",
-    DayContent: "",
-    DayLocation: "",
-    DayEtc: "",
-    DayDate: "",
+    DayTitle: " ",
+    DayContent: " ",
+    DayLocation: " ",
+    DayEtc: " ",
+    DayDate: " ",
+    DayClock: " ",
     divArr: [],
   };
   ClickDiv = (Stringi, Stringj) => {
@@ -29,6 +30,9 @@ class CalendarMonth extends Component {
     let location = document.getElementById(
       "LocNone" + Stringi + Stringj
     ).innerText;
+    let clock = document.getElementById(
+      "ClockNone" + Stringi + Stringj
+    ).innerText;
 
     this.setState({
       DayTitle: title,
@@ -36,6 +40,7 @@ class CalendarMonth extends Component {
       DayLocation: location,
       DayEtc: etc,
       DayDate: date,
+      DayClock: clock,
     });
     this.OpenModal();
   };
@@ -106,6 +111,10 @@ class CalendarMonth extends Component {
             id={"EtcNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
+          <div
+            id={"ClockNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
         </div>
       );
     } else if (j === 1) {
@@ -145,6 +154,10 @@ class CalendarMonth extends Component {
           ></div>
           <div
             id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"ClockNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
         </div>
@@ -188,6 +201,10 @@ class CalendarMonth extends Component {
             id={"EtcNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
+          <div
+            id={"ClockNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
         </div>
       );
     } else if (j === 3) {
@@ -227,6 +244,10 @@ class CalendarMonth extends Component {
           ></div>
           <div
             id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"ClockNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
         </div>
@@ -270,6 +291,10 @@ class CalendarMonth extends Component {
             id={"EtcNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
+          <div
+            id={"ClockNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
         </div>
       );
     } else if (j === 5) {
@@ -311,6 +336,10 @@ class CalendarMonth extends Component {
             id={"EtcNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
+          <div
+            id={"ClockNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
         </div>
       );
     } else if (j === 6) {
@@ -350,6 +379,10 @@ class CalendarMonth extends Component {
           ></div>
           <div
             id={"EtcNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
+            id={"ClockNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
         </div>
@@ -400,18 +433,26 @@ class CalendarMonth extends Component {
               >
                 +
               </a>
+
+              <a
+                href={`/ScheduleUpdate/${this.state.DayTitle}/${this.state.DayContent}/${this.state.DayLocation}/${this.state.DayEtc}/${this.state.DayDate}/${this.state.DayClock}`}
+              >
+                테스트합시다
+              </a>
             </div>
             <div className="clear"></div>
             <br></br>
             제목 : {this.state.DayTitle}
             <br></br>
-            {this.state.DayContent}
+            컨텐츠 : {this.state.DayContent}
             <br></br>
-            {this.state.DayLocation}
+            장소 : {this.state.DayLocation}
             <br></br>
-            {this.state.DayEtc}
+            이티씨 : {this.state.DayEtc}
             <br></br>
-            {this.state.DayDate}
+            날짜 : {this.state.DayDate}
+            <br></br>
+            시간 : {this.state.DayClock}
             <br></br>
             <br></br>
             <input

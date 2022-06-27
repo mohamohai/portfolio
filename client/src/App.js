@@ -17,6 +17,7 @@ import {
   testViewTwo,
   ScheduleDeleteModal,
   ScheduleDeleteSelect,
+  ScheduleUpdate,
 } from "./Components/Schedule/ScheduleExport";
 import { SignUp, SignIn } from "./Components/Sign/SignExport";
 
@@ -48,6 +49,11 @@ class App extends Component {
               path="/ScheduleDeleteSelect/:Date/:Title/"
               component={ScheduleDeleteSelect}
             />
+            <Route
+              path="/ScheduleUpdate/:Title/:Content/:Location/:Etc/:Date/:Clock"
+              component={ScheduleUpdate}
+            />
+
             {/* 
             <Route
               path="/ScheduleUpdate/:Date/:Title/:content/:location/:time/:etc" component={}/> */}

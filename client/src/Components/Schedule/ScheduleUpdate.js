@@ -3,27 +3,44 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./ScheduleAdd.css";
 
-class testadd extends React.Component {
+class ScheduleUpdate extends React.Component {
   constructor(props) {
     super(props);
-    const ParamsDate = props.match.params.Date;
+
     const ParamsDate2 = props.match.params.Clock;
+
+    const ParamsTitle = props.match.params.Title;
+    const ParamsContent = props.match.params.Content;
+    const ParamsLocation = props.match.params.Location;
+    const ParamsEtc = props.match.params.Etc;
+    const ParamsDate = props.match.params.Date;
+    const ParamsClock = props.match.params.Clock;
+    const araara = [
+      ParamsTitle,
+      ParamsContent,
+      ParamsLocation,
+      ParamsEtc,
+      ParamsDate,
+      ParamsClock,
+    ];
+    console.log(araara);
     let monCnt = ParamsDate.substring(4, 6);
     let dayCnt = ParamsDate.substring(6, 8);
     let ClockHour = ParamsDate2.substring(0, 2);
     let ClockMin = ParamsDate2.substring(2, 4);
 
+    console.log(ParamsDate);
     this.state = {
       account: "",
-      title: "",
-      content: "",
-      location: "",
-      time: "",
-      etc: "",
+      title: ParamsTitle,
+      content: ParamsContent,
+      location: ParamsLocation,
+      time: ParamsDate,
+      etc: ParamsEtc,
+      clock: ParamsClock,
       year: new Date().getFullYear() + "",
       month: monCnt,
       day: dayCnt,
-
       ParamsYear: ParamsDate.substring(0, 4),
       ParamsMonth: ParamsDate.substring(4, 6),
       ParamsDay: ParamsDate.substring(6, 8),
@@ -36,6 +53,7 @@ class testadd extends React.Component {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
     this.setState(nextState);
+    console.log(nextState);
   }
 
   _addData = async (e) => {
@@ -68,14 +86,14 @@ class testadd extends React.Component {
     };
     e.preventDefault();
 
-    const res = await axios("/add/Schedule", {
+    const res = await axios("/set/Schedule", {
       method: "POST",
       data: data,
       headers: new Headers(),
     });
 
-    alert("데이터를 추가했습니다.");
-    return window.location.replace("http://localhost:3000/ScheduleMain"); //나중에 바꿔라 나야
+    alert("데이터를 추가했습니다."); //이거 where을 조리있게 해야됨 안그럼 나처럼 다 바뀌니까 웨얼을 바꾸던 디비를 까서 고유값을 하나 파던 처음에 가져올때 id 값도 가져오던 셋중 하나는 해야 된다 나야 아이고 아기오야
+    //return window.location.replace("http://localhost:3000/ScheduleMain"); //나중에 바꿔라 나야
   };
 
   render() {
@@ -136,7 +154,7 @@ class testadd extends React.Component {
             type="text"
             name="title"
             maxLength="20"
-            placeholder="titlePlz"
+            placeholder={this.state.title}
             onChange={(e) => this.ScheduleAdd(e)}
           />
 
@@ -262,4 +280,4 @@ class testadd extends React.Component {
     );
   }
 }
-export default testadd;
+export default ScheduleUpdate;

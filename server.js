@@ -17,41 +17,14 @@ const {
 sequelize.query("SET NAMES utf8;");
 
 const {
+  //쓰는 테이블만큼 오기 s 자동으로 붙여버리니까 조심
   Schedule,
   Sequelize: { Dp },
 } = require("./models");
 sequelize.query("SET NAMES utf8;");
 
-app.post("/add/data", (req, res) => {
-  User.create({
-    account: req.body.account,
-    password: req.body.password,
-    name: req.body.name,
-    image: req.body.image,
-    birthday: req.body.birthday,
-    gender: req.body.gender,
-    job: req.body.job,
-  })
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-      throw err;
-    });
-});
-
-app.get("/get/data", (req, res) => {
-  User.findAll()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      throw err;
-    });
-});
-
 app.post("/modify/data", (req, res) => {
+  // 안씀 기본 보류
   User.update(
     { name: req.body.modify.name },
     {
@@ -65,18 +38,19 @@ app.post("/modify/data", (req, res) => {
       throw err;
     });
 });
-app.post("/delete/data", (req, res) => {
-  User.destroy({
-    where: { id: req.body.delete.id },
-  })
-    .then(res.sendStatus(200))
+
+app.get("/get/Schedule", (req, res) => {
+  ///안씀 기본 보류
+  Schedule.findAll()
+    .then((result) => {
+      res.send(result);
+    })
     .catch((err) => {
       throw err;
     });
 });
-
-app.get("/get/Schedule", (req, res) => {
-  Schedule.findAll()
+app.get("/get/data", (req, res) => {
+  User.findAll()
     .then((result) => {
       res.send(result);
     })
@@ -86,6 +60,8 @@ app.get("/get/Schedule", (req, res) => {
 });
 
 app.post("/delete/Schedule", (req, res) => {
+  //안씀 기본 보류
+  //안씀 기본 보류
   Schedule.destroy({
     where: { id: req.body.delete.id },
   })
@@ -94,20 +70,10 @@ app.post("/delete/Schedule", (req, res) => {
       throw err;
     });
 });
-
-app.get("/get/ScheduleS", (req, res) => {
-  Schedule.findAll({})
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      throw err;
-    });
-});
-
+////////////////////////////////////////////////////
 app.post("/add/Schedule", (req, res) => {
-  console.log(req.body.clock);
-  console.log(req.body.title);
+  // 씀 데이터 추가 기본형
+
   Schedule.create({
     account: req.body.account,
     title: req.body.title,
@@ -127,6 +93,8 @@ app.post("/add/Schedule", (req, res) => {
 });
 
 app.get("/get/ScheduleId", (req, res) => {
+  //씀 아이디를 이용하여 데이터 검색
+
   const { userId } = req.query;
   Schedule.findAll({
     where: {
@@ -142,6 +110,8 @@ app.get("/get/ScheduleId", (req, res) => {
     });
 });
 app.post("/delete/ScheduleSelect", (req, res) => {
+  //씀 모달에서 데이터 삭제
+  //사용
   Schedule.destroy({
     where: {
       account: req.body.delete.userId,
@@ -150,6 +120,51 @@ app.post("/delete/ScheduleSelect", (req, res) => {
     },
   })
     .then(res.sendStatus(200))
+    .catch((err) => {
+      throw err;
+    });
+});
+
+app.post("/add/data", (req, res) => {
+  // 회원추가
+  User.create({
+    account: req.body.account,
+    password: req.body.password,
+    name: req.body.name,
+    image: req.body.image,
+    birthday: req.body.birthday,
+    gender: req.body.gender,
+    job: req.body.job,
+  })
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+      throw err;
+    });
+});
+
+app.post("/set/Schedule", (req, res) => {
+  console.log(req.body.account);
+  // 안씀 기본 보류
+  Schedule.update(
+    {
+      account: req.body.account,
+      title: req.body.title,
+      content: req.body.content,
+      location: req.body.location,
+      time: req.body.time,
+      etc: req.body.etc,
+      clock: req.body.clock,
+    },
+    {
+      where: { account: req.body.account },
+    }
+  )
+    .then((result) => {
+      res.send(result);
+    })
     .catch((err) => {
       throw err;
     });
