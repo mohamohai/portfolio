@@ -8,6 +8,7 @@ import $ from "jquery";
 class CalendarMonth extends Component {
   state = {
     HaveVisible: false,
+    DayId: " ",
     DayTitle: " ",
     DayContent: " ",
     DayLocation: " ",
@@ -20,16 +21,29 @@ class CalendarMonth extends Component {
     let title = document.getElementById(
       "Content" + Stringi + Stringj
     ).innerText;
+    if (title == "") {
+      title = " ";
+    }
+    let id = document.getElementById("IdNone" + Stringi + Stringj).innerText;
     let content = document.getElementById(
       "ConNone" + Stringi + Stringj
     ).innerText;
+    if (content == "") {
+      content = " ";
+    }
     let etc = document.getElementById("EtcNone" + Stringi + Stringj).innerText;
     let date = document.getElementById(
       "TimeNone" + Stringi + Stringj
     ).innerText;
+    if (etc == "") {
+      etc = " ";
+    }
     let location = document.getElementById(
       "LocNone" + Stringi + Stringj
     ).innerText;
+    if (location == "") {
+      location = " ";
+    }
     let clock = document.getElementById(
       "ClockNone" + Stringi + Stringj
     ).innerText;
@@ -41,6 +55,7 @@ class CalendarMonth extends Component {
       DayEtc: etc,
       DayDate: date,
       DayClock: clock,
+      DayId: id,
     });
     this.OpenModal();
   };
@@ -92,6 +107,10 @@ class CalendarMonth extends Component {
             }}
           ></div>
           <div
+            id={"IdNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
             id={"AccNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
@@ -137,6 +156,10 @@ class CalendarMonth extends Component {
             }}
           ></div>
           <div
+            id={"IdNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
             id={"AccNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
@@ -180,6 +203,10 @@ class CalendarMonth extends Component {
               e.stopPropagation();
               this.ClickDiv(String(i), "2");
             }}
+          ></div>
+          <div
+            id={"IdNone" + String(i) + String(j)}
+            className="DisplayNone"
           ></div>
           <div
             id={"AccNone" + String(i) + String(j)}
@@ -231,6 +258,10 @@ class CalendarMonth extends Component {
             className="DisplayNone"
           ></div>
           <div
+            id={"IdNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
             id={"ConNone" + String(i) + String(j)}
             className="DisplayNone"
           ></div>
@@ -262,6 +293,10 @@ class CalendarMonth extends Component {
           <div
             id={"Title" + String(i) + String(j)}
             className={"ThuTitle CalTitle Title" + String(i) + String(j)}
+          ></div>
+          <div
+            id={"IdNone" + String(i) + String(j)}
+            className="DisplayNone"
           ></div>
           <div
             id={"Content" + String(i) + String(j)}
@@ -309,12 +344,20 @@ class CalendarMonth extends Component {
             className={"FriTitle CalTitle Title" + String(i) + String(j)}
           ></div>
           <div
+            id={"IdNone" + String(i) + String(j)}
+            className="DisplayNone"
+          ></div>
+          <div
             id={"Content" + String(i) + String(j)}
             className={"FriContent CalContent Content" + String(i) + String(j)}
             onClick={(e) => {
               e.stopPropagation();
               this.ClickDiv(String(i), "5");
             }}
+          ></div>
+          <div
+            id={"IdNone" + String(i) + String(j)}
+            className="DisplayNone"
           ></div>
           <div
             id={"AccNone" + String(i) + String(j)}
@@ -360,6 +403,10 @@ class CalendarMonth extends Component {
               e.stopPropagation();
               this.ClickDiv(String(i), "6");
             }}
+          ></div>
+          <div
+            id={"IdNone" + String(i) + String(j)}
+            className="DisplayNone"
           ></div>
           <div
             id={"AccNone" + String(i) + String(j)}
@@ -435,7 +482,7 @@ class CalendarMonth extends Component {
               </a>
 
               <a
-                href={`/ScheduleUpdate/${this.state.DayTitle}/${this.state.DayContent}/${this.state.DayLocation}/${this.state.DayEtc}/${this.state.DayDate}/${this.state.DayClock}`}
+                href={`/ScheduleUpdate/${this.state.DayId}/${this.state.DayTitle}/${this.state.DayContent}/${this.state.DayLocation}/${this.state.DayEtc}/${this.state.DayDate}/${this.state.DayClock}`}
               >
                 테스트합시다
               </a>

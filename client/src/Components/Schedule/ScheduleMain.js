@@ -325,6 +325,7 @@ class ScheduleMain extends Component {
           );
           DayElement.innerText = CompareDay;
           this.state.list.map((line, dd) => {
+            console.log(this.state.list);
             // 데이터 기입 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
             if (line.time === CompareDay) {
@@ -341,7 +342,11 @@ class ScheduleMain extends Component {
                 DayElement.innerText = line.title;
                 DayElement.style.backgroundColor = "rgb(242, 168, 255)";
                 DayElement.style.borderRadius = "5px";
-                //
+                ////
+                DayElement = document.getElementById(
+                  "IdNone" + String(i) + "" + String(j)
+                );
+                DayElement.innerText = line.id;
                 DayElement = document.getElementById(
                   "ConNone" + String(i) + "" + String(j)
                 );

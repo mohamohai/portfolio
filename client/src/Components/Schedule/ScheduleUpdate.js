@@ -8,14 +8,16 @@ class ScheduleUpdate extends React.Component {
     super(props);
 
     const ParamsDate2 = props.match.params.Clock;
-
+    const ParamsId = props.match.params.Id;
     const ParamsTitle = props.match.params.Title;
     const ParamsContent = props.match.params.Content;
     const ParamsLocation = props.match.params.Location;
     const ParamsEtc = props.match.params.Etc;
     const ParamsDate = props.match.params.Date;
     const ParamsClock = props.match.params.Clock;
+
     const araara = [
+      ParamsId,
       ParamsTitle,
       ParamsContent,
       ParamsLocation,
@@ -23,7 +25,7 @@ class ScheduleUpdate extends React.Component {
       ParamsDate,
       ParamsClock,
     ];
-    console.log(araara);
+
     let monCnt = ParamsDate.substring(4, 6);
     let dayCnt = ParamsDate.substring(6, 8);
     let ClockHour = ParamsDate2.substring(0, 2);
@@ -46,6 +48,8 @@ class ScheduleUpdate extends React.Component {
       ParamsDay: ParamsDate.substring(6, 8),
       hour: ParamsDate2.substring(0, 2),
       min: ParamsDate2.substring(2, 4),
+      // id : ParamsId
+      id: ParamsId,
     };
   }
 
@@ -69,12 +73,8 @@ class ScheduleUpdate extends React.Component {
     const { clock } = this.state;
     const { hour } = this.state;
     const { min } = this.state;
-    // if (day < 10) {
-    //   day = "0" + day;
-    // }
-    // if (month < 10) {
-    //   month = "0" + month;
-    // }
+    const { id } = this.state;
+
     const data = {
       account: sessionStorage.getItem("uid"),
       title: title,
@@ -83,6 +83,7 @@ class ScheduleUpdate extends React.Component {
       time: year + month + day,
       etc: etc,
       clock: hour + min,
+      id: id,
     };
     e.preventDefault();
 

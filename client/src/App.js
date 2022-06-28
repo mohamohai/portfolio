@@ -50,7 +50,7 @@ class App extends Component {
               component={ScheduleDeleteSelect}
             />
             <Route
-              path="/ScheduleUpdate/:Title/:Content/:Location/:Etc/:Date/:Clock"
+              path="/ScheduleUpdate/:Id/:Title/:Content/:Location/:Etc/:Date/:Clock"
               component={ScheduleUpdate}
             />
 

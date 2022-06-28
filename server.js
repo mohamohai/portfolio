@@ -159,7 +159,7 @@ app.post("/set/Schedule", (req, res) => {
       clock: req.body.clock,
     },
     {
-      where: { account: req.body.account },
+      where: { account: req.body.account, id: req.body.id },
     }
   )
     .then((result) => {
