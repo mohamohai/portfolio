@@ -28,8 +28,6 @@ class ScheduleUpdate extends React.Component {
 
     let monCnt = ParamsDate.substring(4, 6);
     let dayCnt = ParamsDate.substring(6, 8);
-    let ClockHour = ParamsDate2.substring(0, 2);
-    let ClockMin = ParamsDate2.substring(2, 4);
 
     console.log(ParamsDate);
     this.state = {
