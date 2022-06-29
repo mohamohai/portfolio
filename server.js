@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-
+const axios = require("axios");
+const cheerio = require("cheerio");
 const sequelize = require("./models").sequelize;
 const bodyParser = require("body-parser");
 sequelize.sync();
@@ -22,6 +23,7 @@ const {
   Sequelize: { Dp },
 } = require("./models");
 sequelize.query("SET NAMES utf8;");
+var urla = "https://www.naver.com/";
 
 app.post("/modify/data", (req, res) => {
   // 안씀 기본 보류
@@ -70,6 +72,7 @@ app.post("/delete/Schedule", (req, res) => {
       throw err;
     });
 });
+
 ////////////////////////////////////////////////////
 app.post("/add/Schedule", (req, res) => {
   // 씀 데이터 추가 기본형
@@ -169,6 +172,7 @@ app.post("/set/Schedule", (req, res) => {
       throw err;
     });
 });
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server On : ashttp://localhost:${PORT}/`);

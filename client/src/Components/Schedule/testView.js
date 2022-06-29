@@ -1,11 +1,12 @@
 import { Component } from "react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+const axios = require("axios");
 const TestView = () => {
   const url = window.location.href;
   const urlp = window.location.search;
 
-  // encodeURI(encodeURIComponent(name));
   let urlpc = decodeURI(decodeURIComponent(urlp));
   return (
     <div>

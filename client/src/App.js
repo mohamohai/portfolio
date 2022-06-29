@@ -12,12 +12,13 @@ import {
   ScheduleMain,
   ScheduleDelete,
   ScheduleAdd,
-  testView,
   ScheduleAddSelect,
   testViewTwo,
   ScheduleDeleteModal,
   ScheduleDeleteSelect,
   ScheduleUpdate,
+  testView,
+  testClass,
 } from "./Components/Schedule/ScheduleExport";
 import { SignUp, SignIn } from "./Components/Sign/SignExport";
 
@@ -37,7 +38,8 @@ class App extends Component {
             <Route exact path="/" component={SignIn} />
             <Route path="/SignIn" component={SignIn} />
             <Route path="/SignUp" component={SignUp} />
-
+            <Route path="/testView" component={testView} />
+            <Route path="/testClass" component={testClass} />
             <Route path="/ScheduleMain" component={ScheduleMain} />
             <Route path="/ScheduleAdd/" component={ScheduleAdd} />
             <Route
