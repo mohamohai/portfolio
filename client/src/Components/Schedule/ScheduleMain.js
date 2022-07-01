@@ -424,7 +424,7 @@ class ScheduleMain extends Component {
           <img
             className="phoneImage"
             alt="iPhone_01"
-            src="./Fountain Pen.png"
+            src={require("./Fountain Pen.png")}
           />
           <img src={require("./Fountain Pen.png")} />
         </div>
