@@ -38,7 +38,16 @@ class ScheduleMain extends Component {
     });
   };
 
+  getHtml = async () => {
+    try {
+      return console.log(await axios.get("http://ncov.mohw.go.kr/"));
+      // 해당 사이트 html 태그 가져오기
+    } catch (error) {
+      console.error(error);
+    }
+  };
   componentDidMount() {
+    this.getHtml();
     this._getData();
   }
 
@@ -325,7 +334,7 @@ class ScheduleMain extends Component {
           );
           DayElement.innerText = CompareDay;
           this.state.list.map((line, dd) => {
-            console.log(this.state.list);
+            //   console.log(this.state.list);
             // 데이터 기입 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
             if (line.time === CompareDay) {
@@ -368,7 +377,7 @@ class ScheduleMain extends Component {
                 $(".Content" + String(i) + "" + String(j)).before(
                   "<div id = PTitle1>" + line.title + "</div>"
                 );
-                console.log();
+
                 PlusCount++;
                 PlusDate = CompareDay;
               } else {
@@ -379,7 +388,6 @@ class ScheduleMain extends Component {
                 PlusCount++;
                 PlusDate = CompareDay;
               }
-              console.log(PlusCount);
             }
           });
           if (
@@ -412,6 +420,14 @@ class ScheduleMain extends Component {
 
     return (
       <div className="Select">
+        <div className="c1image">
+          <img
+            className="phoneImage"
+            alt="iPhone_01"
+            src="./Fountain Pen.png"
+          />
+          <img src={require("./Fountain Pen.png")} />
+        </div>
         <div className="selectMon">
           <ul>
             <li className="YearMonth">
@@ -425,7 +441,7 @@ class ScheduleMain extends Component {
             </li>
           </ul>
         </div>
-        {console.log(new Date())}
+
         <div className="MainCalMonth">
           <Calendar></Calendar>
         </div>
